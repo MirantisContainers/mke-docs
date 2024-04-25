@@ -25,20 +25,20 @@ The remaining fields are used to configure the interactions with your LDAP serve
 | groupSearch.userMatchers         | A list of field pairs that are used to match a user to a group            |
 | groupSearch.nameAttr             | Represents group name                                                     |
 
-An example configuration for OIDC is shown below. This configuration is for a development LDAP server running on the same machine as the cluster. See the instructions below for running the development LDAP server.
+An example configuration for LDAP is shown below.
 
 ```yaml
 authentication:
   enabled: true
   ldap:
     enabled: true
-    host: localhost:389
+    host: <your LDAP server and port>
     insecureNoSSL: true
-    bindDN: cn=admin,dc=mirantis,dc=org
+    bindDN: cn=admin,dc=example,dc=org
     bindPW: admin
     usernamePrompt: Email Address
     userSearch:
-      baseDN: ou=People,dc=mirantis,dc=org
+      baseDN: ou=People,dc=example,dc=org
       filter: "(objectClass=person)"
       username: mail
       idAttr: DN
@@ -46,34 +46,13 @@ authentication:
       nameAttr: cn
 ```
 
-> **Note** I had to point the host to my dev machines local IP rather then localhost for this to work with the development LDAP server. This is because the cluster is running in a VM and the LDAP server is running on the host machine.
-
-Use the next section to setup a development LDAP server. Once server is running, run the standard MKE4 apply command with your config file and wait for the cluster to be ready.
-
-## Running a Development LDAP Server
-
-> **Note** Running the development server requires (Docker and docker compose)[https://docs.docker.com/engine/install/] to be installed on your machine. Docker compose is now part of docker
-
-An LDAP for development purposes is already available in the `deployments/ldap/` directory. This is a simple LDAP server that can be used to test the LDAP authentication flow.
-
-To run the LDAP server, change to the `deployments/ldap/` directory and run the compose file.
-
-```bash
-cd deployments/ldap
-docker compose up
-```
-
-This docker compose file will copy in the `config-ldap.ldif` configuration file and use it when setting up the LDAP server. The server will expose the LDAP service on port 389 for non-tls and 636 for tls.
-
 ## Authentication Flow
 
 Do the following in the browser to test the authentication flow:
 
-1. Navigate to `http://localhost:5555/login`
-2. Enter "example-app" in the "Authenticate for:" field. Leave the others fields as they are
-3. Click the `Login` button
-4. On the login page, select "Log in with LDAP"
-5. Enter one of the user's emails from the `config-ldap.ldif` file. ex: janedoe@example.com
-6. Enter one of the user's passwords. ex: `foo`
-7. Click the `Login` button
-8. You should now be logged in and see the user's token information displayed on an otherwise blank page
+1. Navigate to `http://<MKE4 cluster external hostname>:5555/login`
+2. Click the `Login` button
+3. On the login page, select "Log in with LDAP"
+4. Enter the username and password for the LDAP server
+5. Click the `Login` button
+6. You should now be logged in and see application's home page

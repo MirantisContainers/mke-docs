@@ -43,7 +43,7 @@ Create a new application in Okta and use the following settings:
 
 1. Sign-in method: SAML 2.0
 2. App name: Any name you can remember
-3. The host for your redirect URLs **need to be understood by your browser**. For this reason, we could use `localhost:5556` or `127.0.0.1:5556` if you are running the MKE4 cluster on your local system and doing the port forward (see flow setup). Since the cluster is not usually running locally, this will be an actual URL. `dex` can be added to the system's `/etc/hosts` file. This is used as the cluster host throughout the rest of this guide. If you are running in AWS or elsewhere, you will need to use the actual URL of the cluster and whatever port you setup to expose 5556 of the Dex service.
+3. The host for your redirect URLs
    Single sign-on URL: http://{host}/callback
    Audience URI (SP Entity ID): http://{host}/callback
    Attribute statements:
@@ -63,9 +63,9 @@ Use these in your MKE4 config.
 
 Do the following in the browser to test the authentication flow:
 
-1. Navigate to `http://localhost:5555/login`
-2. Enter "example-app" in the "Authenticate for:" field. Leave the others fields as they are
-3. Click the `Login` button
-4. On the login page, select "Log in with SAML"
-5. You will be redirected to the IdP's login page. Enter your credentials and click `Sign In`
-6. Successful authentication will redirect you back to the example-app with a plain white page with all of your authentication details
+1. Navigate to `http://{MKE4 external hostname}:5555/login`
+2. Click the `Login` button
+3. On the login page, select "Log in with SAML"
+4. You will be redirected to the IdP's login page. Enter your credentials and click `Sign In`
+5. Successful authentication will redirect you back to the client applications home page
+
