@@ -1,7 +1,7 @@
 # Ingress Controller
 
-The default ingress controller offered by MKE-4 is NGINX Ingress Controller for Kubernetes manages traffic that originates outside your cluster (ingress traffic) using the [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) rules. 
-
+The default ingress controller offered by MKE-4 is NGINX Ingress Controller.  It manages traffic that originates outside your cluster (ingress traffic) using the [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) rules. 
+This is the only supported Ingress controller. No additional controllers are supported.
 
 
 ## Configuration
