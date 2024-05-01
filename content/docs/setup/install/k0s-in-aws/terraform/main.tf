@@ -69,8 +69,6 @@ data "aws_ami" "ubuntu" {
 
 locals {
   k0s_tmpl = {
-    apiVersion = "boundless.mirantis.com/v1alpha1"
-    kind       = "Blueprint"
     metadata = {
       name = var.cluster_name
     }
