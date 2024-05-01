@@ -74,8 +74,6 @@ locals {
     }
     spec = {
       kubernetes = {
-        provider = "k0s"
-        version = "1.27.4+k0s.0"
         config = {
           spec = {
             network = {
