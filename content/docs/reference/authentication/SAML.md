@@ -35,7 +35,7 @@ authentication:
     emailAttr: email
 ```
 
-Use the next section to understand how to configure Okta. Once the configuration is set, run the standard `mkectl apply` command with your config file and wait for the cluster to be ready.
+Use the next section to understand how to configure Okta and find the values for the example config above. Once the configuration is set, run the standard `mkectl apply` command with your config file and wait for the cluster to be ready.
 
 ## Configuring Okta
 
@@ -57,7 +57,7 @@ Create a new application in Okta and use the following settings:
 Okta will generate the `ssoURL` and cert under the `Sign On` tab.
 The `ssoURL` will be the MetadataURL with the final metadata removed from the path.
 The cert can be downloaded from the SAML Signing Certificates section. Click Actions on the active cert and download the cert.
-Use these in your MKE4 config.
+Configure the `localCa` to point to this file on your system that you will run `mkectl` from. The cert in the example above is stored in `/etc/ssl/okta.cert`.
 
 ## Authentication Flow
 
