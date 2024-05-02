@@ -16,10 +16,16 @@ MKE 4 Alpha.1 is run on top of k0s v1.29.3.
 
 #### CNI
 
-By default, MKE 4 installs Calico as the CNI plugin. 
-Alpha.1 release has the following limitations:
+By default, MKE 4 installs Calico as the CNI plugin. This is done by specifying `calico` in the network provider field of the k0s config.
+Calico is installed with the following configuration:
+- IPv4 only with a fixed pod CIDR of `10.244.0.0/16`.
+- The datastore mode is set to `kdd`.
+- `kube-proxy` set to `iptables` mode. 
+- `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
+  
+With the Alpha.1 release, MKE 4 has the following limitations:
 - There is no option to use a different CNI plugin.
-- There is no option to configure Calico.
+- There is no option to configure Calico from the above defaults.
 - When a cluster is upgraded from MKE 3, the Calico configuration is not migrated.
 
 ### Data Plane
