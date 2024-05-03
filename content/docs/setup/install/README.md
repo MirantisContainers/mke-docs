@@ -1,4 +1,4 @@
-# Fresh Install
+# Install
 
 ## Pre-requisites
 
@@ -25,7 +25,7 @@ Please refer to the [k0s documentation](https://docs.k0sproject.io/v1.29.4+k0s.0
 
 Currently, MKE 4 is only tested on Ubuntu 20.04. Stable work on other Linux distributions is not guaranteed.
 
-Windows nodes are **not supported**.
+Windows nodes are currently **not supported**.
 
 #### Architecture
 
@@ -36,6 +36,8 @@ MKE 4 only supports `amd64` architecture.
 MKE 4 only supports `calico` as the CNI plugin.
 
 ## Installation
+
+### Getting started
 
 To install MKE 4, all is needed is a single YAML file that describes the desired cluster configuration. 
 This file can be generated using the `mkectl init` command:
@@ -56,6 +58,7 @@ For each cluster node, SSH information and the role of the node need to be provi
 The roles can be:
 - `controller+worker` - a manager node that runs both control plane and data plane components
 - `worker` - a worker node that runs the data plane components
+- `single` - a special role for the case when the cluster consists of a single node
 
 <details>
 <summary>Example of ready-to-deploy MKE 4 config file</summary>
@@ -110,6 +113,8 @@ monitoring:
 ```
 
 </details>
+
+### Install
 
 To perform the installation, simply run the `apply` command with the generated config file:
 
