@@ -1,5 +1,5 @@
 ## MKE4 Configuration & Blueprints
-The MKE4 Configuration file lets the user define details about their cluster such as how many nodes there are in the cluster, how to access the nodes, and any specific MKE4 feature that you want to enable/disable.
+The MKE4 Configuration file contains an opinionated configuration on how to set up the MKE cluster. It lets the user define details about their cluster such as how many nodes there are in the cluster, how to access the nodes, and any specific MKE4 feature that you want to enable/disable. The simple MKE4 configuration file is translated into a more complex Blueprint that contains the granular details of how to set up the cluster.
 
 
 ### Creating your Config
@@ -31,6 +31,15 @@ hosts:
   role: worker
 ```
 
+For users migrating from MKE3, it is possible to pass some options to `mkectl` to migrate your settings directly from MKE3.
+
+To pass in a downloaded MKE3 config file set the `--mke3-config` flag. This will convert the local MKE3 config into a valid MKE4 config.
+
+`mkectl init --mke3-config /path/to/mke3-config.toml`
+
+Alternatively you can provide `mkectl` with the credentials to connect to an MKE3 Cluster, which will allow `mkectl` to retrieve the MKE3 config itself and then convert it to an MKE4 config.
+
+`mkectl init --mke3-admin-username admin --mke3-admin-password password --mke3-hostname mke3.example.com`
 
 ### Choosing Addons
 A core part of MKE4 is the ability to selectively install addons from from a set of curated and tested addons. `mkectl init` will enable a set of default addons that are considered core to MKE4. You can modify the generated config to enable/disable additional addons as you wish, as well as modify settings on each particular addon.
@@ -42,3 +51,7 @@ A blueprint is roughly composed of 3 sections.
 1. The section detailing the Kubernetes Provider and any specific settings for that provider. This section is mostly managed by `mkectl` independently of the user provided MKE config.
 2. The section detailing the infrastructure that will be used for the Kubernetes Cluster. This is essentially just the `hosts` section of the MKE config.
 3. The components section. This section is composed of the various addons specified in the MKE config. `mkectl` takes the user-friendly MKE config options and translates them into specific settings in either Helm or Manifest type addons that are deployed into the cluster.
+
+To see the detailed blueprint of a MKE config you can run `mkectl init --blueprint`. It is possible to modify the blueprint directly but any such modifications are considered advanced and not officially supported by MKE.
+
+Please see the blueprint operator [documentation](https://mirantiscontainers.github.io/boundless/) for more details on blueprints.
