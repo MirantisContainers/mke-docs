@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Provide a brief overview of MKE architecture]
+MKE4 is an enterprise-grade, production-ready Kubernetes platform that is designed to be secure, scalable, and reliable. MKE4 is deployed using [blueprints](./blueprints.md)
 
 ## Components
 
