@@ -46,7 +46,7 @@ mkectl init > mke.yaml
 The `hosts` section should look similar to:
 ```yaml
 hosts:
-  - role: controller
+  - role: controller+worker
     ssh:
       address: 54.91.231.190
       keyPath: <path_to_terraform_folder>/aws_private.pem
