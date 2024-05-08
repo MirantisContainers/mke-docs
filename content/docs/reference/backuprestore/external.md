@@ -23,9 +23,9 @@ Once the Credentials file is created, update the storage_provider section of the
     type: External
     external_options:
       provider: aws
-      bucket: thomasbackuptest
+      bucket: bucket_name
       region: us-west-2
-      credentials_file_path: "/Users/tpolkowski/Projects/mke/iamcredentials"
+      credentials_file_path: "/path/to/iamcredentials"
       credentials_file_profile: "386383511305_docker-testing"
 ```
 
@@ -42,7 +42,7 @@ default   Available   20s              32s   true
 We can now create backups as usual and restore them. After creating a restore, the Kubernetes cluster state should resemble what it was when the backup was taken.
 
 ```shell
-tpolkowski@tpolkowski-MBP16-1947 mke % mkectl backup create --name aws-backup
+mkectl backup create --name aws-backup
 INFO[0000] Creating backup aws-backup...
 Backup request "aws-backup" submitted successfully.
 Run `velero backup describe aws-backup` or `velero backup logs aws-backup` for more details.
@@ -53,10 +53,12 @@ INFO[0009] Waiting for backup to complete. Current phase: InProgress
 INFO[0012] Waiting for backup to complete. Current phase: InProgress
 INFO[0015] Waiting for backup to complete. Current phase: Completed
 INFO[0015] Backup aws-backup completed successfully
-tpolkowski@tpolkowski-MBP16-1947 mke % mkectl backup list
+
+mkectl backup list
 NAME         STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES   STORAGE LOCATION   SELECTOR
 aws-backup   Completed   0        0          2024-05-08 16:17:18 -0400 EDT   29d       default            <none>
-tpolkowski@tpolkowski-MBP16-1947 mke % mkectl restore create --name aws-backup
+ 
+mkectl restore create --name aws-backup
 INFO[0000] Waiting for restore aws-backup-20240508161811 to complete...
 INFO[0000] Waiting for restore to complete. Current phase: InProgress
 INFO[0003] Waiting for restore to complete. Current phase: InProgress
@@ -68,7 +70,8 @@ INFO[0018] Waiting for restore to complete. Current phase: InProgress
 INFO[0021] Waiting for restore to complete. Current phase: InProgress
 INFO[0024] Waiting for restore to complete. Current phase: Completed
 INFO[0024] Restore aws-backup-20240508161811 completed successfully
-tpolkowski@tpolkowski-MBP16-1947 mke % mkectl restore list
+
+mkectl restore list
 NAME                        BACKUP       STATUS      STARTED                         COMPLETED                       ERRORS   WARNINGS   CREATED                         SELECTOR
 aws-backup-20240508161811   aws-backup   Completed   2024-05-08 16:18:11 -0400 EDT   2024-05-08 16:18:34 -0400 EDT   0        108        2024-05-08 16:18:11 -0400 EDT   <none>
 ```
