@@ -34,17 +34,19 @@ Create a new application in Okta and use the following settings:
 2. Application Type: Web Application
 3. App integration name: Any name you can remember
 4. The host for your redirect URLs
-   Sign-in redirect URIs: http://{host}/login
-   Sign-out redirect URIs: http://{host}
+   - Sign-in redirect URIs: `http://{MKE hostname}/login`
+   - Sign-out redirect URIs: `http://{MKE hostname}`
 5. Save
 
 Okta will generate the secret and clientID on the `General` table of the application. Use these in your MKE4 config.
 
 ## Authentication Flow
 
+> Ports `5556` (dex) and `5555` (example-app) will need to be available externally to test the authentication flow.
+
 Do the following in the browser to test the authentication flow:
 
-1. Navigate to `http://<MKE4 cluster external hostname>:5555/login`
+1. Navigate to `http://{MKE hostname}:5555/login`
 2. Click the `Login` button
 3. On the login page, select "Log in with OIDC"
 4. You will be redirected to the IdP's login page. Enter your credentials and click `Sign In`

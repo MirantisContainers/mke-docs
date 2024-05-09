@@ -32,7 +32,7 @@ authentication:
   enabled: true
   ldap:
     enabled: true
-    host: <your LDAP server and port>
+    host: ldap.example.org:389
     insecureNoSSL: true
     bindDN: cn=admin,dc=example,dc=org
     bindPW: admin
@@ -48,9 +48,11 @@ authentication:
 
 ## Authentication Flow
 
+> Ports `5556` (dex) and `5555` (example-app) will need to be available externally to test the authentication flow.
+
 Do the following in the browser to test the authentication flow:
 
-1. Navigate to `http://<MKE4 cluster external hostname>:5555/login`
+1. Navigate to `http://{MKE hostname}:5555/login`
 2. Click the `Login` button
 3. On the login page, select "Log in with LDAP"
 4. Enter the username and password for the LDAP server
