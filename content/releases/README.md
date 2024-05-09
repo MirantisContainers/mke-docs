@@ -15,7 +15,7 @@ This table summarizes MKE 4 features, their status, and links to guides
 |------------------------------------------------------------------|-------|----------|
 | Authentication                                                   | alpha.1| MVP      |  
 | Authorization                                                    | alpha.1 | MVP      |   
-| Backup & Restore                                                 |  alpha.1 | MVP      |
+| [Backup & Restore](../docs/reference/backuprestore/README.md)    | alpha.1 | MVP      |
 | CIS Benchmark                                                    |   |          |
 | CLI                                                              |   |          |
 | Cloud Providers                                                  |   |          |

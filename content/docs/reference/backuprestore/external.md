@@ -16,7 +16,7 @@ This can be easily copied from AWS console below:
 
 ![img.png](img.png)
 
-Once the Credentials file is created, update the storage_provider section of the `mke.yaml` to point to the created creds file including the profile name. Additionally, you need to create an S3 bucket and point the configuration to the correct bucket and region. 
+Once the Credentials file is created, update the `storage_provider` section of the mke config file to point to the created creds file including the profile name. Additionally, you need to create an S3 bucket and point the configuration to the correct bucket and region. 
 
 ```yaml
   storage_provider:
@@ -31,10 +31,14 @@ Once the Credentials file is created, update the storage_provider section of the
 
 ## Usage
 
-Once AWS backup storage has been configured and the `mke.yaml` applied, check that the `BackupStorageLocation` CR exists and is ready. This may take a few minutes after `mkectl apply` is run.
+Once AWS backup storage has been configured and the mke config file applied, check that the `BackupStorageLocation` CR exists and is ready. This may take a few minutes after `mkectl apply` is run.
 
 ```shell
 kubectl get backupstoragelocation -n mke
+```
+
+Output:
+```shell
 NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
 default   Available   20s              32s   true
 ```
@@ -43,6 +47,10 @@ We can now create backups as usual and restore them. After creating a restore, t
 
 ```shell
 mkectl backup create --name aws-backup
+```
+
+Output:
+```shell
 INFO[0000] Creating backup aws-backup...
 Backup request "aws-backup" submitted successfully.
 Run `velero backup describe aws-backup` or `velero backup logs aws-backup` for more details.
@@ -53,12 +61,26 @@ INFO[0009] Waiting for backup to complete. Current phase: InProgress
 INFO[0012] Waiting for backup to complete. Current phase: InProgress
 INFO[0015] Waiting for backup to complete. Current phase: Completed
 INFO[0015] Backup aws-backup completed successfully
+```
 
+List the backups:
+```shell
 mkectl backup list
+```
+
+Output:
+```shell
 NAME         STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES   STORAGE LOCATION   SELECTOR
 aws-backup   Completed   0        0          2024-05-08 16:17:18 -0400 EDT   29d       default            <none>
- 
+```
+
+Create the restore:
+```shell
 mkectl restore create --name aws-backup
+```
+
+Output:
+```shell
 INFO[0000] Waiting for restore aws-backup-20240508161811 to complete...
 INFO[0000] Waiting for restore to complete. Current phase: InProgress
 INFO[0003] Waiting for restore to complete. Current phase: InProgress
@@ -70,8 +92,15 @@ INFO[0018] Waiting for restore to complete. Current phase: InProgress
 INFO[0021] Waiting for restore to complete. Current phase: InProgress
 INFO[0024] Waiting for restore to complete. Current phase: Completed
 INFO[0024] Restore aws-backup-20240508161811 completed successfully
+```
 
+List the restores:
+```shell
 mkectl restore list
+```
+
+Output:
+```shell
 NAME                        BACKUP       STATUS      STARTED                         COMPLETED                       ERRORS   WARNINGS   CREATED                         SELECTOR
 aws-backup-20240508161811   aws-backup   Completed   2024-05-08 16:18:11 -0400 EDT   2024-05-08 16:18:34 -0400 EDT   0        108        2024-05-08 16:18:11 -0400 EDT   <none>
 ```
