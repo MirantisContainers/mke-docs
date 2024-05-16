@@ -1,0 +1,4 @@
+dirs:
+  - ../content/
+
+useGitIgnore: true
