@@ -4,7 +4,9 @@
 
 
 ### Setup
-[Fresh Install](../docs/setup/install/README.md)
+[Install mkectl](../docs/setup/README.md)
+
+[Install MKE 4](../docs/setup/getting-started/README.md)
 
 [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/README.md)
 

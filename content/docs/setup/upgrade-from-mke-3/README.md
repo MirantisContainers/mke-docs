@@ -60,12 +60,17 @@ Users can upgrade from MKE 3 to MKE 4 using the `mkectl` tool. The `mkectl` tool
 - Migrate manager nodes to k0s.
 - Migrate worker nodes to k0s.
 - Perform post upgrade cleanup to remove MKE 3 components.
+- Output the new MKE 4 config file.
 
 To upgrade an MKE 3 cluster, run the following command:
 
 ```shell
 mkectl upgrade --hosts-path <path-to-hosts-yaml> --admin-username <admin-username> --admin-password <admin-password>
 ```
+
+> If you don't specify `--config-out` flag, the MKE 4 config file will be printed to the console 
+after the migration is complete. You can save this output to a file for future use with `mkectl apply`.
+<br>Alternatively, you can set `--config-out` to the path where you want to save the MKE 4 config file.
 
 - The upgrade process will take some time to complete. After the upgrade is complete, verify that the MKE 4 cluster is running:
 
