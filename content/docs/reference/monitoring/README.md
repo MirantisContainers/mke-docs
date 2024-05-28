@@ -12,7 +12,7 @@ monitoring:
 
 ## Accessing the UIs
 
-Prometheus and Grafana dashboards can be accessed quickly using kubectl port-forward after running the quickstart via the commands below. Kubernetes 1.10 or later is required.
+Prometheus and Grafana dashboards can be accessed quickly using kubectl port-forward after running the quickstart via the commands below.
 
 ### Prometheus
 
