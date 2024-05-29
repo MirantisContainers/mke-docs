@@ -14,11 +14,12 @@ In the configuration file, edit the `hosts` section to match your roster
 of nodes.
 
 > Configure the cluster nodes in advance, in accordance with
-  the [system requirements](#cluster-nodes-system-requirements).
+  the [system requirements](#System-requirements-for-cluster-nodes).
 
 > Node provisioning is managed by the cluster administrators. You can, for
 instance, use [Terraform](https://www.terraform.io/) to create the nodes in a
-cloud provider. [Example Terraform configuration](k0s-in-aws/README.md).
+cloud provider. [Example Terraform
+configuration](k0s-in-aws/terraform-scenario.md).
 
 You must provide SSH information for each cluster node, as well as the role of
 the node:
@@ -105,4 +106,4 @@ to manage the cluster until the kubeconfig is restored.
 existing cluster. If you do make such an attempt, even through the use of a
 different config file, you will permanently lose access to the first cluster
 through `mkectl`. For information on how to delete a cluster, refer to
-[Uninstallation](#uninstallation).
+[Uninstallation](uninstallation.md).

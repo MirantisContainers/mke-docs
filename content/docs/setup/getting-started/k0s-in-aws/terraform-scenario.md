@@ -16,7 +16,8 @@ You must have the following componenets installed:
 
 ### Create virtual machines on AWS
 
-To create virtual machines on AWS using the [example Terraform scripts](./terraform/):
+To create virtual machines on AWS using the
+[example Terraform scripts](./terraform/):
 
 1. Copy the example Terraform folder to your local machine,
 
