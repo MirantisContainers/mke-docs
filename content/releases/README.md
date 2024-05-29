@@ -26,12 +26,12 @@ This table summarizes MKE 4 features, their status, and links to guides
 | gMSA                                                                   |   |          |
 | GPU Feature Discovery                                                  |   |          |
 | [Ingress](../docs/reference/ingress/README.md)                         | alpha.1| MVP      |   |
-| [Kubernetes](../docs/concepts/architecture/architecture.md#Components) | alpha.1 | MVP 1.29 |  |
+| [Kubernetes](../docs/concepts/architecture/architecture.md#components) | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                                  |   |          |
 | Licensing                                                              |   |          |
 | Load Balancing                                                         |   |          |
 | Logging, Monitoring and Alerting                                       | alpha.1 | MVP      |  
-| [Networking (CNI)](../docs/concepts/architecture/architecture.md#CNI)  |  alpha.1 | MVP      |  
+| [Networking (CNI)](../docs/concepts/architecture/architecture.md#container-network-interface-cni-)  |  alpha.1 | MVP      |  
 | Node Feature Discovery                                                 |   |          |
 | Offline Bundle                                                         |   |          |
 | OpsCare                                                                |   |          |
