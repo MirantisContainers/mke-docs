@@ -13,8 +13,8 @@ mkectl init > mke.yaml
 In the configuration file, edit the `hosts` section to match your roster
 of nodes.
 
-> Configure the cluster nodes in advance, in accordance with
-  the [system requirements](#system-requirements-for-cluster-nodes).
+> Configure the cluster nodes in advance, in accordance with the
+  [system requirements](prerequisites.md#system-requirements-for-cluster-nodes).
 
 > Node provisioning is managed by the cluster administrators. You can, for
 instance, use [Terraform](https://www.terraform.io/) to create the nodes in a
