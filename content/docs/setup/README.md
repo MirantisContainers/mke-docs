@@ -8,3 +8,73 @@ However, as of commit `e19af33`, it still requires the following tools to be ins
 
 - `kubectl` of version `1.29.0` or above ([download](https://kubernetes.io/docs/tasks/tools/#kubectl))
 - `k0sctl` of version `0.17.0` or above ([download](https://github.com/k0sproject/k0sctl/releases))
+
+# Installation via script
+
+You can use the [installation script](./install.sh) to install the following dependencies.
+- mkectl (default version: v4.0.0-alpha.0.3)
+- k0sctl (default version: 0.17.8)
+
+To override the default versions, you can pass the variables `K0SCTL_VERSION` and `MKECTL_VERSION`.
+
+
+### Usage
+
+1. Copy the [installation script](./install.sh) on your machine.
+
+2. Change the access permissions by running this command.
+    ```shell
+    chmod +x install.sh
+    ```
+
+3. Execute the script by running the following command.
+    ```shell
+      sudo ./install.sh
+    ```
+
+    P.S. Mac users might also be prompted for the password.
+
+
+4. The script is designed to detect the os and the underlying architecture. Based on this, it shall install the appropriate binaries 'k0sctl' and 'mkectl' in /usr/local/bin.
+5. Confirm by running
+
+   a. _mkectl version command_
+
+    ```shell
+      mkectl version
+    ```
+   Output:
+   ```shell
+      Version: v4.0.0-alpha.0.3
+    ```
+   b. _k0sctl version command_
+    ```shell
+      k0sctl version
+    ```
+   Output:
+   ```shell
+      version: v0.17.8
+      commit: b061291
+    ```
+   
+### Debug mode
+To turn the debug mode on, run
+```shell
+sudo DEBUG=true ./install.sh
+```
+
+### Install different version
+To install non-default versions of mkectl and k0sctl, you can use `K0SCTL_VERSION` and `MKECTL_VERSION`
+
+Example usage:
+```shell
+sudo K0SCTL_VERSION=0.17.4 ./install.sh
+```
+
+This shall install k0sctl version 0.17.4. 
+```shell
+k0sctl version
+
+version: v0.17.4
+commit: 372a589
+```
