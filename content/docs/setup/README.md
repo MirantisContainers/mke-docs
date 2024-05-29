@@ -14,8 +14,9 @@ However, as of commit `e19af33`, it still requires the following tools to be ins
 You can use the [installation script](./install.sh) to install the following dependencies.
 - mkectl (default version: v4.0.0-alpha.0.3)
 - k0sctl (default version: 0.17.8)
+- kubectl (default version: v1.30.0)
 
-To override the default versions, you can pass the variables `K0SCTL_VERSION` and `MKECTL_VERSION`.
+To override the default versions, you can pass the variables `K0SCTL_VERSION`,`MKECTL_VERSION`and `KUBECTL_VERSION`.
 
 
 ### Usage
@@ -35,7 +36,11 @@ To override the default versions, you can pass the variables `K0SCTL_VERSION` an
     P.S. Mac users might also be prompted for the password.
 
 
-4. The script is designed to detect the os and the underlying architecture. Based on this, it shall install the appropriate binaries 'k0sctl' and 'mkectl' in /usr/local/bin.
+4. The script is designed to detect the os and the underlying architecture. Based on this, it shall install the appropriate binaries 'k0sctl', 'kubectl and 'mkectl' in /usr/local/bin.
+   ```markdown
+   Note: Make sure /usr/local/bin is in your PATH environment variable.
+   ```
+   
 5. Confirm by running
 
    a. _mkectl version command_
@@ -56,6 +61,16 @@ To override the default versions, you can pass the variables `K0SCTL_VERSION` an
       version: v0.17.8
       commit: b061291
     ```
+   c. _kubectl version command_
+    ```shell
+      kubectl version
+    ```
+   Output:
+   ```shell
+      Client Version: v1.30.0
+      Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+      Server Version: v1.29.3+k0s
+    ```
    
 ### Debug mode
 To turn the debug mode on, run
@@ -64,7 +79,7 @@ sudo DEBUG=true ./install.sh
 ```
 
 ### Install different version
-To install non-default versions of mkectl and k0sctl, you can use `K0SCTL_VERSION` and `MKECTL_VERSION`
+To install non-default versions of mkectl, kubectl and k0sctl, you can use `MKECTL_VERSION`, `KUBECTL_VERSION` and `K0SCTL_VERSION` respectively.
 
 Example usage:
 ```shell
@@ -78,3 +93,4 @@ k0sctl version
 version: v0.17.4
 commit: 372a589
 ```
+

@@ -62,8 +62,17 @@ _download_k0sctl_url() {
   echo "https://github.com/k0sproject/k0sctl/releases/download/v$K0SCTL_VERSION/k0sctl-$uname-$arch"
 }
 
-_download_mkectl() {
+_download_kubectl_url() {
+  #echo "https://github.com/k0sproject/k0sctl/releases/download/v$K0SCTL_VERSION/k0sctl-$uname-$arch"
   if [ "$arch" = "x64" ];
+  then
+    arch=amd64
+  fi
+  echo "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/${uname}/${arch}/kubectl"
+}
+
+_download_mkectl() {
+  if [ "$arch" = "x64" ] || [ "$arch" = "amd64" ];
   then
     arch=x86_64
   fi
@@ -74,12 +83,15 @@ _download_mkectl() {
 
 main() {
 
+  uname="$(_detect_uname)"
+  arch="$(_detect_arch)"
+
   echo "Download wget"
   _download_wget_command
 
   printf "\n\n"
 
-  echo "Step 1/2 : Install k0sctl"
+  echo "Step 1/3 : Install k0sctl"
   echo "#########################"
 
   if [ -z "${K0SCTL_VERSION}" ]; then
@@ -89,8 +101,6 @@ main() {
 
   k0sctlBinary=k0sctl
   installPath=/usr/local/bin
-  uname="$(_detect_uname)"
-  arch="$(_detect_arch)"
   k0sctlDownloadUrl="$(_download_k0sctl_url)"
 
 
@@ -102,7 +112,25 @@ main() {
   echo "k0sctl is now executable in $installPath"
 
   printf "\n\n"
-  echo "Step 2/2 : Install mkectl"
+  echo "Step 2/3 : Install kubectl"
+  echo "#########################"
+
+  if [ -z "${KUBECTL_VERSION}" ]; then
+    echo "Using default kubectl version v1.30.0"
+    KUBECTL_VERSION=v1.30.0
+  fi
+
+  kubectlBinary=kubectl
+  kubectlDownloadUrl="$(_download_kubectl_url)"
+
+  echo "Downloading kubectl from URL: $kubectlDownloadUrl"
+  wget -q -cO - $kubectlDownloadUrl > $installPath/$kubectlBinary
+  sudo chmod 755 "$installPath/$kubectlBinary"
+  echo "kubectl is now executable in $installPath"
+
+
+  printf "\n\n"
+  echo "Step 3/3 : Install mkectl"
   echo "#########################"
 
   if [ -z "${MKECTL_VERSION}" ]; then
