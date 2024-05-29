@@ -24,11 +24,11 @@ You must provide SSH information for each cluster node, as well as the role of
 the node:
 
 <dl>
-  <dt><strong>controller+worker</strong></dt>
+  <dt>controller+worker</dt>
   <dd>A manager node that runs both control plane and data plane components.</dd>
-  <dt><strong>worker</strong></dt>
+  <dt>worker</dt>
   <dd>A worker node that runs the data plane components.</dd>
-  <dt><strong>single</strong></dt>
+  <dt>single</dt>
   <dd>A special role, for use when the cluster consists of a single node.</dd>
 </dl>
 
