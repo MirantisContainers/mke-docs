@@ -1,43 +1,51 @@
 # Backup and Restore Using External Storage Providers
 
-It is possible to configure MKE to store backups and restores externally, for example in object storage provided by a public cloud provider. Currently only AWS S3 is supported as an external backup store.
+You can configure MKE 4 to store backups and restores externally, for example
+in object storage provided by a public cloud provider.
+
+>AWS S3 is currently the only supported external backup store
+>that MKE 4 supports.
 
 ## Configuration
 
-Prior to modifying the MKE configuration file, create an IAM credentials file. This file should look like below
-```
-[386383511305_docker-testing]
-aws_access_key_id=key
-aws_secret_access_key=secret
-aws_session_token=token
-```
+1. Copy the credentials information from the AWS console to create an IAM
+credentials file.
 
-This can be easily copied from AWS console below:
+   ![img.png](img.png)
 
-![img.png](img.png)
+2. Edit the `storage_provider`
+section of the mke configuration file to point to the file, including the
+profile name.
 
-Once the Credentials file is created, update the `storage_provider` section of the mke config file to point to the created creds file including the profile name. Additionally, you need to create an S3 bucket and point the configuration to the correct bucket and region. 
+3. Create an S3 bucket and point the configuration to the correct bucket and
+   region.
 
-```yaml
-  storage_provider:
-    type: External
-    external_options:
-      provider: aws
-      bucket: bucket_name
-      region: us-west-2
-      credentials_file_path: "/path/to/iamcredentials"
-      credentials_file_profile: "386383511305_docker-testing"
-```
+Example configuration:
+
+   ```yaml
+     storage_provider:
+       type: External
+       external_options:
+         provider: aws
+         bucket: bucket_name
+         region: us-west-2
+         credentials_file_path: "/path/to/iamcredentials"
+         credentials_file_profile: "386383511305_docker-testing"
+   ```
 
 ## Usage
 
-Once AWS backup storage has been configured and the mke config file applied, check that the `BackupStorageLocation` CR exists and is ready. This may take a few minutes after `mkectl apply` is run.
+Once you have configured AWS backup storage and the mke configuration file has
+been applied, verify that the
+`BackupStorageLocation` CR exists. Note that this may take a few minutes
+after `mkectl apply` is run.
 
 ```shell
 kubectl get backupstoragelocation -n mke
 ```
 
-Output:
+Example output:
+
 ```shell
 NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
 default   Available   20s              32s   true
