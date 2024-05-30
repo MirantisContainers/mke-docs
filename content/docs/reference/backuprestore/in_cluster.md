@@ -1,17 +1,17 @@
-# Backup and Restore using the in-cluster Storage Provider
-
+# Backup and Restore using the In-Cluster Storage Provider
 By default, MKE 4 stores backups and restores using the in-cluster storage
 provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
 
 >The offered instructions assume that you have created a cluster and
 applied a blueprint with the default MKE backup configuration.
 
-## Create an in-cluster backup
 
-To create an in-cluster backup, run:
+## Create a backup
+
+To create a backup, run:
 
 ```shell
-mkectl backup create --name <name>
+`mkectl backup create --name <name>`
 ```
 
 Example output:
@@ -29,8 +29,8 @@ INFO[0012] Waiting for backup to complete. Current phase: InProgress
 INFO[0015] Waiting for backup to complete. Current phase: Completed
 ```
 
-The backup should be present in the MinIO bucket. To list the backups,
-run the `mkectl backup list` command:
+The backup should be present in the MinIO bucket. You can list the backups by
+running the `mkectl backup list` command:
 
 Example output:
 
@@ -43,12 +43,12 @@ test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d      
 Optionally, you can view detailed logs of a backup by running the `mkectl
 backup logs --name test` command.
 
-## Restore from an in-cluster backup
+## Restore from a backup
 
-To create a restore using an in-cluster backup, run:
+To create a restore using a backup, run:
 
 ```shell
-mkectl restore create --name test
+`mkectl restore create --name test`
 ```
 
 Example output:
@@ -72,7 +72,7 @@ INFO[0027] Restore test-20240507173309 completed successfully
 To list the restores, run:
 
 ```shell
- mkectl restore list
+ `mkectl restore list`
  ```
 
 Example output:

@@ -18,13 +18,12 @@ backup:
       exposed: true
       distributed: false
 ```
-
 By default, MKE 4 supports backups that use the in-cluster storage
-provider, as indicated in the `type` option setting of `InCluster`. MKE 4
+provider, as indicated in the ``type`` option setting of ``InCluster``. MKE 4
 in-cluster backups are implemented using the [MinIO
 addon](https://microk8s.io/docs/addon-minio).
 
-The `exposed` option setting of `true` indicates that the MinIO service is
+The `exposed` option setting of ``true`` indicates that the MinIO service is
 exposed through NodePort, which Velero requires to function correctly. Core
 backup functionality should work, however, even if
 the service is not exposed.
@@ -40,15 +39,15 @@ Refer to the following table for detail on all of the conifguration file
 | storage_provider.type                                      | Indicates whether the storage type in use is in-cluster or external.                          | InCluster, External | InCluster |
 | storage_provider.in_cluster_options.exposed                | Indicates whether to expose InCluster (MinIO) storage through NodePort.  | true, false         |    true   |
 | storage_provider.in_cluster_options.distributed            | Indicates whether to run MinIO in distributed mode.                  | true, false         |   false   |
-| storage_provider.external_options.provider                 | Name of the external storage provider. AWS is currently the only available option.                                      | aws                 |    aws    |
+| storage_provider.external_options.provider                 | Name of the external storage provider. Note that AWS is currently the only available option.                            | aws                 |    aws    |
 | storage_provider.external_options.bucket                   | Name of the pre-created bucket to use for backup storage.                            | ""                  |     ""    |
 | storage_provider.external_options.region                   | Region in which the bucket exists.                                                   | ""                  |     ""    |
-| storage_provider.external_options.credentials_file_path    | Path to the credentials file.                                                            | ""                  |     ""    |
+| storage_provider.external_options.credentials_file_path    | Path to Credentials File.                                                            | ""                  |     ""    |
 | storage_provider.external_options.credentials_file_profile | Profile in the Credentials file to use.                                              | ""                  |     ""    |
 
-## Create backups and perform restores
+## Create backups and restores
 
-For information on how to create backups and perform restores for both storage
+For information on how to create backups and run restores for both storage
 provider types, refer to:
 
 - In-cluster storage provider: [in_cluster.md](./in_cluster.md)
@@ -56,7 +55,7 @@ provider types, refer to:
 
 ## Existing Limitations
 
-- Scheduled backups, an MKE 3 feature that is planned for integration to MKE 4, have not yet been implemented.
+- Scheduled backups, an MKE 3 feature that is planned for integration to MKE 4, have not yet been inmplemented.
 
 - Backups must currently be restored in the same cluster in which
 the backup was taken, and thus restoring a backup to a
