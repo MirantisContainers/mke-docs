@@ -6,12 +6,12 @@ provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
 applied a blueprint with the default MKE backup configuration.
 
 
-## Create a backup
+## Create an In-Cluster backup
 
-To create a backup, run:
+To create an In-Cluster backup, run:
 
 ```shell
-`mkectl backup create --name <name>`
+mkectl backup create --name <name>
 ```
 
 Example output:
@@ -43,12 +43,12 @@ test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d      
 Optionally, you can view detailed logs of a backup by running the `mkectl
 backup logs --name test` command.
 
-## Restore from a backup
+## Restore from an In-Cluster backup
 
-To create a restore using a backup, run:
+To create a restore using an In-Cluster backup, run:
 
 ```shell
-`mkectl restore create --name test`
+mkectl restore create --name test
 ```
 
 Example output:
@@ -72,7 +72,7 @@ INFO[0027] Restore test-20240507173309 completed successfully
 To list the restores, run:
 
 ```shell
- `mkectl restore list`
+ mkectl restore list
  ```
 
 Example output:
