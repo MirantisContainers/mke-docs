@@ -88,19 +88,19 @@ In the example procedure, a tcp-echo service that is running in the default name
 
 4. Configure Ingress Controller to expose the TCP service:
 
-   - Verify that the `enabled` parameter for the `ingressController` option in
-     the MKE configuration file is set to `true`.
-   - Modify the MKE configuration file to expose the newly created TCP service:
+   1. Verify that the `enabled` parameter for the `ingressController` option in
+      the MKE configuration file is set to `true`.
+   2. Modify the MKE configuration file to expose the newly created TCP service:
 
-     ```yaml
-     ingressController:
-       enabled: true
-       tcpServices:
-         "9000": default/tcp-echo:9000
-       nodePorts:
-         tcp:
-           9000: 33011
-     ```
+      ```yaml
+      ingressController:
+        enabled: true
+        tcpServices:
+          "9000": default/tcp-echo:9000
+        nodePorts:
+          tcp:
+            9000: 33011
+      ```
 
 5. Apply the MKE configuration file:
 
