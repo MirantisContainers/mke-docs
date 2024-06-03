@@ -31,7 +31,7 @@ This table summarizes MKE 4 features, their status, and links to guides
 | Licensing                                                        |   |          |
 | Load Balancing                                                   |   |          |
 | Logging, Monitoring and Alerting                                 | alpha.1 | MVP      |  
-| [Networking (CNI)](../docs/concepts/architecture/README.md#CNI)  |  alpha.1 | MVP      |  
+| [Networking (CNI)](../docs/concepts/architecture/architecture.md#container-network-interface-cni)  |  alpha.1 | MVP      |  
 | Node Feature Discovery                                           |   |          |
 | Offline Bundle                                                   |   |          |
 | OpsCare                                                          |   |          |
