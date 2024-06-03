@@ -19,9 +19,9 @@ While the control plane components can function on any machine in the cluster,
 setup scripts streamline the process by running all control plane 
 components on one machine and excluding user containers from that machine.
 
-### Container Network Interface (CNI) 
+### Container Network Interface 
 
-By default, MKE 4 installs Calico as the CNI plugin with the following configuration:
+By default, MKE 4 installs Calico as the Container Network Interface (CNI) plugin with the following configuration:
 
 - IPv4 only with a fixed Pod CIDR of `10.244.0.0/16`.
 - The datastore mode is set to `kdd`.
