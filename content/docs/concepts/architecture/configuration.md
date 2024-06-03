@@ -42,36 +42,14 @@ hosts:
   role: worker
 ```
 
-## Migrate configuration
-
-If you migrate from MKE 3, you can pass some options to `mkectl` to transfer 
-the settings directly from MKE 3. Execute one of the following options:
-
-**Convert local MKE 3 config**
-
-To pass in a downloaded MKE 3 configuration file set the `--mke3-config` flag. 
-This will convert the local MKE 3 config into a valid MKE 4 config.
-
-```bash
-mkectl init --mke3-config /path/to/mke3-config.toml
-```
-
-**Retrieve and convert MKE 3 config from a cluster**
-
-Alternatively, you can provide `mkectl` with the credentials to connect to
-an MKE 3 Cluster, which will allow `mkectl` to retrieve the MKE 3 config itself,
-and convert it to an MKE 4 config.
-
-```bash
-mkectl init --mke3-admin-username admin --mke3-admin-password password --mke3-hostname mke3.example.com
-```
-
 ## Choose addons
 
 A core part of MKE 4 is the ability to selectively install addons from a set of
 curated and tested addons. Run `mkectl init` command to enable a set of default
 addons that are considered core to MKE 4. You can modify the generated config to
 enable or disable additional addons, as well as modify their settings.
+The `init` command also includes a `--blueprint` option, which can be used to
+print the generated blueprint that reflects the current MKE 4 configuration.
 
 ## Blueprints
 

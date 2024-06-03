@@ -21,10 +21,7 @@ components on one machine and excluding user containers from that machine.
 
 ### Container Network Interface (CNI) 
 
-By default, MKE 4 installs Calico as the CNI plugin. This is done by specifying
-`calico` in the network provider field of the k0s configuration.
-
-Calico is installed with the following configuration:
+By default, MKE 4 installs Calico as the CNI plugin with the following configuration:
 
 - IPv4 only with a fixed Pod CIDR of `10.244.0.0/16`.
 - The datastore mode is set to `kdd`.
