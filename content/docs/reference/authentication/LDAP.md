@@ -9,27 +9,6 @@ the interactions with your LDAP server. For more details, refer to
 [LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration)
 in the official Dex documentation.
 
-An example configuration for LDAP:
-
-```yaml
-authentication:
-  enabled: true
-  ldap:
-    enabled: true
-    host: ldap.example.org:389
-    insecureNoSSL: true
-    bindDN: cn=admin,dc=example,dc=org
-    bindPW: admin
-    usernamePrompt: Email Address
-    userSearch:
-      baseDN: ou=People,dc=example,dc=org
-      filter: "(objectClass=person)"
-      username: mail
-      idAttr: DN
-      emailAttr: mail
-      nameAttr: cn
-```
-
 The following table details the fields that you can configure in the
 `authentication.ldap` section of the MKE 4 config:
 
@@ -54,12 +33,36 @@ The following table details the fields that you can configure in the
 | `groupSearch.userMatchers`         | A list of field pairs that are used to match a user to a group.            |
 | `groupSearch.nameAttr`             | A group name.                                                              |
 
+An example configuration for LDAP:
+
+```yaml
+authentication:
+  enabled: true
+  ldap:
+    enabled: true
+    host: ldap.example.org:389
+    insecureNoSSL: true
+    bindDN: cn=admin,dc=example,dc=org
+    bindPW: admin
+    usernamePrompt: Email Address
+    userSearch:
+      baseDN: ou=People,dc=example,dc=org
+      filter: "(objectClass=person)"
+      username: mail
+      idAttr: DN
+      emailAttr: mail
+      nameAttr: cn
+```
+
 ## Authentication flow
 
-!!! tip "Testing"
+---
+***Testing tip***
 
-    Ports `5556` (dex) and `5555` (example-app) need to be available externally
-    to test the authentication flow.
+Ports `5556` (dex) and `5555` (example-app) need to be available externally
+to test the authentication flow.
+
+---
 
 In the browser, perform the following steps to test the authentication flow:
 

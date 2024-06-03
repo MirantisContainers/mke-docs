@@ -10,20 +10,6 @@ instructions on how to obtain the field values. For more details, see
 [Authentication through SAML 2.0](https://dexidp.io/docs/connectors/saml/)
 in the official Dex documentation.
 
-An example configuration for SAML:
-
-```yaml
-authentication:
-  enabled: true
-  saml:
-    enabled: true
-    ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: http://{MKE host}:5556/callback
-    localCa: /etc/ssl/okta.cert
-    usernameAttr: name
-    emailAttr: email
-```
-
 The following table details the fields that you can configure in the
 `authentication.saml` section of the MKE 4 config:
 
@@ -44,6 +30,20 @@ The following table details the fields that you can configure in the
 | `ssoIssuer`                       | Optional. Issuer value expected in the SAML response.                                                                                                            |
 | `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter is used to split the attribute's value into multiple groups.             |
 | `nameIDPolicyFormat`              | Requested format of the name ID.                                                                                                                                 |
+
+An example configuration for SAML:
+
+```yaml
+authentication:
+  enabled: true
+  saml:
+    enabled: true
+    ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
+    redirectURI: http://{MKE host}:5556/callback
+    localCa: /etc/ssl/okta.cert
+    usernameAttr: name
+    emailAttr: email
+```
 
 ## Configure Okta
 
@@ -79,10 +79,13 @@ configuration file and wait for the cluster to be ready.
 
 ## Authentication flow
 
-!!! tip "Testing"
+---
+***Testing tip***
 
-    Ports `5556` (dex) and `5555` (example-app) need to be available externally
-    to test the authentication flow.
+Ports `5556` (dex) and `5555` (example-app) need to be available externally
+to test the authentication flow.
+
+---
 
 In the browser, perform the following steps to test the authentication flow:
 

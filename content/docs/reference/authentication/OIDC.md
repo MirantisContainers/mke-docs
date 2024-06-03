@@ -8,6 +8,16 @@ The remaining fields in the `authentication.oidc` section are used to configure
 the OIDC provider. Refer to [Configure Okta](#configure-okta) for
 instructions on how to obtain the field values.
 
+The following table details the fields that you can configure in the
+`authentication.oidc` section of the MKE 4 config:
+
+| Field          | Description                                                                |
+|----------------|----------------------------------------------------------------------------|
+| `issuer`       | The root URL of the OIDC provider.                                         |
+| `clientID`     | The ID from the IdP's application configuration.                           |
+| `clientSecret` | The secret from the IdP's application configuration.                       |
+| `redirect URI` | The URI that the provider will be returning successful authentications to. |
+
 An example configuration for OIDC:
 
 ```yaml
@@ -20,16 +30,6 @@ authentication:
     clientSecret: DFA9NYLfE1QxwCSFkZunssh2HCx16kDl41k9tIBtFZaNcqyEGle8yZPtMBesyomD
     redirectURI: http://dex.example.com:32000/callback
 ```
-
-The following table details the fields that you can configure in the
-`authentication.oidc` section of the MKE 4 config:
-
-| Field          | Description                                                                |
-|----------------|----------------------------------------------------------------------------|
-| `issuer`       | The root URL of the OIDC provider.                                         |
-| `clientID`     | The ID from the IdP's application configuration.                           |
-| `clientSecret` | The secret from the IdP's application configuration.                       |
-| `redirect URI` | The URI that the provider will be returning successful authentications to. |
 
 ## Configure Okta
 
@@ -51,10 +51,13 @@ file and wait for the cluster to be ready.
 
 ## Authentication flow
 
-!!! tip "Testing"
+---
+***Testing tip***
 
-    Ports `5556` (dex) and `5555` (example-app) need to be available 
-    externally to test the authentication flow.
+Ports `5556` (dex) and `5555` (example-app) need to be available 
+externally to test the authentication flow.
+
+---
 
 In the browser, perform the following steps to test the authentication flow:
 
