@@ -55,7 +55,7 @@ provider types, refer to:
 
 ## Existing Limitations
 
-- Scheduled backups, an MKE 3 feature that is planned for integration to MKE 4, have not yet been inmplemented.
+- Scheduled backups, an MKE 3 feature that is planned for integration to MKE 4, have not yet been implemented.
 
 - Backups must currently be restored in the same cluster in which
 the backup was taken, and thus restoring a backup to a
