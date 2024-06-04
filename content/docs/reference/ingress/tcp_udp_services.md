@@ -10,9 +10,9 @@ TCP/UDP port mappings.
 To expose TCP services, set the following parameters in the MKE 4 configuration
 file.
 
-| Field                           | Description                                       |
-|---------------------------------|---------------------------------------------------|
-| ingressController.tcpServices   | Indicates TCP service key-value pairs.                       |
+| Field                           | Description                                        |
+|---------------------------------|----------------------------------------------------|
+| ingressController.tcpServices   | Indicates TCP service key-value pairs.             |
 | ingressController.nodePorts.tcp | Sets node port mapping for external TCP listeners. |
 
 In the example procedure, a tcp-echo service that is running in the default namespace on port 9000 is exposed using the port 9000, on NodePort 33011.
