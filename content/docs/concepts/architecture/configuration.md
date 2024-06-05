@@ -3,13 +3,13 @@
 The Mirantis Kubernetes Engine (MKE) 4 configuration file contains an
 opinionated configuration on how to set up the MKE cluster.
 
-In the configuration file, you can:
+With the MKE configuration file, you can:
 
 - Define the number of nodes in the cluster.
 - Define ways to access the nodes.
 - Enable or disable certain MKE 4 features.
 
-The configuration file is translated into a more complex blueprint
+Once set, the MKE configuration file is translated into a more complex blueprint
 that contains the granular details on how to set up the cluster.
 
 ## Create configuration
