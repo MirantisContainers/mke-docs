@@ -14,33 +14,37 @@ that contains the granular details on how to set up the cluster.
 
 ## Create configuration
 
-To generate the default MKE configuration file run `mkectl init > mke.yaml` command.
-Next, modify generated file accordingly to deploy MKE on the cluster.
+1. Generate the default MKE configuration file by running:
 
-To apply configuration to a set of pre-existing machines, modify the `hosts` 
-section of the file:
+    ```commandline
+    mkectl init > mke.yaml
+    ```
 
-```yaml
-hosts:
-- ssh:
-    address: 18.224.23.158
-    keyPath: "/absolute/path/to/private/key.pem"
-    port: 22
-    user: root
-  role: controller+worker
-- ssh:
-    address: 18.224.23.158
-    keyPath: "/absolute/path/to/private/key.pem"
-    port: 22
-    user: ubuntu
-  role: worker
-- ssh:
-    address: 18.117.87.45
-    keyPath: "/absolute/path/to/private/key.pem"
-    port: 22
-    user: ubuntu
-  role: worker
-```
+2. Modify the generated file to deploy MKE on the cluster.
+3. Modify the hosts section of the MKE configuration file, 
+to apply the configuration to a set of pre-existing machines:
+
+    ```yaml
+    hosts:
+    - ssh:
+        address: 18.224.23.158
+        keyPath: "/absolute/path/to/private/key.pem"
+        port: 22
+        user: root
+      role: controller+worker
+    - ssh:
+        address: 18.224.23.158
+        keyPath: "/absolute/path/to/private/key.pem"
+        port: 22
+        user: ubuntu
+      role: worker
+    - ssh:
+        address: 18.117.87.45
+        keyPath: "/absolute/path/to/private/key.pem"
+        port: 22
+        user: ubuntu
+      role: worker
+    ```
 
 ## Choose addons
 
