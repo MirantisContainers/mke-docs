@@ -13,11 +13,11 @@ for more information.
 
 ### Control plane
 
-MKE 4 uses a control plane that oversees crucial cluster-wide decisions,
-and monitors and responds to events within the cluster.
-While the control plane components can function on any machine in the cluster,
-setup scripts streamline the process by running all control plane 
-components on one machine and excluding user containers from that machine.
+The MKE 4 control plane oversees crucial cluster-wide decisions, monitoring and
+responding to events within the cluster.
+While the control plane can function on any machine in the cluster,
+setup scripts ensure maximum efficiency by running all control plane components
+on one machine and by excluding user containers from that machine.
 
 ### Container Network Interface 
 
