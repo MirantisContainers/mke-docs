@@ -15,10 +15,10 @@ file.
 | ingressController.tcpServices   | Indicates TCP service key-value pairs.             |
 | ingressController.nodePorts.tcp | Sets node port mapping for external TCP listeners. |
 
-In the example procedure, a tcp-echo service that is running in the default namespace on port 9000 is exposed using the port 9000, on NodePort 33011.
+In the example procedure, a `tcp-echo` service that is running in the default namespace on port 9000 is exposed using the port 9000, on `NodePort` 33011.
 
 1. Deploy a sample TCP service listening on port 9000, to echo back any text it
-   receives with the prefix hello:
+   receives with the prefix `hello`:
 
    ```yaml
    cat <<EOF | kubectl apply -f -
@@ -79,6 +79,7 @@ In the example procedure, a tcp-echo service that is running in the default name
    ```shell
    kubectl get service tcp-echo
    ```
+
    Example output:
 
    ```shell
@@ -119,32 +120,32 @@ In the example procedure, a tcp-echo service that is running in the default name
 
 7. Check the tcp-echo logs:
 
-    1. Obtain the Pod name:
+   1. Obtain the Pod name:
 
-       ```shell
-       kubectl get pods --selector=app=tcp-echo
-       ```
+      ```shell
+      kubectl get pods --selector=app=tcp-echo
+      ```
 
-       Example output:
+      Example output:
 
-       ```shell
-       NAME                        READY   STATUS    RESTARTS   AGE
-       tcp-echo-544849bd8f-6jscx   1/1     Running   0          45h
-       ```
+      ```shell
+      NAME                        READY   STATUS    RESTARTS   AGE
+      tcp-echo-544849bd8f-6jscx   1/1     Running   0          45h
+      ```
 
-    2. Access the log:
+   2. Access the log:
 
-       ```shell
-       kubectl logs tcp-echo-544849bd8f-6jscx
-       ```
+      ```shell
+      kubectl logs tcp-echo-544849bd8f-6jscx
+      ```
 
-       Example output:
+      Example output:
 
-       ```shell
-       listening on [::]:9000, prefix: hello
-       request: world
-       response: hello world
-       ```
+      ```shell
+      listening on [::]:9000, prefix: hello
+      request: world
+      response: hello world
+      ```
 
 8. Remove the Kubernetes resources, which are no longer needed:
 
@@ -162,7 +163,7 @@ file.
 | ingressController.udpServices   | Indicates UDP service key-value pairs.                                                  |
 | ingressController.nodePorts.udp | Sets node port mapping for external UDP listeners. |
 
-In the example procedure, a udp-listener service running in the default namespace on port 5005 is exposed using the port 5005, on NodePort 33012.
+In the example procedure, a `udp-listener` service running in the default namespace on port 5005 is exposed using the port 5005, on `NodePort` 33012.
 
 1. Deploy a sample UDP service listening on port 5005:
 
@@ -244,19 +245,21 @@ In the example procedure, a udp-listener service running in the default namespac
 
 4. Configure Ingress Controller to expose the UDP service:
 
-    1. Verify that the `enabled` parameter for the `ingressController` option in the MKE configuration file is set to `true`.
+   1. Verify that the `enabled` parameter for the `ingressController` option in
+      the MKE configuration file is set to `true`.
 
-    2. Modify the MKE configuration file to expose the newly created UDP service:
+   2. Modify the MKE configuration file to expose the newly created UDP
+      service:
 
-       ```yaml
-       ingressController:
-         enabled: true
-         udpServices:
-           "5005": default/udp-listener:5005
-         nodePorts:
-           udp:
-             5005: 33012 
-       ```
+      ```yaml
+      ingressController:
+        enabled: true
+        udpServices:
+          "5005": default/udp-listener:5005
+        nodePorts:
+          udp:
+            5005: 33012
+      ```
 
 5. Apply the MKE configuration file:
 
@@ -270,34 +273,34 @@ In the example procedure, a udp-listener service running in the default namespac
    echo "UDP Datagram Message" | netcat -v -u <WORKER_NODE_IP> 33012
    ```
 
-7. Check the udp-listener logs:
+7. Check the `udp-listener` logs:
 
-    1. Obtain the Pod name:
+   1. Obtain the Pod name:
 
-       ```shell
-       kubectl get pods --selector=app=udp-listener
-       ```
+      ```shell
+      kubectl get pods --selector=app=udp-listener
+      ```
 
-       Example output:
+      Example output:
 
-       ```shell
-       NAME                           READY   STATUS    RESTARTS   AGE
-       udp-listener-f768d8db4-v69jr   1/1     Running   0          44h
-       ```
+      ```shell
+      NAME                           READY   STATUS    RESTARTS   AGE
+      udp-listener-f768d8db4-v69jr   1/1     Running   0          44h
+      ```
 
-    2. Access the log:
+   2. Access the log:
 
-       ```shell
-       kubectl logs udp-listener-f768d8db4-v69jr
-       ```
+      ```shell
+      kubectl logs udp-listener-f768d8db4-v69jr
+      ```
 
-       Example output:
+      Example output:
 
 
-       ```shell
-       Listeningon UDP port 5005
-       UDP Datagram Message
-       ```
+      ```shell
+      Listeningon UDP port 5005
+      UDP Datagram Message
+      ```
 
 8. Remove the Kubernetes resources, which are no longer needed:
 
