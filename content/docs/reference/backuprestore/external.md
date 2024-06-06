@@ -13,7 +13,7 @@ credentials file.
 
    ![img.png](img.png)
 
-2. Edit the `storage_provider` section of the mke configuration file to point
+2. Edit the `storage_provider` section of the MKE configuration file to point
 to the IAM credentials file, including the profile name.
 
 3. Create an S3 bucket and configure the IAM configuration file to point to the
@@ -21,19 +21,20 @@ to the IAM credentials file, including the profile name.
 
 Example configuration:
 
-   ```yaml
-     storage_provider:
-       type: External
-       external_options:
-         provider: aws
-         bucket: bucket_name
-         region: us-west-2
-         credentials_file_path: "/path/to/iamcredentials"
-         credentials_file_profile: "386383511305_docker-testing"
-   ```
+```yaml
+  storage_provider:
+    type: External
+    external_options:
+      provider: aws
+      bucket: bucket_name
+      region: us-west-2
+      credentials_file_path: "/path/to/iamcredentials"
+      credentials_file_profile: "386383511305_docker-testing"
+```
 
-Once you have configured AWS backup storage and the mke configuration file has
-been applied, verify that the `BackupStorageLocation` CR exists.
+Once you have configured the AWS backup storage and the MKE configuration file
+has been applied, verify that the `BackupStorageLocation` custom resource
+exists.
 
 ```shell
 kubectl get backupstoragelocation -n mke
@@ -60,7 +61,7 @@ To create an external backup, run:
 mkectl backup create --name aws-backup
 ```
 
-Example Output:
+Example output:
 
 ```shell
 INFO[0000] Creating backup aws-backup...
@@ -75,7 +76,7 @@ INFO[0015] Waiting for backup to complete. Current phase: Completed
 INFO[0015] Backup aws-backup completed successfully
 ```
 
-You can list the backups by running the `mkectl backup list` command:
+To list the backups by running the `mkectl backup list` command:
 
 Example output:
 
