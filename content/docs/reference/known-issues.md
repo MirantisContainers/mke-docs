@@ -11,20 +11,14 @@ containers continually restart.
 
 **Workaround:** Uninstall MKE 3 and restore it from a backup.
 
-## [BOP-708] RBAC resource creation fails during mkectl upgrade when OIDC enabled
+## [BOP-708] OIDC authenticaion fails after mkectl upgrade
 
-During a mkectl upgrade from MKE 3, RBAC resource creation fails when OIDC is
-enabled.
+Due to an issue with client secret migration, OIDC authentication fails
+following an upgrade performed with mkectl.
 
 **Workaround:**
 
 1. Copy the MKE 4 config that prints at the end of migration.
-
-   Example:
-
-   ```
-   INF Below is your new MKE 4 config. Save it to a file and use it to configure the MKE 4 cluster with mkectl apply:
-   ```
 
 2. Update the ``authentication.oidc.clientSecret`` field to the secret field
    from your identity provider.
