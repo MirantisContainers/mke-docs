@@ -4,8 +4,9 @@
 
 You can use `kubectl` with the `mke` context to interact with the cluster,
 though it is necessary to specify the configuration. `mkectl` outputs the
-kubeconfig of the cluster to `~/.mke/<cluster name>.kubeconfig`, from where you
-can use it to:
+kubeconfig of the cluster to `~/mke/.mke.kubeconfig`.
+
+You can apply ``.mke.kubeconfig`` using any one of the following methods:
 
 - Set the KUBECONFIG env var to point to `~/.mke/mke.kubeconfig`
 

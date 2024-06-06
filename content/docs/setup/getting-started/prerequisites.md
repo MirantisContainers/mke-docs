@@ -1,5 +1,8 @@
 ## Prerequisites
 
+>The prerequisites detailed herein apply only to the Alpha 1.0
+>pre-release version of MKE 4.
+
 ### System requirements for cluster nodes
 
 MKE 4 uses [k0s](https://k0sproject.io/) as the underlying Kubernetes
@@ -10,8 +13,10 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 
 #### Operating systems
 
-Currently, MKE 4 is only certified for use on the Ubuntu 20.04 Linux
-distribution.
+Currently, MKE 4 is only certified for use on the following distributions:
+
+* Ubuntu 22.04 Linux
+* Ubuntu 20.04 Linux
 
 Windows nodes are **not supported**.
 
@@ -22,3 +27,7 @@ MKE 4 only supports `amd64` architecture.
 #### CNI
 
 `calico` is the only CNI plugin that MKE 4 supports.
+
+#### mkectl
+
+`mkectl`, the [MKE CLI tool](install-mke4-cli), must be installed prior to MKE 4 installation.

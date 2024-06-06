@@ -1,5 +1,15 @@
 ## Installation
 
+### Dependencies
+
+A number of tools must be installed on your system before you can install MKE
+4:
+* mkectl
+* k0sctl
+* kubectl
+
+Refer to [Install the MKE 4 CLI](install-mke4-cli) for detailed information.
+
 ### Init
 
 MKE 4 installation is performed through the use of a single YAML file,
@@ -14,8 +24,9 @@ In the configuration file, edit the `hosts` section to match your roster
 of nodes.
 
 > Configure the cluster nodes in advance, in accordance with the
-  [system requirements](prerequisites.md#system-requirements-for-cluster-nodes).
-
+  [system
+  requirements](prerequisites.md#system-requirements-for-cluster-nodes).
+>
 > Node provisioning is managed by the cluster administrators. You can, for
 instance, use [Terraform](https://www.terraform.io/) to create the nodes in a
 cloud provider. [Example Terraform

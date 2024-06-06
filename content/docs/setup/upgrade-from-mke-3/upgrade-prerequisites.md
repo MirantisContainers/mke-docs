@@ -22,7 +22,7 @@ Verify that you have the following components in place before you begin the upgr
   mkectl version
   ```
   ```shell
-  Version: v0.0.5
+  Version: v4.0.0-alpha.1.0
   ```
 
 - `k0sctl` version `0.17.4`, installed on your local enviroment:
