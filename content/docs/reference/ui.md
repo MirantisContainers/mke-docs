@@ -26,7 +26,7 @@ To install the Dashboard add-on do this
  - Services
  - ServiceAccounts
  - Storage: StorageClasses, PersistantVolumes + PersistantVolumeClaims
-- The ability to view kubernetes resources by namespace, or all namespaces at once
+- View kubernetes resources by namespace, or all namespaces at once
 
 ### Future
 - User management 
