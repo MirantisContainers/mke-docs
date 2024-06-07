@@ -13,7 +13,7 @@ Detail for the MKE 4 monitor tools is provided in the following table:
 | Prometheus | enabled       | -                          | Collects and stores metrics                                                           |
 | Opscare    | disabled      | `monitoring.enableOpscare` | (Under development) Supplies additional monitoring capabilities, such as Alertmanager |
 
-### Grafana
+## Grafana
 
 [Grafana](https://grafana.com/) is an open-source monitoring platform that provides a rich set of tools for visualizing time-series data. It
 includes a variety of graph types and dashboards.
@@ -35,7 +35,7 @@ To access the Grafana dashboard:
 
 2. Go to [http://localhost:3000](http://localhost:3000).
 
-### Prometheus
+## Prometheus
 
 [Prometheus](https://prometheus.io/) is an open-source monitoring and alerting
 toolkit that is designed for reliability and scalability. It collects and stores metrics
