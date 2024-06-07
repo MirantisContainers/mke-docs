@@ -2,13 +2,29 @@
 
 ## MKE 4
 
+### Concepts and Architecture
+
+- Architecture
+- Configuration
+- Migration configuration
 
 ### Setup
-[Install mkectl](../docs/setup/README.md)
 
-[Get Started with MKE 4](../docs/setup/getting-started/README.md)
+- [Get Started with MKE 4](../docs/setup/getting-started/README.md)
+  - Prerequisites
+  - Installation
+  - Using the cluster
+  - k0s in AWS
+  - Uninstallation
+- [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/README.md)
 
-[Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/README.md)
+### Reference
+
+- Authentication
+- [Backup and restore](../docs/reference/backuprestore/backup-restore.md)
+- [Ingress controller](../docs/reference/ingress/ingress-controller.md)
+- [Monitoring](../docs/reference/monitoring/monitoring.md)
+- [Support bundle](../docs/reference/supportbundle/support-bundle.md)
 
 ### Features
 This table summarizes MKE 4 features, their status, and links to guides 
