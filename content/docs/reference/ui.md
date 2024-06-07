@@ -13,7 +13,7 @@ To install the Dashboard add-on do this
 
 ```
 
-## 4.0.0-apha.1v
+## 4.0.0-alpha.2.0 release
 
 ### What is included
 - Metrics eg. node performance + usage statistics
