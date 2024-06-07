@@ -17,7 +17,7 @@ This table summarizes MKE 4 features, their status, and links to guides
 |------------------------------------------------------------------------|-------|----------|
 | Authentication                                                         | alpha.1| MVP      |  
 | Authorization                                                          | alpha.1 | MVP      |   
-| [Backup & Restore](../docs/reference/backuprestore/README.md)          | alpha.1 | MVP      |
+| [Backup & Restore](../docs/reference/backuprestore/backup-restore.md)          | alpha.1 | MVP      |
 | CIS Benchmark                                                          |   |          |
 | CLI                                                                    |   |          |
 | Cloud Providers                                                        |   |          |
@@ -25,7 +25,7 @@ This table summarizes MKE 4 features, their status, and links to guides
 | cAdvisor                                                               |   |          |
 | gMSA                                                                   |   |          |
 | GPU Feature Discovery                                                  |   |          |
-| [Ingress](../docs/reference/ingress/README.md)                         | alpha.1| MVP      |   |
+| [Ingress](../docs/reference/ingress/ingress-controller.md)                         | alpha.1| MVP      |   |
 | [Kubernetes](../docs/concepts/architecture/architecture.md#components) | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                                  |   |          |
 | Licensing                                                              |   |          |
