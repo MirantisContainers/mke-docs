@@ -9,6 +9,9 @@ the authentication in the MKE 4 configuration file and add your own method.
     Changing the authentication method will require you to configure
     authentication completely by yourself.
 
+For more information on authentication feature status in the release, go to
+[MKE 4 releases](https://github.com/Mirantis/mke-docs/blob/main/content/releases/README.md).
+
 ## Prerequisites
 
 - Identity Provider (IdP) - To set OIDC or SAML you need to configure an IdP with an application.
