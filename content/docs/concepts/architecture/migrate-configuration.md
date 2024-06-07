@@ -1,12 +1,12 @@
 # Migrate configuration
 
-If you migrate from MKE 3, you can pass some options to `mkectl` to transfer 
-the settings directly from MKE 3.
+In migrating to MKE 4 from MKE 3, you can directly transfer settings by passing
+several options to `mkectl`.
 
-**Convert local MKE 3 config**
+**To convert a local MKE 3 configuration for MKE 4:**
 
-To pass in a downloaded MKE 3 configuration file set the `--mke3-config` flag. 
-This will convert the local MKE 3 config into a valid MKE 4 config.
+Set the `--mke3-config` flag to convert a downloaded MKE 3 configuration file into
+a valid MKE 4 configuration file, as follows:
 
 ```bash
 mkectl init --mke3-config /path/to/mke3-config.toml

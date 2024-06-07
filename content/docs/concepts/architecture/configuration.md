@@ -21,7 +21,7 @@ that contains the granular details on how to set up the cluster.
     ```
 
 2. Modify the generated file to deploy MKE on the cluster.
-3. Modify the hosts section of the MKE configuration file, 
+3. Modify the `hosts` section of the MKE configuration file, 
 to apply the configuration to a set of pre-existing machines:
 
     ```yaml
@@ -48,35 +48,49 @@ to apply the configuration to a set of pre-existing machines:
 
 ## Choose addons
 
-A core part of MKE 4 is the ability to selectively install addons from a set of
-curated and tested addons. Run `mkectl init` command to enable a set of default
-addons that are considered core to MKE 4. You can modify the generated config to
-enable or disable additional addons, as well as modify their settings.
-The `init` command also includes a `--blueprint` option, which can be used to
-print the generated blueprint that reflects the current MKE 4 configuration.
+A core component of MKE 4 is a default set of curated and tested addons that you
+can install by running `mkectl init` and subsequently applying the generated
+configuration file.
+
+Using the MKE configuration file, you can enable and disable the MKE 4 addons,
+as well as modify their settings. In addition, you can use the
+`mkectl init` command with the `--blueprint` option to print the generated
+blueprint that reflects your current MKE 4 configuration.
 
 ## Blueprints
 
-All MKE 4 configuration files are translated into blueprints. 
-A blueprint is a special type of file that is used
-to create a Kubernetes Custom Resource (CRD) also called a blueprint. 
-Thus, the blueprint file must be a valid Kubernetes YAML and contain many 
-of the same fields as standard Kubernetes Objects.
-MKE 4 uses the Blueprint Operator to manage all blueprints and their assignments.
+All MKE 4 configuration files are translated into blueprints,
+a file type that is used to create Kubernetes Custom Resources (CRDs)
+that are also called blueprints.
 
-A blueprint is composed of three sections:
+Blueprint files must be in Kubernetes YAML format,
+and they must contain many of the same fields as a standard Kubernetes Object.
 
-1. The Kubernetes Provider details with settings for that provider.
-This section is mostly managed by `mkectl` independently of the user provided MKE configuration file.
-2. The infrastructure details that are used for the Kubernetes Cluster.
-This is the `hosts` section of the MKE configuration file.
-3. The components section, composed of various addons specified in the MKE
-configuration file. The `mkectl` command transforms the MKE configuration options 
-into specific settings in either Helm or Manifest type addons that are deployed
-into the cluster.
+MKE 4 uses Blueprint Operator to manage blueprints and their assignments.
 
-To see detailed blueprint of an MKE config run `mkectl init --blueprint` command.
-You can modify the blueprint directly, but any such modification is considered 
-advanced and is not supported by MKE.
+A blueprint comprises three sections:
+
+**Kubernetes Provider**
+
+Details the settings for the provider.
+
+For the most part, the Kubernetes Provider section is managed by `mkectrl`,
+independently of the user's MKE configuration file.
+
+**Infrastructure**
+
+Provides details that are used for the Kubernetes Cluster;
+the hosts section of the MKE configuration file.
+
+**Components**
+
+Composed of addons that are specified in the MKE configuration file.
+The `mkectl` command transforms the configuration options into specific settings
+for either Helm or Manifest type addons that are deployed into the cluster.
+
+To view a detailed blueprint of an MKE configuration, run the `mkectl init --blueprint` command.
+
+> It is possible to directly modify a blueprint, however, such modifications are
+> considered advanced and support by MKE 4 is not assured.
 
 <!-- Please see the Blueprint Operator [documentation](https://mirantiscontainers.github.io/boundless/) for more details on blueprints. - broken link -->
