@@ -1,17 +1,17 @@
-# Backup and Restore using the In-Cluster Storage Provider
+# Backup and restore using the in-cluster storage provider
+
 By default, MKE 4 stores backups and restores using the in-cluster storage
 provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
 
 >The offered instructions assume that you have created a cluster and
 applied a blueprint with the default MKE backup configuration.
 
+## Create an in-cluster backup
 
-## Create a backup
-
-To create a backup, run:
+To create an in-cluster backup, run:
 
 ```shell
-`mkectl backup create --name <name>`
+mkectl backup create --name <name>
 ```
 
 Example output:
@@ -29,8 +29,8 @@ INFO[0012] Waiting for backup to complete. Current phase: InProgress
 INFO[0015] Waiting for backup to complete. Current phase: Completed
 ```
 
-The backup should be present in the MinIO bucket. You can list the backups by
-running the `mkectl backup list` command:
+The backup should be present in the MinIO bucket. To list the backups, run
+the `mkectl backup list` command:
 
 Example output:
 
@@ -43,12 +43,12 @@ test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d      
 Optionally, you can view detailed logs of a backup by running the `mkectl
 backup logs --name test` command.
 
-## Restore from a backup
+## Restore from an in-cluster backup
 
-To create a restore using a backup, run:
+To perform a restore using an in-cluster backup, run:
 
 ```shell
-`mkectl restore create --name test`
+mkectl restore create --name test
 ```
 
 Example output:
@@ -72,7 +72,7 @@ INFO[0027] Restore test-20240507173309 completed successfully
 To list the restores, run:
 
 ```shell
- `mkectl restore list`
+ mkectl restore list
  ```
 
 Example output:
@@ -83,7 +83,7 @@ NAME                  BACKUP   STATUS      STARTED                         COMPL
 test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-05-07 17:33:34 -0400 EDT   0        121        2024-05-07 17:33:09 -0400 EDT   <none>
 ```
 
-Optionally, you can view detailed logs by running the `mkectl restore logs
---name test-20240507173309` command.
+Optionally, you can view detailed logs by running the
+`mkectl restore logs --name test-20240507173309` command.
 
 
