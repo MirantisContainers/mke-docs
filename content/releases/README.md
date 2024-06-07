@@ -4,36 +4,42 @@
 
 ### Concepts and Architecture
 
-- Architecture
-- Configuration
-- Migration configuration
+- [Architecture](../docs/concepts/architecture/architecture.md)
+- [Configuration](../docs/concepts/architecture/configuration.md)
+- [Migrate configuration](../docs/concepts/architecture/migrate-configuration.md)
 
 ### Setup
 
 - [Get Started with MKE 4](../docs/setup/getting-started/README.md)
-  - Prerequisites
-  - Installation
-  - Using the cluster
-  - k0s in AWS
-  - Uninstallation
+  - [Prerequisites](../docs/setup/getting-started/prerequisites.md)
+  - [Installation](../docs/setup/getting-started/installation.md)
+  - [Using the cluster](../docs/setup/getting-started/using-the-cluster.md)
+  - [k0s in AWS](../docs/setup/getting-started/k0s-in-aws/terraform-scenario.md)
+  - [Uninstallation](../docs/setup/getting-started/uninstallation.md)
 - [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/README.md)
 
 ### Reference
 
-- Authentication
+- [Authentication](../docs/reference/authentication/authentication.md)
 - [Backup and restore](../docs/reference/backuprestore/backup-restore.md)
 - [Ingress controller](../docs/reference/ingress/ingress-controller.md)
 - [Monitoring](../docs/reference/monitoring/monitoring.md)
 - [Support bundle](../docs/reference/supportbundle/support-bundle.md)
 
+### Known issues
+
+- [Known issues](known-issues.md)
+
 ### Features
-This table summarizes MKE 4 features, their status, and links to guides 
+
+The table that follows details MKE 4 features and their current status. In
+addition, where applicable, the table offers links to associated documentation.
 
 | Feature                                                          | Pre-Release | Status   | 
 |------------------------------------------------------------------|-------|----------|
 | Authentication                                                   | alpha.1| MVP      |  
 | Authorization                                                    | alpha.1 | MVP      |   
-| [Backup & Restore](../docs/reference/backuprestore/README.md)    | alpha.1 | MVP      |
+| [Backup and restore](../docs/reference/backuprestore/backup-restore.md)    | alpha.1 | MVP      |
 | CIS Benchmark                                                    |   |          |
 | CLI                                                              |   |          |
 | Cloud Providers                                                  |   |          |
@@ -41,7 +47,7 @@ This table summarizes MKE 4 features, their status, and links to guides
 | cAdvisor                                                         |   |          |
 | gMSA                                                             |   |          |
 | GPU Feature Discovery                                            |   |          |
-| [Ingress](../docs/reference/ingress/README.md)                   | alpha.1| MVP      |   |
+| [Ingress](../docs/reference/ingress/ingress-controller.md)                   | alpha.1| MVP      |   |
 | [Kubernetes](../docs/concepts/architecture/README.md#Components) | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                            |   |          |
 | Licensing                                                        |   |          |
