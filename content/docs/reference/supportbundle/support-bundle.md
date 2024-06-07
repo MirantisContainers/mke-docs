@@ -4,7 +4,7 @@
 support the [Replicated support bundle
 tool](https://troubleshoot.sh/docs/support-bundle/introduction/).
 
-## To manually collect a support bundle:
+**To manually collect a support bundle:**
 
 1. SSH into the manager node.
 2. Download and install the `support-bundle` tool:
@@ -37,13 +37,13 @@ tool](https://troubleshoot.sh/docs/support-bundle/introduction/).
 
      This configuration accomplishes the following:
 
-     - Capture of cluster information
-     - Setting of cluster resources
-     - Collection of logs from the `blueprint-controller-manager` and
+     - Captures of cluster information
+     - Sets of cluster resources
+     - Collects logs from the `blueprint-controller-manager` and
        `blueprint-operator-webhook` pods, in the `logs/` directory of the
        output.
 
-## To collect host information using the k0s-provided YAML file
+**To collect host information using the k0s-provided YAML file:**
 
 1. Obtain the [k0s-provided YAML file](https://docs.k0sproject.io/stable/support-bundle-worker.yaml).
 
