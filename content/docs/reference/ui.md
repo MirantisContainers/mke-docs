@@ -18,14 +18,14 @@ To install the Dashboard add-on do this
 ### What is included
 - Metrics eg. node performance + usage statistics
 - Basic kubernetes management of the following (View, Create, Update + Delete)
- - Configurations: ConfigMaps
- - Controllers: ReplicaSets, ReplicationControllers, StatefulSets, Jobs, CronJobs, Daemonsets + Deployments
- - Namespaces
- - Nodes
- - Pods
- - Services
- - ServiceAccounts
- - Storage: StorageClasses, PersistantVolumes + PersistantVolumeClaims
+  - Configurations: ConfigMaps
+  - Controllers: ReplicaSets, ReplicationControllers, StatefulSets, Jobs, CronJobs, Daemonsets + Deployments
+  - Namespaces
+  - Nodes
+  - Pods
+  - Services
+  - ServiceAccounts
+  - Storage: StorageClasses, PersistantVolumes + PersistantVolumeClaims
 - View kubernetes resources by namespace, or all namespaces at once
 
 ### Future
