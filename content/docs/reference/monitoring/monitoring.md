@@ -7,7 +7,7 @@ offering a comprehensive solution for collecting, storing, and visualizing metri
 
 Detail for the MKE 4 monitor tools is provided in the following table:
 
-| Monitoring tool    | Default State | Configuration Key          | Description                                                                           |
+| Monitoring tool    | Default state | Configuration key          | Description                                                                           |
 |------------|---------------|----------------------------|---------------------------------------------------------------------------------------|
 | Grafana    | enabled       | `monitoring.enableGrafana` | Provides a web interface for viewing metrics and logs collected by Prometheus         |
 | Prometheus | enabled       | -                          | Collects and stores metrics                                                           |
