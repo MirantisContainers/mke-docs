@@ -1,19 +1,17 @@
 # Monitoring
 
-This document provides guidance on setting up monitoring for your
-Kubernetes clusters using Mirantis Kubernetes Engine (MKE) 4. 
-The monitoring setup is based on the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack),
+The MKE 4 monitoring setup is based on the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack),
 offering a comprehensive solution for collecting, storing, and visualizing metrics.
 
 ## Monitoring tools
 
 Detail for the MKE 4 monitor tools is provided in the following table:
 
-| Monitoring tool    | Default State | Configuration Key          | Description                                                                    |
-|------------|---------------|----------------------------|--------------------------------------------------------------------------------|
-| Grafana    | enabled       | `monitoring.enableGrafana` | Provides a web interface for viewing metrics and logs collected by Prometheus  |
-| Prometheus | enabled       | -                          | Collects and stores metrics                                                    |
-| Opscare    | disabled      | `monitoring.enableOpscare` | (Future feature) Supplies additional monitoring capabilities, such as Alertmanager |
+| Monitoring tool    | Default State | Configuration Key          | Description                                                                           |
+|------------|---------------|----------------------------|---------------------------------------------------------------------------------------|
+| Grafana    | enabled       | `monitoring.enableGrafana` | Provides a web interface for viewing metrics and logs collected by Prometheus         |
+| Prometheus | enabled       | -                          | Collects and stores metrics                                                           |
+| Opscare    | disabled      | `monitoring.enableOpscare` | (Under development) Supplies additional monitoring capabilities, such as Alertmanager |
 
 ### Grafana
 
@@ -53,13 +51,12 @@ To access the Prometheus dashboard:
 
 2. Go to [http://localhost:9090](http://localhost:9090).
 
-## Opscare (Feature in progress)
+## Opscare (Under development)
 
 [Mirantis Opscare](https://www.mirantis.com/resources/opscare-datasheet/) is
 an advanced monitoring and alerting solution. Once it is integrated, Mirantis Opscare will enhance the monitoring
 capabilities of MKE 4 by incorporating additional tools and features, such as
 [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/).
-Future releases will include more integrations, such as a Salesforce-notifier component.
 
 Disabled by default, you can enable Mirantis Opscare through the MKE configuration file.
 
