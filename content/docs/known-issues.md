@@ -1,15 +1,7 @@
 # Known issues
 
-Workaround solutions are available for the following MKE 4 Alpha.1 known
+Workaround solutions are available for the following MKE 4.0.0-alpha.1.0 known
 issues:
-
-## [BOP-694] MKE 3 upgrade rollback destabilizes the cluster
-
-When a rollback to MKE 3 occurs as the result of an upgrade issue, the MKE
-cluster is inaccessible through the MKE web UI address and ``ucp-auth``
-containers continually restart.
-
-**Workaround:** Uninstall MKE 3 and restore it from a backup.
 
 ## [BOP-708] OIDC authenticaion fails after mkectl upgrade
 
