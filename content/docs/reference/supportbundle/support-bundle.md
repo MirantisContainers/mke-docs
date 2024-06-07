@@ -48,9 +48,7 @@ tool](https://troubleshoot.sh/docs/support-bundle/introduction/).
 1. Obtain the [k0s-provided YAML
    file](https://docs.k0sproject.io/stable/support-bundle-worker.yaml).
 
-   !!! note "A very important title of a very important note"
-
-       MKE 4 Alpha 1.0 deploys k0s v1.29.3, which does not inherently support the [Replicated support bundle tool] (https://troubleshoot.sh/docs/support-bundle/introduction/).
+   >MKE 4 Alpha 1.0 deploys k0s v1.29.3, which does not inherently support the [Replicated support bundle tool](https://troubleshoot.sh/docs/support-bundle/introduction/).
 
 2. Run the `support-bundle` tool:
 
