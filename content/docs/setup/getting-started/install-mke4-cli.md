@@ -1,8 +1,8 @@
 # Install the MKE 4 CLI
 
-You can download `mkectl`, the MKE CLI tool, from the MKE 4 repository
-[Releases](https://github.com/MirantisContainers/mke/releases) page. Envisioned
-as a single binary, capable of managing MKE 4 clusters without any
+You can download `mkectl`, the MKE CLI tool, from the [S3
+bucket](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0).
+Envisioned as a single binary, capable of managing MKE 4 clusters without any
 additional dependencies, as of `MKE 4.0.0-alpha.1.0` the MKE CLI still requires
 that you have the following tools installed on your system:
 
@@ -41,7 +41,7 @@ To override the default versions, pass the variables `K0SCTL_VERSION`,`MKECTL_VE
       ```
       Expected output:
       ```shell
-         Version: v4.0.0-alpha.0.3
+         Version: v4.0.0-alpha.1.0
        ```
    2. To confirm `k0sctl`, run:
        ```shell

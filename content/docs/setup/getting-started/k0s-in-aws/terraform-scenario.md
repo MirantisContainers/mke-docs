@@ -2,10 +2,8 @@
 
 ### Prerequisites
 
-You must have the following componenets installed:
+In addition to the MKE 4 [dependencies](../installation.md#dependencies), you must have the following componenets installed:
 
-* [mkectl](https://github.com/MirantisContainers/mke/releases)
-* [k0sctl](https://github.com/k0sproject/k0sctl#installation) (required for installing a k0s distribution)
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
   (required for creating VMs in AWS)
 * AWS account
