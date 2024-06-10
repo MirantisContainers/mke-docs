@@ -1,4 +1,5 @@
 # Dashboard add-on for MKE
+#### `v4.0.0-alpha.2.0` +
 The MKE Dashboard add-on provides a UI for kubernetes resource management. 
 
 Future: User management and administrative configurations will also be possible through the dashboard.
