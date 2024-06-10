@@ -2,7 +2,8 @@
 
 ### Prerequisites
 
-In addition to the MKE 4 [dependencies](../installation.md#dependencies), you must have the following componenets installed:
+In addition to the MKE 4 [dependencies](../create-a-cluster.md#dependencies),
+you must have the following componenets installed:
 
 * [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
   (required for creating VMs in AWS)
