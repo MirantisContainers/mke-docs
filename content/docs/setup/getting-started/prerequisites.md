@@ -30,4 +30,5 @@ MKE 4 only supports `amd64` architecture.
 
 #### mkectl
 
-`mkectl`, the [MKE CLI tool](install-mke4-cli), must be installed prior to MKE 4 installation.
+`mkectl`, the [MKE CLI tool](install-mke4-cli.md), must be installed prior to
+MKE 4 installation.

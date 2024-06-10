@@ -12,7 +12,7 @@ that you have the following tools installed on your system:
 
 ## Install using a script
 
-You can use the [install.sh](./install.sh) script to install the following
+You can use the [install.sh](../install.sh) script to install the following
 dependencies:
 
 - `mkectl` (default version: v4.0.0-alpha.0.3)

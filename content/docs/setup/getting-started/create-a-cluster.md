@@ -1,4 +1,4 @@
-## Installation
+## Create a cluster
 
 ### Dependencies
 
@@ -8,7 +8,7 @@ A number of tools must be installed on your system before you can install MKE
 * k0sctl
 * kubectl
 
-Refer to [Install the MKE 4 CLI](install-mke4-cli) for detailed information.
+Refer to [Install the MKE 4 CLI](install-mke4-cli.md) for detailed information.
 
 ### Init
 
