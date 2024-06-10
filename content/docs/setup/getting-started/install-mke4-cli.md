@@ -3,11 +3,11 @@
 You can download `mkectl`, the MKE CLI tool, from the S3 bucket:
 
 - [Linux arm64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_linux_arm64.tar.gz)
-- [Linux x86 64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_linux_x86_64.tar.gz)
-- [Darwin arm64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_darwin_arm64.tar.gz)
-- [Darwin x86 64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_darwin_x86_64.tar.gz)
+- [Linux x86_64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_linux_x86_64.tar.gz)
+- [MacOS arm64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_darwin_arm64.tar.gz)
+- [MacOS x86_64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_darwin_x86_64.tar.gz)
 - [Windows arm64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_windows_arm64.zip)
-- [Windows x86 64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_windows_x86_64.zip)
+- [Windows x86_64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_windows_x86_64.zip)
 
 Envisioned as a single binary, capable of managing MKE 4 clusters without any
 additional dependencies, as of `MKE 4.0.0-alpha.1.0` the MKE CLI still requires
