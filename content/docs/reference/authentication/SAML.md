@@ -16,20 +16,20 @@ The following table details the fields that you can configure in the
 | Field                             | Description                                                                                                                                                      |
 |-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `enabled`                         | Enable authentication through dex.                                                                                                                               |
-| `ssoMetadataURL`                  | The metadata URL provided by some IdPs. MKE can use this to retrieve information for all other SAML configuration automatically.                                 |
-| `ca`                              | Alternative to `caData` and `localCa`. CA to use when validating the signature of the SAML response. This must be manually mounted in a local accessible by dex. |
-| `caData`                          | Alternative to `ca` and `localCa`. Place the cert data directly in the config file.                                                                              |
-| `localCa`                         | Alternative to `ca` and `caData`. A path to a CA file in the local system. MKE will mount and create a secret for the cert.                                      |
-| `ssoURL`                          | The URL to send users to when signing in with SAML. Provided by the IdP.                                                                                         |
-| `redirectURI`                     | Dex callback URL. Where users will be returned to after successful authentication with the IdP.                                                                  |
-| `insecureSkipSignatureValidation` | Optional. Skip the signature validation. To be used for testing purposes only.                                                                                   |
-| `usernameAttr`                    | A username attribute in the returned assertions to map to ID token claims.                                                                                       |
-| `emailAttr`                       | An email attribute in the returned assertions to map to ID token claims.                                                                                         |
-| `groupsAttr`                      | Optional. A groups attribute in the returned assertions to map to ID token claims.                                                                               |
-| `entityIssuer`                    | Optional. Include this as the Issuer value during authentication request.                                                                                        |
-| `ssoIssuer`                       | Optional. Issuer value expected in the SAML response.                                                                                                            |
-| `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter is used to split the attribute's value into multiple groups.             |
-| `nameIDPolicyFormat`              | Requested format of the name ID.                                                                                                                                 |
+| `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.                                 |
+| `ca`                              | Certificate Authority (CA) alternative to `caData` and `localCa`, to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex. |
+| `caData`                          | CA alternative to `ca` and `localCa`, which you can use to place the certificate data directly into the config file.                                                                              |
+| `localCa`                         | Alternative to `ca` and `caData`. A path to a CA file in the local system, with which MKE mounts and creates a secret for the certificate.                                      |
+| `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                         |
+| `redirectURI`                     | Callback URL for dex to which users are returned to following successful IdP authentication.                                                                  |
+| `insecureSkipSignatureValidation` | Optional. Use to skip the signature validation. For testing purposes only.                                                                                   |
+| `usernameAttr`                    | Username attribute in the returned assertions, to map to ID token claims.                                                                                       |
+| `emailAttr`                       | Email attribute in the returned assertions, to map to ID token claims.                                                                                         |
+| `groupsAttr`                      | Optional. Groups attribute in the returned assertions, to map to ID token claims.                                                                               |
+| `entityIssuer`                    | Optional. Include as the Issuer value during authentication requests.                                                                                        |
+| `ssoIssuer`                       | Optional. Issuer value that is expected in the SAML response.                                                                                                            |
+| `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter splits the attribute value into multiple groups.             |
+| `nameIDPolicyFormat`              | Requested name ID format.                                                                                                                                 |
 
 An example configuration for SAML:
 
@@ -45,13 +45,13 @@ authentication:
     emailAttr: email
 ```
 
-## Configure Okta
+**To configure and create a new application in Okta:
 
 Create a new application in Okta and use the following settings:
 
-1. Select **SAML 2.0** as the **Sign-in method**.
-2. Choose an app integration name that you can easily remember.
-3. The host for your redirect URLs:
+1. Select **SAML 2.0** for **Sign-in method**.
+2. For **App name**, choose a name that you can easily remember.
+3. Configure the host for your redirect URLs:
    - Single sign-on URL: `http://{MKE hostname}/callback`
    - Audience URI (SP Entity ID): `http://{MKE hostname}/callback`
    - Attribute statements:
@@ -65,22 +65,22 @@ Create a new application in Okta and use the following settings:
 
    a. Click **Assign** -> **Assign to people**.
 
-   b. Find the account you would like to use for authentication and click the blue **Assign** button on the right.
+   b. Click the blue **Assign** button that corresponds to the account you want to use for authentication.
 
 Okta will generate the `ssoURL` and cert under the `Sign On` tab.
 The `ssoURL` will be the MetadataURL with the final metadata removed from the path.
 The cert can be downloaded from the SAML **Signing Certificates** section.
 Click **Actions** on the active cert and download the cert.
-Configure the `localCa` to point to this file on your system that you will run `mkectl` from.
+8. Configure the `localCa` to point to the downloaded certificate file.
 The cert in the example above is stored in `/etc/ssl/okta.cert`.
 
 Once the configuration is set, run the `mkectl apply` command with your
 configuration file and wait for the cluster to be ready.
 
-## Authentication flow
+**To test the Authentication flow:**
 
 ---
-***Testing tip***
+***Note***
 
 Ports `5556` (dex) and `5555` (example-app) need to be available externally
 to test the authentication flow.
@@ -90,7 +90,7 @@ to test the authentication flow.
 In the browser, perform the following steps to test the authentication flow:
 
 1. Navigate to `http://{MKE hostname}:5555/login`.
-2. Click **Login**.
-3. On the login page, select **Log in with SAML**.
-4. You will be redirected to the IdP's login page. Enter your credentials and click **Sign In**.
+2. Click **Login** to display the login page.
+3. Select **Log in with SAML**.
+4. Enter your credentials and click **Sign In**. If authentication is successful, you will be redirected to the client applications home page.
 5. Successful authentication will redirect you back to the client applications home page.

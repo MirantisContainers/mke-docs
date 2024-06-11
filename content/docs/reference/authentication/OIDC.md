@@ -13,12 +13,12 @@ The following table details the fields that you can configure in the
 
 | Field          | Description                                                                |
 |----------------|----------------------------------------------------------------------------|
-| `issuer`       | The root URL of the OIDC provider.                                         |
-| `clientID`     | The ID from the IdP's application configuration.                           |
-| `clientSecret` | The secret from the IdP's application configuration.                       |
-| `redirect URI` | The URI that the provider will be returning successful authentications to. |
+| `issuer`       | OIDC provider root URL.                                      |
+| `clientID`     | ID from the IdP application configuration.                           |
+| `clientSecret` | Secret from the IdP application configuration.                       |
+| `redirect URI` | URI to which the provider will return successful authentications. |
 
-An example configuration for OIDC:
+OIDC example configuration:
 
 ```yaml
 authentication:
@@ -31,17 +31,19 @@ authentication:
     redirectURI: http://dex.example.com:32000/callback
 ```
 
-## Configure Okta
+**To create a new application in Okta:**
 
 Create a new application in Okta and use the following settings:
 
-1. Select **OIDC - OpenID Connect** as the sign-in method.
-2. Select **Web Application** as the application type.
-3. Choose an app integration name that you can easily remember.
-4. The host for your redirect URLs:
+1. Select **OIDC - OpenID Connect** for **Sign-in method**.
+2. Select **Web Application** for **Application Type**.
+3. For **App integration name**, choose a name that you can easily remember.
+4. Configure the host for your redirect URLs:
    - Sign-in redirect URIs: `http://{MKE hostname}/login`
    - Sign-out redirect URIs: `http://{MKE hostname}`
-5. Click **Save**.
+5. Click **Save** to generates the `clientSecret` and `clientID` in the `General` table of
+the application.
+6. Add the generated `clientSecret` and `clientID` values to your MKE configuration file.
 
 Okta will generate the `clientSecret` and `clientID` on the `General` table of
 the application. Add the generated values to your MKE 4 config.
@@ -49,20 +51,19 @@ the application. Add the generated values to your MKE 4 config.
 Once the configuration is set, run the `mkectl apply` command with your config 
 file and wait for the cluster to be ready.
 
-## Authentication flow
+**To test the Authentication flow:**
 
 ---
-***Testing tip***
+***Note***
 
-Ports `5556` (dex) and `5555` (example-app) need to be available 
-externally to test the authentication flow.
+"To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available. 
 
 ---
 
 In the browser, perform the following steps to test the authentication flow:
 
 1. Navigate to `http://{MKE hostname}:5555/login`
-2. Click **Login**.
-3. On the login page, select **Log in with OIDC**.
-4. You will be redirected to the IdP's login page. Enter your credentials and click **Sign In**.
+2. Click **Login** to display the login page.
+3. Select **Log in with OIDC**.
+4. Enter your credentials and click **Sign In**. If authentication is successful, you will be redirected to the client applications home page.
 5. Successful authentication will redirect you back to the client applications home page.
