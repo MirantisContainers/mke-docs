@@ -46,6 +46,7 @@ To get detailed information on the VMs using the AWS CLI, run:
 ```
 aws ec2 describe-instances --region $(grep "region" terraform.tfvars | awk -F' *= *' '{print $2}' | tr -d '"')
 ```
+
 Alternatively, you can get a visual overview of the VMs at the AWS EC2 page
 by selecting the desired region from the dropdown menu in the top-right
 corner.

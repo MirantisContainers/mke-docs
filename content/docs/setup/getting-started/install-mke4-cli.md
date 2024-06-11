@@ -26,19 +26,26 @@ dependencies:
 - `k0sctl` (default version: 0.17.8)
 - `kubectl` (default version: v1.30.0)
 
-To override the default versions, pass the variables `K0SCTL_VERSION`,`MKECTL_VERSION`and `KUBECTL_VERSION`.
+To override the default versions, pass the variables
+`K0SCTL_VERSION`,`MKECTL_VERSION`and `KUBECTL_VERSION`.
 
->The `install.sh` script detects whether `kubectl` is already installed on your
->system and will not overwrite it. It also detects the operating system and the
->underlying architecture, based on which it will install the `k0sctl`, `kubectl`
- and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
+---
+***Note***
+
+The `install.sh` script detects whether `kubectl` is already installed on your
+system and will not overwrite it. It also detects the operating system and the
+underlying architecture, based on which it will install the `k0sctl`, `kubectl`
+and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
 ` /usr/local/bin` is in your PATH environment variable.
+
+---
 
 1. Install the dependencies:
 
    ```shell
    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/docs/setup/install.sh)"
     ```
+
 2. Confirm dependency installations:
 
    1. To confirm `mkectl`, run:

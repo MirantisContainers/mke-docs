@@ -24,14 +24,18 @@ mkectl init > mke.yaml
 In the configuration file, edit the `hosts` section to match your roster
 of nodes.
 
-> Configure the cluster nodes in advance, in accordance with the
-  [system
+---
+***Note***
+
+Configure the cluster nodes in advance, in accordance with the [system
   requirements](prerequisites.md#system-requirements-for-cluster-nodes).
->
-> Node provisioning is managed by the cluster administrators. You can, for
-instance, use Terraform to create the nodes in a
-cloud provider. [Example Terraform
-configuration](k0s-in-aws/terraform-scenario.md).
+
+Node provisioning is managed by the cluster administrators. You can, for
+instance, use Terraform to create the nodes in a cloud provider.
+[Example
+Terraform configuration](k0s-in-aws/terraform-scenario.md).
+
+---
 
 You must provide SSH information for each cluster node, as well as the role of
 the node:

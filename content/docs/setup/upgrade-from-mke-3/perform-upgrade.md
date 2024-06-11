@@ -33,6 +33,7 @@ run the following command to verify that the MKE 4 cluster is operating:
 ```shell
 sudo k0s kc get nodes
 ```
+
 Example output:
 
 ```shell
@@ -44,6 +45,7 @@ ip-172-31-199-207.us-west-2.compute.internal   Ready    master   30m   v1.29.3+k
 ```
 
 ---
+
 ***Note***
 
 The MKE 3 cluster will no longer be accessible through the previously created
