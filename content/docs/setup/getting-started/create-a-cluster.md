@@ -1,16 +1,17 @@
-## Create a cluster
+# Create a cluster
 
-### Dependencies
+## Dependencies
 
 A number of tools must be installed on your system before you can install MKE
 4:
-* mkectl
-* k0sctl
-* kubectl
+
+- mkectl
+- k0sctl
+- kubectl
 
 Refer to [Install the MKE 4 CLI](install-mke4-cli.md) for detailed information.
 
-### Init
+## Initialization
 
 MKE 4 installation is performed through the use of a single YAML file,
 detailing the desired cluster configuration. To generate this YAML file, run
@@ -28,7 +29,7 @@ of nodes.
   requirements](prerequisites.md#system-requirements-for-cluster-nodes).
 >
 > Node provisioning is managed by the cluster administrators. You can, for
-instance, use [Terraform](https://www.terraform.io/) to create the nodes in a
+instance, use Terraform to create the nodes in a
 cloud provider. [Example Terraform
 configuration](k0s-in-aws/terraform-scenario.md).
 
@@ -98,7 +99,7 @@ monitoring:
 
 </details>
 
-### Install
+## Installation
 
 To perform the installation, run the `apply` command with the generated YAML
 configuration file:
@@ -107,10 +108,10 @@ configuration file:
 mkectl apply -f mke.yaml
 ```
 
-### Known limitations
+## Known limitations
 
 - `mkectl apply` configures `mke` context in the default kubeconfig file that
-is normally located at `~/.kube/config`. If the default kubeconfig is changed,
+is located at `~/.kube/config`. If the default kubeconfig is changed,
 and the `mke` context becomes invalid or unavailable, `mkectl` will be unable
 to manage the cluster until the kubeconfig is restored.
 - You must not attempt to create a new cluster until you have first deleted the

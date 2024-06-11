@@ -1,8 +1,6 @@
-# Upgrade from MKE 3 to MKE 4
+# Upgrade prerequisites
 
-## Prerequisites
-
-Verify that you have the following components in place before you begin the upgrade process:
+Verify that you have the following components in place before you begin upgrading MKE3 to MKE 4:
 
 - A running MKE 3.7.x cluster:
 
@@ -21,6 +19,9 @@ Verify that you have the following components in place before you begin the upgr
   ```shell
   mkectl version
   ```
+
+  Example output:
+
   ```shell
   Version: v4.0.0-alpha.1.0
   ```
@@ -31,12 +32,15 @@ Verify that you have the following components in place before you begin the upgr
   k0sctl version
   ```
 
+  Example output:
+
   ```shell
   version: v0.17.4
   commit: 372a589
   ```
+
 - A `hosts.yaml` file, to provide the information required by `mkectl` to
-  connect to each node by way of SSH.
+  connect to each node with SSH.
 
   Example `hosts.yaml` file:
 

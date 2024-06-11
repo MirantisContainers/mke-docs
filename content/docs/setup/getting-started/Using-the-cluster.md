@@ -1,6 +1,4 @@
-
-
-## Using the cluster
+# Using the cluster
 
 You can use `kubectl` with the `mke` context to interact with the cluster,
 though it is necessary to specify the configuration. `mkectl` outputs the
@@ -10,22 +8,20 @@ You can apply ``.mke.kubeconfig`` using any one of the following methods:
 
 - Set the KUBECONFIG env var to point to `~/.mke/mke.kubeconfig`
 
-  Example:
-
   ```shell
-     `export KUBECONFIG=~/.mke/<cluster name>.kubeconfig`
+  export KUBECONFIG=~/.mke/<cluster name>.kubeconfig
   ```
 
 - Append the contents to the default kubeconfig:
 
   ```shell
-  `cat ~/.mke/mke.kubeconfig >> ~/.kube/config`
+  cat ~/.mke/mke.kubeconfig >> ~/.kube/config
   ```
 
 - Specify the config as a command argument:
 
   ```shell
- `kubectl --kubeconfig ~/.mke/mke.kubeconfig`
+  kubectl --kubeconfig ~/.mke/mke.kubeconfig
   ```
 
 Example output:

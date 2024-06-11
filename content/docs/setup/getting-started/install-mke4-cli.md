@@ -10,7 +10,7 @@ You can download `mkectl`, the MKE CLI tool, from the S3 bucket:
 - [Windows x86_64 image](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha1.0/mkectl_windows_x86_64.zip)
 
 Envisioned as a single binary, capable of managing MKE 4 clusters without any
-additional dependencies, as of `MKE 4.0.0-alpha.1.0` the MKE CLI still requires
+additional dependencies, as of `MKE 4.0.0-alpha.1.0` the MKE CLI requires
 that you have the following tools installed on your system:
 
 - `kubectl`, version `1.29.0` or later ([download](https://kubernetes.io/docs/tasks/tools/#kubectl))
@@ -28,7 +28,7 @@ dependencies:
 
 To override the default versions, pass the variables `K0SCTL_VERSION`,`MKECTL_VERSION`and `KUBECTL_VERSION`.
 
->The `install.sh` script detects whether kubectl is already installed on your
+>The `install.sh` script detects whether `kubectl` is already installed on your
 >system and will not overwrite it. It also detects the operating system and the
 >underlying architecture, based on which it will install the `k0sctl`, `kubectl`
  and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
@@ -39,36 +39,46 @@ To override the default versions, pass the variables `K0SCTL_VERSION`,`MKECTL_VE
    ```shell
    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/docs/setup/install.sh)"
     ```
-3. Confirm the installations:
+2. Confirm dependency installations:
 
    1. To confirm `mkectl`, run:
 
       ```shell
-        mkectl version
+      mkectl version
       ```
+
       Expected output:
+
       ```shell
-         Version: v4.0.0-alpha.1.0
-       ```
+      Version: v4.0.0-alpha.1.0
+      ```
+
    2. To confirm `k0sctl`, run:
-       ```shell
-         k0sctl version
-       ```
-      Expected output:
+
       ```shell
-         version: v0.17.8
-         commit: b061291
-       ```
-   3. To confirm kubectl, run:
-       ```shell
-         kubectl version
-       ```
+      k0sctl version
+      ```
+
       Expected output:
+
       ```shell
-         Client Version: v1.30.0
-         Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-         Server Version: v1.29.3+k0s
-       ```
+      version: v0.17.8
+      commit: b061291
+      ```
+
+   3. To confirm `kubectl`, run:
+
+      ```shell
+      kubectl version
+      ```
+
+      Expected output:
+
+      ```shell
+      Client Version: v1.30.0
+      Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+      Server Version: v1.29.3+k0s
+      ```
 
 ### Start Debug mode
 To turn the debug mode on, run:
