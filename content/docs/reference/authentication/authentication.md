@@ -7,8 +7,9 @@ the authentication in the MKE configuration file and add your preferred method.
 ---
 ***CAUTION***
 
-Changing the authentication method will require you to configure
-authentication completely by yourself.
+Be aware that if you opt to use an authentication method other than Dex,
+you will need to undertake all tasks and responsibilities associated with
+configuring and maintaining that method.
 
 ---
 
@@ -17,18 +18,23 @@ For more information on authentication feature status per release, go to
 
 ## Prerequisites
 
-- Identity Provider (IdP) - To set OIDC or SAML you need to configure an IdP with an application.
-Refer to the official Okta documentation tutorial [Add a SAML Identity Provider](https://help.okta.com/en-us/content/topics/security/idp-add-saml.htm).
-tutorial from the official Okta documentation.
-- LDAP Server - To set LDAP you need to configure an LDAP server with a user.
+- **Identity Provider (IdP)**
+
+    To set OIDC or SAML you need to configure an IdP with an application.
+    Refer to the official Okta documentation tutorial [Add a SAML Identity Provider](https://help.okta.com/en-us/content/topics/security/idp-add-saml.htm).
+
+- **LDAP Server**
+
+    To set LDAP you need to configure an LDAP server with a user.
 
 ## Configuration
 
-Authentication can be configured in the `authentication` section of the MKE 4 config.
-By default, authentication is enabled, but each of the individual authentication 
-methods is disabled. It can be disabled by setting the root `enabled` to `false`. 
-This will completely remove any authentication-related components from being
-installed on the cluster.
+You can configure authentication for MKE 4 through the `authentication` section
+of the MKE configuration file. `authentication` is enabled by default, however
+the settings for each of the individual authentication methods are disabled.
+To enable a service, set its `enabled` configuration option to `true`.
+Doing so will completely remove any authentication-related components from
+being installed on your cluster.
 
 ```yaml
 authentication:
