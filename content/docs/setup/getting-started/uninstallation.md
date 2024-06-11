@@ -1,4 +1,4 @@
-## Uninstallation
+# Uninstallation
 
 Run the `reset` command to destroy the cluster that was previously created with
 the `apply` command.

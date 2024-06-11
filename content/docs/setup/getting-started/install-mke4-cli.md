@@ -81,7 +81,9 @@ To override the default versions, pass the variables `K0SCTL_VERSION`,`MKECTL_VE
       ```
 
 ### Start Debug mode
+
 To turn the debug mode on, run:
+
 ```shell
 sudo DEBUG=true /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/docs/setup/install.sh)"
 ```
@@ -92,11 +94,13 @@ You can use the `MKECTL_VERSION`, `KUBECTL_VERSION` and `K0SCTL_VERSION`
 variables to install non-default versions of `mkectl`, `kubectl` and `k0sctl`.
 
 Example:
+
 ```shell
 sudo K0SCTL_VERSION=0.17.4 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/docs/setup/install.sh)"
 ```
 
 Example output:
+
 ```shell
 k0sctl version
 

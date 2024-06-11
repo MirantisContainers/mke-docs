@@ -1,26 +1,29 @@
-**Scenario**: Create a k0s cluster in AWS using Terraform and install MKE 4 on that cluster.
+# Scenario: Create a k0s cluster in AWS using Terraform and install MKE 4 on that cluster
 
-### Prerequisites
+## Prerequisites
 
 In addition to the MKE 4 [dependencies](../create-a-cluster.md#dependencies),
-you must have the following componenets installed:
+you must have the following components installed:
 
-* [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-  (required for creating VMs in AWS)
-* AWS account
-* env variables, set for AWS CLI:
+- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+(required for creating VMs in AWS)
+
+- AWS account
+
+- env variables, set for AWS CLI:
+
   - `AWS_ACCESS_KEY_ID`
   - `AWS_SECRET_ACCESS_KEY`
   - `AWS_SESSION_TOKEN`
 
-### Create virtual machines on AWS
+## Create virtual machines on AWS
 
-To create virtual machines on AWS using the
-[example Terraform scripts](./terraform/):
+To create virtual machines on AWS using the example Terraform scripts:
 
-1. Copy the example Terraform folder to your local machine,
+1. Copy the [example Terraform folder](./terraform) to your local machine.
 
 2. Create a `terraform.tfvars` file with content similar to:
+
    ```
    cluster_name = "k0s-cluster"
    controller_count = 1
@@ -28,19 +31,28 @@ To create virtual machines on AWS using the
    cluster_flavor = "m5.large"
    region = "us-east-1"
    ```
+
 3. Run `terraform init`.
+
 4. Run `terraform apply -auto-approve`.
+
 5. Run `terraform output --raw k0s_cluster > VMs.yaml`.
 
-> To get detailed information on the VMs using the AWS CLI, run:
-> ```
-> aws ec2 describe-instances --region $(grep "region" terraform.tfvars | awk -F' *= *' '{print $2}' | tr -d '"')
-> ```
-> Alternatively, you can get a visual overview of the VMs at the AWS EC2 page
-> by selecting the desired region from the dropdown menu in the top-right
-> corner.
+---
+***Note***
 
-### Install MKE4 on `k0s`
+To get detailed information on the VMs using the AWS CLI, run:
+
+```
+aws ec2 describe-instances --region $(grep "region" terraform.tfvars | awk -F' *= *' '{print $2}' | tr -d '"')
+```
+Alternatively, you can get a visual overview of the VMs at the AWS EC2 page
+by selecting the desired region from the dropdown menu in the top-right
+corner.
+
+---
+
+## Install MKE4 on `k0s`
 
 1. Generate a sample `mke.yaml` file:
 
@@ -75,7 +87,7 @@ To create virtual machines on AWS using the
    mkectl apply -f mke.yaml
    ```
 
-### Cleanup
+## Cleanup
 
 To delete virtual machines, navigate to the Terraform folder and run:
 
