@@ -1,10 +1,14 @@
 # OIDC
 
-You can configure OIDC (OpenID Connect) for MKE 4 through the `authentication` section of the MKE configuration file. To enable the service, set 'enabled' to 'true'
+You can configure OIDC (OpenID Connect) for MKE 4 through the `authentication`
+section of the MKE configuration file. To enable the service, set `enabled` to `true`.
 The remaining fields in the `authentication.oidc` section are used to configure
 the OIDC provider.
-For information on how to obtain the field values, refer to
-**Create a new application in Okta** section of this document.
+For information on how to obtain the field values, refer to your provider of choice:
+
+- [Okta](OIDC-OKTA-configuration.md)
+
+## Configure MKE
 
 The MKE configuration file `authentication.oidc` fields are detailed below:
 
@@ -28,20 +32,7 @@ authentication:
     redirectURI: http://dex.example.com:32000/callback
 ```
 
-**To create a new application in Okta:**
-
-1. Select **OIDC - OpenID Connect** for **Sign-in method**.
-2. Select **Web Application** for **Application Type**.
-3. For **App integration name**, choose a name that you can easily remember.
-4. Configure the host for your redirect URLs:
-   - Sign-in redirect URIs: `http://{MKE hostname}/login`
-   - Sign-out redirect URIs: `http://{MKE hostname}`
-5. Click **Save** to generates the `clientSecret` and `clientID` in the `General` table of
-the application.
-6. Add the generated `clientSecret` and `clientID` values to your MKE configuration file.
-7. Run the `mkectl apply` command with your MKE configuration file.
-
-**To test the Authentication flow:**
+## Test authentication flow
 
 ---
 ***Note***

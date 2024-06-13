@@ -1,7 +1,7 @@
 # Authentication
 
 Mirantis Kubernetes Engine (MKE) 4 uses Dex for authentication.
-If you want to use a different authentication method, disable
+If you want to use a different authentication component, disable
 the authentication in the MKE configuration file and add your preferred method.
 
 ---
@@ -21,11 +21,13 @@ For more information on authentication feature status per release, go to
 - **Identity Provider (IdP)**
 
     To set OIDC or SAML you need to configure an IdP with an application.
-    Refer to the official Okta documentation tutorial [Add a SAML Identity Provider](https://help.okta.com/en-us/content/topics/security/idp-add-saml.htm).
+    Refer to 
+    [Create OIDC application in Okta](OIDC-providers/OIDC-OKTA-configuration.md), or 
+    [Create SAML application in Okta](SAML-providers/SAML-OKTA-configuration.md).
 
 - **LDAP Server**
 
-    To set LDAP you need to configure an LDAP server with a user.
+    To set LDAP you need to configure an LDAP server with the users.
 
 ## Configuration
 
@@ -33,8 +35,7 @@ You can configure authentication for MKE 4 through the `authentication` section
 of the MKE configuration file. `authentication` is enabled by default, however
 the settings for each of the individual authentication methods are disabled.
 To enable a service, set its `enabled` configuration option to `true`.
-Doing so will completely remove any authentication-related components from
-being installed on your cluster.
+Doing so will install authentication method of your choice on your cluster.
 
 ```yaml
 authentication:
@@ -45,6 +46,6 @@ authentication:
 
 Documentation for specific authentication methods as they apply to MKE 4 is available:
 
-- [OIDC (OpenID Connect)](OIDC.md)
-- [SAML (Security Assertion Markup Language)](SAML.md)
+- [OIDC (OpenID Connect)](OIDC-providers/OIDC.md)
+- [SAML (Security Assertion Markup Language)](SAML-providers/SAML.md)
 - [LDAP (Lightweight Directory Access Protocol)](LDAP.md)

@@ -8,6 +8,8 @@ the interactions with your LDAP server.
 For more information, refer to the official DEX documentation
 [LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration).
 
+## Configure MKE
+
 The MKE configuration file `authentication.ldap` fields are detailed below:
 
 | Field                              | Description                                                           |
@@ -52,7 +54,7 @@ authentication:
       nameAttr: cn
 ```
 
-**To test the Authentication flow:**
+## Test authentication flow
 
 ---
 ***Note***
