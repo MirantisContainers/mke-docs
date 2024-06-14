@@ -7,10 +7,11 @@ With the MKE configuration file, you can:
 
 - Define the number of nodes in the cluster.
 - Define ways to access the nodes.
-- Enable or disable certain MKE 4 features.
+- Enable or disable certain MKE components.
+- Configure MKE component features
 
-Once set, the MKE configuration file is translated into a more complex blueprint
-that contains the granular details on how to set up the cluster.
+Once set, the MKE configuration file is translated into a more complex
+blueprint that contains the granular details on how to set up the cluster.
 
 ## Create configuration
 
@@ -20,9 +21,9 @@ that contains the granular details on how to set up the cluster.
     mkectl init > mke.yaml
     ```
 
-2. Modify the generated file to deploy MKE on the cluster.
-3. Modify the `hosts` section of the MKE configuration file, 
-to apply the configuration to a set of pre-existing machines:
+2. Modify the `hosts` section of the MKE configuration file, to apply the
+   configuration to a set of pre-existing machines that you have set up in
+   advance:
 
     ```yaml
     hosts:
@@ -84,3 +85,8 @@ To view a detailed blueprint of an MKE configuration, run the `mkectl init --blu
 > considered advanced and support by MKE 4 is not assured.
 
 <!-- Please see the Blueprint Operator [documentation](https://mirantiscontainers.github.io/boundless/) for more details on blueprints. - broken link -->
+
+<!-- Discuss with SME NNeisen moving "Create configuration" to "Getting Started" -->
+
+<!-- Discuss reduction of Blueprint section here, instead sending readers to blueprint documentation at https://mirantiscontainers.github.io/blueprint/ -->
+

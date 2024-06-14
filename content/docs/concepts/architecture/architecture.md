@@ -2,7 +2,8 @@
 
 Mirantis Kubernetes Engine (MKE) 4 is an enterprise-grade, production-ready
 Kubernetes platform that is designed to be secure, scalable, and reliable.
-You deploy the software using an MKE configuration file.
+
+You can manage the entire MKE 4 cluster through the MKE configuration file.
 Refer to [Configuration and blueprints](configuration.md) for more information.
 
 ## Components
@@ -11,23 +12,19 @@ MKE 4 is built on top of k0s, a lightweight Kubernetes distribution.
 Refer to the [official k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/)
 for more information.
 
-### Control plane
+<!-- ### Control plane -->
 
-The MKE 4 control plane oversees crucial cluster-wide decisions, monitoring and
-responding to events within the cluster.
-While the control plane can function on any machine in the cluster,
-setup scripts ensure maximum efficiency by running all control plane components
-on one machine and by excluding user containers from that machine.
+<!-- [Discuss the control plane component and its function] -->
 
-### Container Network Interface 
+### Container Network Interface
 
 By default, Calico is installed as the Container Network Interface (CNI) plugin, with the following configuration:
 
 - IPv4 only, with a fixed Pod CIDR of `10.244.0.0/16`.
 - The datastore mode set to `kdd`.
-- `kube-proxy` set to `iptables` mode. 
+- `kube-proxy` set to `iptables` mode.
 - A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
-  
+
 The MKE 4 Alpha.1 release has the following limitations:
 
 - The CNI plugin cannot be changed.
@@ -47,3 +44,7 @@ The MKE 4 Alpha.1 release has the following limitations:
 <!-- [Highlight any important considerations for deploying MKE] -->
 
 <!-- ## Conclusion [Wrap up the document with a conclusion or summary] -->
+
+<!-- ### Control plane -->
+
+<!-- [Discuss the control plane component and its function] -->
