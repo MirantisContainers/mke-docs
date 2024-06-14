@@ -7,7 +7,7 @@ The remaining fields in the `authentication.saml` section are used to configure
 the SAML provider. 
 For information on how to obtain the field values, refer to your provider of choice:
 
-- [Okta](OIDC-OKTA-configuration.md)
+- [Okta](SAML-OKTA-configuration.md)
 
 For more information, refer to the official DEX documentation
 [Authentication through SAML 2.0](https://dexidp.io/docs/connectors/saml/).
