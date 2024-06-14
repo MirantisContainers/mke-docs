@@ -13,7 +13,7 @@
 - Get Started with MKE 4
   - [Prerequisites](../docs/setup/getting-started/prerequisites.md)
   - [Create a cluster](../docs/setup/getting-started/create-a-cluster.md)
-  - [Using the cluster](../docs/setup/getting-started/using-the-cluster.md)
+  - [Using the cluster](../docs/setup/getting-started/Using-the-cluster.md)
   - [nstall MKE 4 CLI](../docs/setup/getting-started/install-mke4-cli.md)
   - [k0s in AWS](../docs/setup/getting-started/k0s-in-aws/terraform-scenario.md)
   - [Uninstallation](../docs/setup/getting-started/uninstallation.md)
@@ -49,12 +49,12 @@ addition, where applicable, the table offers links to associated documentation.
 | gMSA                                                             |   |          |
 | GPU Feature Discovery                                            |   |          |
 | [Ingress](../docs/reference/ingress/ingress-controller.md)                   | alpha.1| MVP      |   |
-| [Kubernetes](../docs/concepts/architecture/README.md#Components) | alpha.1 | MVP 1.29 |  |
+| [Kubernetes](../docs/concepts/architecture.md#Components) | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                            |   |          |
 | Licensing                                                        |   |          |
 | Load Balancing                                                   |   |          |
 | Logging, Monitoring and Alerting                                 | alpha.1 | MVP      |  
-| [Networking (CNI)](../docs/concepts/architecture/README.md#CNI)  |  alpha.1 | MVP      |  
+| [Networking (CNI)](../docs/concepts/architecture.md#CNI)  |  alpha.1 | MVP      |  
 | Node Feature Discovery                                           |   |          |
 | Offline Bundle                                                   |   |          |
 | OpsCare                                                          |   |          |
