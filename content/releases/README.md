@@ -14,7 +14,7 @@
   - [Prerequisites](../docs/setup/getting-started/prerequisites.md)
   - [Create a cluster](../docs/setup/getting-started/create-a-cluster.md)
   - [Using the cluster](../docs/setup/getting-started/Using-the-cluster.md)
-  - [nstall MKE 4 CLI](../docs/setup/getting-started/install-mke4-cli.md)
+  - [Install MKE 4 CLI](../docs/setup/getting-started/install-mke4-cli.md)
   - [k0s in AWS](../docs/setup/getting-started/k0s-in-aws/terraform-scenario.md)
   - [Uninstallation](../docs/setup/getting-started/uninstallation.md)
 - [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/perform-upgrade.md)
