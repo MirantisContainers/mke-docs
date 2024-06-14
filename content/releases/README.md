@@ -10,13 +10,14 @@
 
 ### Setup
 
-- [Get Started with MKE 4](../docs/setup/getting-started/README.md)
+- Get Started with MKE 4
   - [Prerequisites](../docs/setup/getting-started/prerequisites.md)
   - [Create a cluster](../docs/setup/getting-started/create-a-cluster.md)
   - [Using the cluster](../docs/setup/getting-started/using-the-cluster.md)
+  - [nstall MKE 4 CLI](../docs/setup/getting-started/install-mke4-cli.md)
   - [k0s in AWS](../docs/setup/getting-started/k0s-in-aws/terraform-scenario.md)
   - [Uninstallation](../docs/setup/getting-started/uninstallation.md)
-- [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/README.md)
+- [Upgrade from MKE 3](../docs/setup/upgrade-from-mke-3/perform-upgrade.md)
 
 ### Reference
 
@@ -28,7 +29,7 @@
 
 ### Known issues
 
-- [Known issues](known-issues.md)
+- [Known issues](../docs/known-issues.md)
 
 ### Features
 
