@@ -21,13 +21,12 @@ For more information on authentication feature status per release, go to
 - **Identity Provider (IdP)**
 
     To set OIDC or SAML you need to configure an IdP with an application.
-    Refer to 
-    [Create OIDC application in Okta](OIDC-providers/OIDC-OKTA-configuration.md), or 
-    [Create SAML application in Okta](SAML-providers/SAML-OKTA-configuration.md).
+    Refer to [OIDC](OIDC-providers/OIDC.md), or [SAML](SAML-providers/SAML.md)
+    for detailed procedures.
 
 - **LDAP Server**
 
-    To set LDAP you need to configure an LDAP server with the users.
+    To set LDAP you need to [configure an LDAP server](LDAP.md) with the users.
 
 ## Configuration
 
@@ -35,7 +34,7 @@ You can configure authentication for MKE 4 through the `authentication` section
 of the MKE configuration file. `authentication` is enabled by default, however
 the settings for each of the individual authentication methods are disabled.
 To enable a service, set its `enabled` configuration option to `true`.
-Doing so will install authentication method of your choice on your cluster.
+Doing so will install the authentication method of your choice on your cluster.
 
 ```yaml
 authentication:

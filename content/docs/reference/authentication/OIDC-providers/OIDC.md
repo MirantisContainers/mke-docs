@@ -4,7 +4,7 @@ You can configure OIDC (OpenID Connect) for MKE 4 through the `authentication`
 section of the MKE configuration file. To enable the service, set `enabled` to `true`.
 The remaining fields in the `authentication.oidc` section are used to configure
 the OIDC provider.
-For information on how to obtain the field values, refer to your provider of choice:
+For information on how to obtain the field values, refer to your chosen provider:
 
 - [Okta](OIDC-OKTA-configuration.md)
 

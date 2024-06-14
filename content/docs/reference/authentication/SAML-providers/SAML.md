@@ -5,7 +5,7 @@ the `authentication` section of the MKE configuration file.
 To enable the service, set `enabled` to `true`.
 The remaining fields in the `authentication.saml` section are used to configure
 the SAML provider. 
-For information on how to obtain the field values, refer to your provider of choice:
+For information on how to obtain the field values, refer to your chosen provider:
 
 - [Okta](SAML-OKTA-configuration.md)
 
