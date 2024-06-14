@@ -1,31 +1,39 @@
 # LDAP
 
-LDAP can be configured by setting up the `ldap` section in the `authentication` section of the MKE4 config. This also has its own `enabled` field which is disabled by default and much be switched to 'true' to enable LDAP.
+You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4 
+through the `authentication` section of the MKE configuration file.
+To enable the service, set `enabled` to `true`.
+The remaining fields in the `authentication.ldap` section are used to configure
+the interactions with your LDAP server.
+For more information, refer to the official DEX documentation
+[LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration).
 
-The remaining fields are used to configure the interactions with your LDAP server. Full details of these fields can be found in the (https://dexidp.io/docs/connectors/ldap/#configuration)[dex documentation] .
+## Configure MKE
 
-| Field                            | Description                                                               |
-| -------------------------------- | ------------------------------------------------------------------------- |
-| host                             | Host and optional port of the LDAP server in the form "host:port"         |
-| rootCA                           | Path to a trusted root certificate file                                   |
-| bindDN                           | The DN for an application service account                                 |
-| bindPW                           | The password for an application service account                           |
-| usernamePrompt                   | The attribute to display in the provided password prompt                  |
-| userSearch                       | Settings to map a username and password entered by a user to a LDAP entry |
-| userSearch.baseDN                | BaseDN to start the search from                                           |
-| userSearch.filter                | Optional filter to apply when searching the directory                     |
-| userSearch.username              | username attribute used for comparing user entries                        |
-| userSearch.idAttr                | String representation of the user                                         |
-| userSearch.emailAttr             | Attribute to map to Email.                                                |
-| userSearch.nameAttr              | Maps to display name of user                                              |
-| userSearch.preferredUsernameAttr | Maps to preferred username of users                                       |
-| groupSearch                      | Group search queries for groups given a user entry                        |
-| groupSearch.baseDN               | BaseDN to start the search from                                           |
-| groupSearch.filter               | Optional filter to apply when searching the directory                     |
-| groupSearch.userMatchers         | A list of field pairs that are used to match a user to a group            |
-| groupSearch.nameAttr             | Represents group name                                                     |
+The MKE configuration file `authentication.ldap` fields are detailed below:
 
-An example configuration for LDAP is shown below.
+| Field                              | Description                                                           |
+|------------------------------------|-----------------------------------------------------------------------|
+| `host`                             | Host and optional port of the LDAP server, in the `host:port` format. |
+| `rootCA`                           | Path to a trusted root certificate file.                              |
+| `bindDN`                           | Distinguished Name (DN) for an application service account.           |
+| `bindPW`                           | Password for an application service account.                          |
+| `usernamePrompt`                   | Attribute to display in the password prompt.                          |
+| `userSearch`                       | Settings to map user-entered username and password to an LDAP entry.  |
+| `userSearch.baseDN`                | BaseDN from which to start the search.                                |
+| `userSearch.filter`                | Optional filter to apply for a user search of the directory.          |
+| `userSearch.username`              | Username attribute to use for user entry comparison.                  |
+| `userSearch.idAttr`                | String representation of the user.                                    |
+| `userSearch.emailAttr`             | Attribute to map to email.                                            |
+| `userSearch.nameAttr`              | Attribute to map to display name of a user.                           |
+| `userSearch.preferredUsernameAttr` | Attribute to map to preferred usernames.                              |
+| `groupSearch`                      | Group search queries for groups given a user entry.                   |
+| `groupSearch.baseDN`               | BaseDN from which to start the search.                                |
+| `groupSearch.filter`               | Optional filter to apply for a group search of the directory.         |
+| `groupSearch.userMatchers`         | Field pairs list to use to match a user to a group.                   |
+| `groupSearch.nameAttr`             | Group name.                                                           |
+
+LDAP example configuration:
 
 ```yaml
 authentication:
@@ -46,15 +54,17 @@ authentication:
       nameAttr: cn
 ```
 
-## Authentication Flow
+## Test authentication flow
 
-> Ports `5556` (dex) and `5555` (example-app) will need to be available externally to test the authentication flow.
+---
+***Note***
 
-Do the following in the browser to test the authentication flow:
+To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available.
 
-1. Navigate to `http://{MKE hostname}:5555/login`
-2. Click the `Login` button
-3. On the login page, select "Log in with LDAP"
-4. Enter the username and password for the LDAP server
-5. Click the `Login` button
-6. You should now be logged in and see application's home page
+---
+
+1. Navigate to `http://{MKE hostname}:5555/login`.
+2. Click **Login** to display the login page.
+3. Select **Log in with LDAP**.
+4. Enter the username and password for the LDAP server.
+5. Click **Login**. If authentication is successful, you will be redirected to the client applications home page.

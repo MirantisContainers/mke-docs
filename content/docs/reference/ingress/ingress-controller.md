@@ -1,47 +1,56 @@
 # Ingress Controller
 
-The default ingress controller offered by MKE-4 is NGINX Ingress Controller.  It manages traffic that originates outside your cluster (ingress traffic) using the [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) rules. 
-This is the only supported Ingress controller. No additional controllers are supported.
+Traffic that originates outside of your cluster, *ingress* traffic, is managed
+through the use of an ingress controller. By default, MKE 4 offers NGINX
+Ingress Controller, which manages ingress traffic using the [Kubernetes
+Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+rules.
 
+>NGINX Ingress Controller is the only one ingress controller that MKE 4
+currently supports.
 
 ## Configuration
 
-Ingress Controller can be configured using the `ingressController` section of the MKE4 config. 
-By default, Nginx Ingress Controller is disabled. It can be enabled by setting `enabled` to `true`.
+You can configure NGINX Ingress Controller through the `ingressController`
+section of the MKE 4 configuration file. The function is disabled by default
+and can be enabled by setting the `enabled` parameter to `true`.
+
 ```yaml
 ingressController:
   enabled: true
 ```
 
+Other optional ingress controller parameters that you can configure are
+detailed in the following table.
 
-The other optional parameters that can be used to configure the Nginx Ingress Controller are mentioned below.
-
-| Field                           | Description                                                                                                                                                                                                                                                         | Default                   |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| replicaCount                    | Sets the number of NGINX Ingress Controller deployment replicas.                                                                                                                                                                                                    | 2                         |
-| enableLoadBalancer              | Enables an external load balancer. <br/>Valid values: true, false.                                                                                                                                                                                                  | false                     |
-| extraArgs                       | Additional command line arguments to pass to Ingress-Nginx Controller.                                                                                                                                                                                              | {} (empty)                |                                                                                                                                                                                                                    |
-| extraArgs.httpPort              | Sets the container port for servicing HTTP traffic.                                                                                                                                                                                                                 | 80                        |
-| extraArgs.httpsPort             | Sets the container port for servicing HTTPS traffic.                                                                                                                                                                                                                | 443                       |
-| extraArgs.enableSslPassthrough  | Enables SSL passthrough.                                                                                                                                                                                                                                            | false                     |
-| extraArgs.defaultSslCertificate | Sets the Secret that contains an SSL certificate to be used as a default TLS certificate. <br/> Valid value: `<namespace>`/`<name>`                                                                                                                                 | ""                        |
-| preserveClientIP                | Enables preserving inbound traffic source IP. <br/>Valid values: true, false.                                                                                                                                                                                       | false                     |
-| externalIPs                     | Sets the list of external IPs for Ingress service.                                                                                                                                                                                                                  | [] (empty)                |
-| affinity                        | Sets node affinity.  <br/>  <br/> [Example Usage](#affinity) <br/> <br/> Reference: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity.                                                                                  | {} (empty)                |
-| tolerations                     | Sets node toleration. <br/> <br/> [Example Usage](#tolerations)<br/> <br/> Please refer to https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ for more details.                                                                                     | [] (empty)                |          |
-| configMap                       | Adds custom configuration options to Nginx.  <br/><br/>  For the complete list of available options, refer to the [NGINX Ingress Controller ConfigMap](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-options). | {} (empty)                |
-| tcpServices                     | Sets TCP service key-value pairs; enables TCP services. <br/> <br/> [Example Usage](./tcp_udp_services.md)  <br/> <br/>  Please refer to  https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md for more info.         | {} (empty)                |
-| udpServices                     | Sets UDP service key-value pairs; enables UDP services. <br/> <br/> [Example Usage](./tcp_udp_services.md)  <br/> <br/>  Please refer to  https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md for more info.         | {} (empty)                |
-| nodePorts                       | Sets node ports for the external HTTP/HTTPS/TCP/UDP listener.                                                                                                                                                                                                       | HTTP: 33000, HTTPS: 33001 |
-| ports                           | Sets port for the internal HTTP/HTTPS listener.                                                                                                                                                                                                                     | HTTP: 80, HTTPS: 443      |
-| disableHttp                     | Disables the HTTP listener.                                                                                                                                                                                                                                         | false                     |
-
-
+| Field                           | Description                                                                                                                                                                                                                                                                                                                     | Default                   |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| replicaCount                    | Sets the number of NGINX Ingress Controller deployment replicas.                                                                                                                                                                                                                                                                | 2                         |
+| enableLoadBalancer              | Enables an external load balancer. <br><br/>Valid values: `true`, `false`.                                                                                                                                                                                                                                                      | `false`                   |
+| extraArgs                       | Additional command line arguments to pass to Ingress-Nginx Controller.                                                                                                                                                                                                                                                          | {} (empty)                |                                                                                                                                                                                                                    |
+| extraArgs.httpPort              | Sets the container port for servicing HTTP traffic.                                                                                                                                                                                                                                                                             | `80`                      |
+| extraArgs.httpsPort             | Sets the container port for servicing HTTPS traffic.                                                                                                                                                                                                                                                                            | `443`                     |
+| extraArgs.enableSslPassthrough  | Enables SSL passthrough.                                                                                                                                                                                                                                                                                                        | false                     |
+| extraArgs.defaultSslCertificate | Sets the Secret that contains an SSL certificate to use as a default TLS certificate. <br><br/> Valid value: `<namespace>`/`<name>`                                                                                                                                                                                             | ""                        |
+| preserveClientIP                | Enables preserving inbound traffic source IP. <br><br/>Valid values: `true`, `false`.                                                                                                                                                                                                                                           | `false`                   |
+| externalIPs                     | Sets the list of external IPs for Ingress service.                                                                                                                                                                                                                                                                              | [] (empty)                |
+| affinity                        | Sets node affinity.  [Example](#affinity) <br/> <br/> For more information, refer to the Kubernetes documentation [Affinity and anti-affinity](https://kubernetes.io/docs/concepts/configuration/assign-pod-node#affinity-and-anti-affinity).                                                                                   | {} (empty)                |
+| tolerations                     | Sets node toleration. [Example](#tolerations)<br/> <br/> Refer to the Kubernetes documentation [Assigning Pods to Nodes](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) for more detail.                                                                                                                   | [] (empty)                |          |
+| configMap                       | Adds custom configuration options to Nginx.  <br/><br/>  For a complete list of available options, refer to the [NGINX Ingress Controller ConfigMap](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-options).                                                               | {} (empty)                |
+| tcpServices                     | Sets TCP service key-value pairs; enables TCP services. [Example](./tcp_udp_services.md)  <br/> <br/>  Refer to the NGINX Ingress documentation [Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md) for more information. for more information. | {} (empty)                |
+| udpServices                     | Sets UDP service key-value pairs; enables UDP services. [Example](./tcp_udp_services.md)  <br/> <br/>  Refer to the NGINX Ingress documentation [Exposing TCP and UDP services](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/exposing-tcp-udp-services.md) for more information.                       | {} (empty)                |
+| nodePorts                       | Sets the node ports for the externalHTTP/HTTPS/TCP/UDP listener.                                                                                                                                                                                                                                                                | HTTP: 33000, HTTPS: 33001 |
+| ports                           | Sets the port for the internalHTTP/HTTPS listener.                                                                                                                                                                                                                                                                              | HTTP: 80, HTTPS: 443      |
+| disableHttp                     | Disables the HTTP listener.                                                                                                                                                                                                                                                                                                     | false                     |
 
 ### Affinity
-You can specify node affinities using the `ingressController.affinity.nodeAffinity` field in your config file.
 
-An example that uses `requiredDuringSchedulingIgnoredDuringExecution` to schedule the ingress controller pods.
+You can specify node affinities using the
+`ingressController.affinity.nodeAffinity` field in the MKE configuration file.
+
+The following example uses `requiredDuringSchedulingIgnoredDuringExecution` to
+schedule the ingress controller pods.
+
 ```yaml
 ingressController:
   enabled: true
@@ -56,12 +65,13 @@ ingressController:
                   - ip-172-31-42-30
 ```
 
-
 ### Tolerations
 
-The user can set Node tolerations for server scheduling to nodes with taints using the `ingressController.tolerations` field in your config file.
+You can set Node tolerations for server scheduling to nodes with taints using
+the `ingressController.tolerations` field in the MKE configuration file.
 
-An example that uses a toleration with `NoExecute` effect.
+The following example uses a toleration with `NoExecute` effect.
+
 ```yaml
 ingressController:
   enabled: true
@@ -72,9 +82,7 @@ ingressController:
     effect: "NoExecute"
 ```
 
-## Example configuration
-
-An example configuration for Ingress Controller is shown below.
+## Example ingress controller configuration
 
 ```yaml
 ingressController:
@@ -123,7 +131,7 @@ ingressController:
 ```
 
 
-## MKE-3 vs MKE-4 Ingress config parameters
+## MKE version comparison: Ingress configuration parameters
 
 | MKE-3                                                                                                                                                                        | MKE-4                                                                                                                                                                                                                                                                                                                                                                                                                |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,8 +1,20 @@
-# Backup and Restore Using In Cluster Storage Provider
-By default, MKE will store backups and restores using the in cluster storage provider (MinIO). The below instructions assume you have created a cluster and applied a blueprint with the default MKE backup configuration.
+# Backup and restore using the in-cluster storage provider
 
-## Usage
-Backups can be created using `mkectl backup create --name <name>`.
+By default, MKE 4 stores backups and restores using the in-cluster storage
+provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
+
+>The offered instructions assume that you have created a cluster and
+applied a blueprint with the default MKE backup configuration.
+
+## Create an in-cluster backup
+
+To create an in-cluster backup, run:
+
+```shell
+mkectl backup create --name <name>
+```
+
+Example output:
 
 ```shell
 mkectl backup create --name test
@@ -17,7 +29,10 @@ INFO[0012] Waiting for backup to complete. Current phase: InProgress
 INFO[0015] Waiting for backup to complete. Current phase: Completed
 ```
 
-The backup should now be present in the MinIO bucket. You can list the backups using `mkectl backup list`.
+The backup should be present in the MinIO bucket. To list the backups, run
+the `mkectl backup list` command:
+
+Example output:
 
 ```shell
 mkectl backup list
@@ -25,9 +40,18 @@ NAME   STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES  
 test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d       default            <none>
 ```
 
-Optionally, detailed logs of a backup can be viewed via `mkectl backup logs --name test`
+Optionally, you can view detailed logs of a backup by running the `mkectl
+backup logs --name test` command.
 
-To create a restore off the backup we created we can run `mkectl restore create --name test`
+## Restore from an in-cluster backup
+
+To perform a restore using an in-cluster backup, run:
+
+```shell
+mkectl restore create --name test
+```
+
+Example output:
 
 ```shell
 mkectl restore create --name test
@@ -45,7 +69,13 @@ INFO[0027] Waiting for restore to complete. Current phase: Completed
 INFO[0027] Restore test-20240507173309 completed successfully
 ```
 
-We can list the restores using `mkectl restore list`
+To list the restores, run:
+
+```shell
+ mkectl restore list
+ ```
+
+Example output:
 
 ```shell
 mkectl restore list
@@ -53,6 +83,7 @@ NAME                  BACKUP   STATUS      STARTED                         COMPL
 test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-05-07 17:33:34 -0400 EDT   0        121        2024-05-07 17:33:09 -0400 EDT   <none>
 ```
 
-We can optionally view detailed logs similar to the backup logs using `mkectl restore logs --name test-20240507173309`.
+Optionally, you can view detailed logs by running the
+`mkectl restore logs --name test-20240507173309` command.
 
 
