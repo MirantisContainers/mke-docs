@@ -20,7 +20,7 @@ For more information on authentication feature status per release, go to
 ## Configuration
 
 You can configure authentication for MKE 4 through the `authentication` section
-of the MKE configuration file. The settings for each of the individual authentication methods are disabled.
+of the MKE configuration file. By default, the settings for each of the individual authentication methods are disabled.
 To enable a service, set its `enabled` configuration option to `true`.
 Doing so will install the authentication method of your choice on your cluster.
 
