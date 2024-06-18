@@ -1,17 +1,6 @@
 # Authentication
 
 Mirantis Kubernetes Engine (MKE) 4 uses Dex for authentication.
-If you want to use a different authentication component, disable
-the authentication in the MKE configuration file and add your preferred method.
-
----
-***CAUTION***
-
-Be aware that if you opt to use an authentication method other than Dex,
-you will need to undertake all tasks and responsibilities associated with
-configuring and maintaining that method.
-
----
 
 For more information on authentication feature status per release, go to
 [MKE 4 releases](https://github.com/Mirantis/mke-docs/blob/main/content/releases/README.md).
@@ -31,15 +20,9 @@ For more information on authentication feature status per release, go to
 ## Configuration
 
 You can configure authentication for MKE 4 through the `authentication` section
-of the MKE configuration file. `authentication` is enabled by default, however
-the settings for each of the individual authentication methods are disabled.
+of the MKE configuration file. The settings for each of the individual authentication methods are disabled.
 To enable a service, set its `enabled` configuration option to `true`.
 Doing so will install the authentication method of your choice on your cluster.
-
-```yaml
-authentication:
-  enabled: true
-```
 
 ## Authentication methods
 
