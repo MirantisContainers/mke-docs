@@ -1,14 +1,17 @@
 # Dashboard add-on for MKE
+
 #### `v4.0.0-alpha.2.0` +
-The MKE Dashboard add-on provides a UI for kubernetes resource management. 
+
+The MKE Dashboard add-on provides a UI for kubernetes resource management.
 
 Future: User management and administrative configurations will also be possible through the dashboard.
 
-[INSERT SCREENSHOT]
+![MKE Dasboard Preview](ui-preview.png)
 
 ## Installation
 
 To install the Dashboard add-on do this
+
 ```
 [TBD]
 
@@ -17,6 +20,7 @@ To install the Dashboard add-on do this
 ## 4.0.0-alpha.2.0 release
 
 ### What is included
+
 - Metrics eg. node performance + usage statistics
 - Basic kubernetes management of the following (View, Create, Update + Delete)
   - Configurations: ConfigMaps
@@ -30,7 +34,8 @@ To install the Dashboard add-on do this
 - View kubernetes resources by namespace, or all namespaces at once
 
 ### Future
-- User management 
+
+- User management
 - User settings
 - Admin settings: authentication, ingress, backups, certificates, telemetry + logging.
 - Support bundle access
