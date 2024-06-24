@@ -14,8 +14,7 @@ additional dependencies, as of `MKE 4.0.0-alpha.1.0` the MKE CLI requires
 that you have the following tools installed on your system:
 
 - `kubectl`, version `1.29.0` or later ([download](https://kubernetes.io/docs/tasks/tools/#kubectl))
-- `k0sctl`, version `0.17.0` or later
-  ([download](https://github.com/k0sproject/k0sctl/releases))
+- `k0sctl`, version higher or equal to `0.17.0` but less than `0.18.0` ([download](https://github.com/k0sproject/k0sctl/releases))
 
 ## Install using a script
 
