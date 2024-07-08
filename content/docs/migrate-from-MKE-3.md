@@ -97,15 +97,27 @@ are performed through the use of the `mkectl` tool:
 To upgrade an MKE 3 cluster, run the following command:
 
 ```shell
-mkectl upgrade --hosts-path <path-to-hosts-yaml> --admin-username <admin-username> --admin-password <admin-password>
+mkectl upgrade --hosts-path <path-to-hosts-yaml> \
+  --mke3-admin-username <admin-username> \
+  --mke3-admin-password <admin-password> \
+  --external-address <external-address>
 ```
+
+The external address is the domain name of the load balancer. For details,
+see [prerequisites docs](../getting-started/system-requirements#load-balancer-requirements).
 
 {{< callout type="info" >}}
 
-The MKE 4 config file prints to your console when the migration is complete. To
-output the config file to a file for future use, run `mkectl apply`.
-Alternatively, you can set the `--config-out` flag to the path where you want
-to save the MKE 4 config file.
+The MKE 4 config file prints to your console when the migration is complete. Make sure to save the output
+to a file for future use.
+`mkectl upgrade` may create the config file automatically if you provide the `--config-out` flag with the path
+where you want to save the MKE 4 config file.
+
+```shell
+mkectl upgrade --hosts-path <path-to-hosts-yaml> \
+  --mke3-admin-username <admin-username> --mke3-admin-password <admin-password> \
+  --external-address <external-address> --config-out <path-to-desired-file-location>
+```
 
 {{< /callout >}}
 

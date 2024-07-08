@@ -105,3 +105,7 @@ locals {
 output "k0s_cluster" {
   value = yamlencode(local.k0s_tmpl)
 }
+
+output "lb_dns_name" {
+    value = aws_lb.lb.dns_name
+}

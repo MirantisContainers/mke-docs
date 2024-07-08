@@ -19,30 +19,20 @@ following an upgrade performed with `mkectl`.
 
 3. Apply the updated MKE 4 configuration.
 
-## [BOP-686] kubectl fails during MKE 3.x to 4.x migration
+## [BOP-879] External Address flag is ignored when upgrading from a 1 manager MKE cluster
 
-For a cluster with multiple controller nodes, [k0s requires the presence of
-a load balancer for the controller node](https://docs.k0sproject.io/head/high-availability/ ).
-Without a load balancer, the controller nodes is unable to reach the kubelet on worker
-nodes, and thus the user will be presented with `No agent available` errors.
+When you upgrade a single-manager MKE 3 cluster, the `--external-address` flag is ignored.
 
 **Workaround:**
 
-1. If an external load balancer is not already in place, create one that
-   targets all controllers and forwards the following ports:
+`mkectl upgrade` command generates an MKE 4 configuration file at the end of the upgrade process.
 
-   - `443` for controller
-   - `6443` for Kubernetes API
-   - `8132` for Konnectivity
+To set the external address, update the `apiServer.externalAddress` field in the configuration file
+with the desired external address
 
-2. Use `k0sctl` to update the `k0s` config to set `externalAddress`:
+```yaml
+apiServer:
+  externalAddress: "mke.example.com"
+```
 
-   ```yaml
-   k0s:
-     config:
-       spec:
-         api:
-           externalAddress: <load balancer public ip address>
-           sans:
-           - <load balancer public ip address>
-   ```
+Then, run `mkectl apply`.

@@ -75,7 +75,16 @@ by selecting the desired region from the dropdown menu in the top-right corner.
          user: ubuntu
    ```
 
-3. Create the MKE cluster:
+3. Edit the `apiServer.externalAddress` in the config file
+
+    ```sh
+    terraform output -raw lb_dns_name | { read lb; yq -i ".apiServer.externalAddress = \"$lb\"" mke4.yaml; }
+    ```
+    
+    If you don't have `yq` installed, you can manually edit the `mke.yaml` file 
+    and set `apiServer.externalAddress` to the output of the `terraform output -raw lb_dns_name` command.
+
+4. Create the MKE cluster:
 
    ```shell
    mkectl apply -f mke.yaml
