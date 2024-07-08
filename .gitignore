@@ -1,2 +1,15 @@
 # IntelliJ IDEA files
 .idea/
+
+# Terraform files and artifacts
+**/.terraform
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/terraform.tfvars
+**/VMs.yaml
+
+# MKE 4 config files
+
+**/mke4.yaml
+**/mke.yaml
