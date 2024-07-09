@@ -50,10 +50,10 @@ by selecting the desired region from the dropdown menu in the top-right corner.
 
 ## Install MKE on k0s
 
-1. Generate a sample `mke.yaml` file:
+1. Generate a sample `mke4.yaml` file:
 
    ```shell
-   mkectl init > mke.yaml
+   mkectl init > mke4.yaml
    ```
 
 2. Edit the `hosts` section in `mke.yaml` using the values from the `VMs.yaml`
@@ -81,13 +81,13 @@ by selecting the desired region from the dropdown menu in the top-right corner.
     terraform output -raw lb_dns_name | { read lb; yq -i ".apiServer.externalAddress = \"$lb\"" mke4.yaml; }
     ```
     
-    If you don't have `yq` installed, you can manually edit the `mke.yaml` file 
+    If you don't have `yq` installed, you can manually edit the `mke4.yaml` file 
     and set `apiServer.externalAddress` to the output of the `terraform output -raw lb_dns_name` command.
 
 4. Create the MKE cluster:
 
    ```shell
-   mkectl apply -f mke.yaml
+   mkectl apply -f mke4.yaml
    ```
 
 ## Clean up infrastructure
