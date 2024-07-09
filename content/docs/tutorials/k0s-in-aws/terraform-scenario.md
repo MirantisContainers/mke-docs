@@ -89,6 +89,9 @@ by selecting the desired region from the dropdown menu in the top-right corner.
    ```shell
    mkectl apply -f mke4.yaml
    ```
+    ***Note***   
+    Upon a successful completion of the MKE 4 installation, there will be an automatically generated username and password that will be displayed for one time.
+    Alternatively, run `mkectl apply -f mke4.yaml --admin-password <insert_password>` to explicitly set a password value.
 
 ## Clean up infrastructure
 
