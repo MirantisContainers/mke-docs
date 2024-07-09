@@ -21,7 +21,8 @@ following an upgrade performed with `mkectl`.
 
 ## [BOP-879] External Address flag is ignored when upgrading from a 1 manager MKE cluster
 
-When you upgrade a single-manager MKE 3 cluster, the `--external-address` flag is ignored.
+When you upgrade a single-manager MKE 3 cluster, the `--external-address` flag of the `mkectl upgrade` 
+command is ignored.
 
 **Workaround:**
 
