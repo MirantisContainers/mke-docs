@@ -7,8 +7,8 @@ The table that follows details MKE 4 features and their current status. In
 addition, where applicable, the table offers links to associated documentation.
 
 | Feature                                                          | Pre-Release | Status   | 
-|------------------------------------------------------------------|-------|----------|
-| Authentication                                                   | alpha.1| MVP      |  
+|------------------------------------------------------------------|---------|----------|
+| Authentication                                                   | alpha.1 | MVP      |  
 | Authorization                                                    | alpha.1 | MVP      |   
 | [Backup and restore](../../operations/backup-restore)            | alpha.1 | MVP      |
 | CIS Benchmark                                                    |   |          |
@@ -18,13 +18,13 @@ addition, where applicable, the table offers links to associated documentation.
 | cAdvisor                                                         |   |          |
 | gMSA                                                             |   |          |
 | GPU Feature Discovery                                            |   |          |
-| [Ingress](../../operations/ingress)                              | alpha.1| MVP      |   |
+| [Ingress](../../operations/ingress)                              | alpha.1 | MVP      |  |
 | [Kubernetes](../../concepts/architecture)                        | alpha.1 | MVP 1.29 |  |
 | Life Cycle Management                                            |   |          |
 | Licensing                                                        |   |          |
 | Load Balancing                                                   |   |          |
 | Logging, Monitoring and Alerting                                 | alpha.1 | MVP      |  
-| [Networking (CNI)](../../concepts/architecture)                  |  alpha.1 | MVP      |  
+| [Networking (CNI)](../../concepts/architecture)                  | alpha.1 | MVP      |  
 | Node Feature Discovery                                           |   |          |
 | Offline Bundle                                                   |   |          |
 | OpsCare                                                          |   |          |
@@ -34,5 +34,5 @@ addition, where applicable, the table offers links to associated documentation.
 | Telemetry                                                        |   |          |
 | TLS                                                              |   |          |
 | 2FA                                                              |   |          |
-| Web UI                                                           | alpha 2  |          |
+| Web UI (../docs/reference/ui/README.md)                          | alpha 2  |          |
 | Windows                                                          |   |          |

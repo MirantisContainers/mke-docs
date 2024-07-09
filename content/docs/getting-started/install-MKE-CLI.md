@@ -27,8 +27,7 @@ tools installed on your system as well:
 | Tool     | Version          | Download |
 |----------|------------------|----------|
 | kubectl  | 1.29.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl   | 0.17.0 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
-
+| k0sctl   | 0.17.0 or later but less than `0.18.0` | [download](https://github.com/k0sproject/k0sctl/releases) |
 
 ## Install using script
 
