@@ -56,7 +56,7 @@ by selecting the desired region from the dropdown menu in the top-right corner.
    mkectl init > mke4.yaml
    ```
 
-2. Edit the `hosts` section in `mke.yaml` using the values from the `VMs.yaml`
+2. Edit the `hosts` section in `mke4.yaml` using the values from the `VMs.yaml`
    file. Example configuration of the `hosts` section:
 
    ```yaml
