@@ -1,8 +1,7 @@
 ---
+title: Create a Kubernetes cluster in AWS using Terraform and install MKE
 weight: 1
 ---
-
-# Scenario: Create a k0s cluster in AWS using Terraform and install MKE on that cluster
 
 ## Prerequisites
 

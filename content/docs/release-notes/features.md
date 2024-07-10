@@ -34,5 +34,53 @@ addition, where applicable, the table offers links to associated documentation.
 | Telemetry                                                        |   |          |
 | TLS                                                              |   |          |
 | 2FA                                                              |   |          |
-| Web UI (../docs/reference/ui/README.md)                          | alpha 2  |          |
+| [Web UI](../../operations/install-dashboard)                      | alpha.2.0  |          |
 | Windows                                                          |   |          |
+
+
+## 4.0.0-alpha.2.0
+
+### MKE Dashboard
+
+- Metrics including node performance with usage statistics
+- Basic Kubernetes management (View, Create, Update, and Delete):
+  - Configurations: ConfigMaps
+  - Controllers: ReplicaSets, ReplicationControllers, StatefulSets, Jobs, CronJobs, Daemonsets, and Deployments
+  - Namespaces
+  - Nodes
+  - Pods
+  - Services
+  - ServiceAccounts
+  - Storage: StorageClasses, PersistantVolumes + PersistantVolumeClaims
+- View with Kubernetes resources by namespace or all namespaces at once
+
+#### Namespace management
+
+Namespaces can now be managed by clicking on the active namespace in the side menu.
+This opens the namespace selector.
+
+From there, if you want to manage your namespaces further (add, remove, etc), you
+can click the Manage namespaces button at the bottom left to view the list of namespaces.
+
+To return to the main menu, click the "Dashboard" icon in the breadcrumbs or
+the back arrow next to the "active namespace" in the side navigation.
+
+![Namespace management preview](namespace-management.png)
+
+#### Sign out, MKE Version, and documentation links
+
+The MKE version is now indicated in a new menu at the top right of the dashboard.
+Here you will also find links to documentation and the "Sign out" option.
+
+![New header menu](header-menu.png)
+
+#### In development
+
+- User management
+- User settings
+- Admin settings: authentication, ingress, backups, certificates, telemetry, and logging
+- Support bundle access
+- App notifications and alerts
+- Improved detail view of individual Kubernetes resources
+- Statuses for Kubernetes objects
+- ... and more

@@ -1,5 +1,5 @@
 ---
-title: Backup and restore
+title: Back up and restore
 weight: 2
 ---
 
