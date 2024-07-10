@@ -1,8 +1,0 @@
-dirs:
-  - ./content/
-
-useGitIgnore: true
-
-ignorePatterns:
-  - pattern: '^http://localhost:.*$'
-  - pattern: '^(\.\.\/|\.md$)'
