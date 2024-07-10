@@ -4,6 +4,8 @@ resource "aws_lb_target_group" "api" {
   vpc_id   = var.vpc_id
   port     = var.target_port
   health_check {
+    unhealthy_threshold = 2
+    healthy_threshold = 4
     interval = 10
     protocol = "TCP"
   }

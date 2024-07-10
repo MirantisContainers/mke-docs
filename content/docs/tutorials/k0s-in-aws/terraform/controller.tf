@@ -7,10 +7,15 @@ locals {
   }
 }
 
+resource "aws_default_subnet" "subnet" {
+  availability_zone = "${var.region}a"
+}
+
 resource "aws_instance" "cluster-controller" {
   count         = var.controller_count
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.cluster_flavor
+  subnet_id     = aws_default_subnet.subnet.id
 
   tags = {
     Name = "controller+worker"
@@ -26,10 +31,6 @@ resource "aws_instance" "cluster-controller" {
 }
 
 resource "aws_default_vpc" "vpc" {
-}
-
-resource "aws_default_subnet" "subnet" {
-  availability_zone = "${var.region}a"
 }
 
 resource "aws_lb" "lb" {
