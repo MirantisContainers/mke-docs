@@ -1,6 +1,0 @@
-# Skip all links to example.com
-http://example.com/*
-https://example.com/*
-
-# Skip all links to localhost
-http://localhost:*
