@@ -5,3 +5,4 @@ useGitIgnore: true
 
 ignorePatterns:
   - pattern: '^http://localhost:.*$'
+  - pattern: '\.\./'
