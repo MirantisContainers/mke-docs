@@ -1,8 +1,8 @@
-# Dashboard add-on for MKE
+# MKE-Dashboard add-on for MKE
 
 #### `v4.0.0-alpha.2.0` +
 
-The MKE Dashboard add-on provides a UI for kubernetes resource management.
+The MKE-Dashboard add-on provides a UI for kubernetes resource management. 
 
 Future: User management and administrative configurations will also be possible through the dashboard.
 
@@ -10,12 +10,7 @@ Future: User management and administrative configurations will also be possible 
 
 ## Installation
 
-To install the Dashboard add-on do this
-
-```
-[TBD]
-
-```
+MKE-Dashboard comes installed on most clusters. To access MKE-Dashboard, visit the address of the load balancer endpoint on a freshly-installed cluster.
 
 ## 4.0.0-alpha.2.0 release
 
