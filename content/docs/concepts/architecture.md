@@ -8,7 +8,7 @@ Mirantis Kubernetes Engine (MKE) 4 is an enterprise-grade, production-ready
 Kubernetes platform that is designed to be secure, scalable, and reliable.
 
 You can manage the entire MKE 4 cluster through the MKE configuration file.
-Refer to [Configuration](configuration) for more information.
+Refer to [Configuration](../configuration) for more information.
 
 ## Components
 

@@ -7,12 +7,12 @@ weight: 3
 ## Install dependecies
 
 Verify that you have installed `mkectl` and other dependencies on your system
-as described in [Install MKE CLI](install-mkecli).
+as described in [Install MKE CLI](../install-mke-cli).
 
 ## Configure cluster nodes
 
 Configure the cluster nodes in advance, in accordance with the [System
-requirements](system-requirements).
+requirements](../system-requirements).
 
 Node provisioning is managed by the cluster administrators. You can, for
 instance, use Terraform to create the nodes in a cloud provider.
@@ -102,7 +102,7 @@ process and ensures consistency in cluster deployments.
    such an attempt, even through the use of a different configuration file, you will
    permanently lose access to the first cluster through `mkectl`.
    
-   For information on how to delete a cluster, refer to [Uninstall a cluster](uninstall-cluster).
+   For information on how to delete a cluster, refer to [Uninstall a cluster](../uninstall-cluster).
 
 2. Create a new cluster using `mkectl apply` command with the generated YAML
    configuration file:
