@@ -63,7 +63,7 @@ network:
     deployWithOperator: false
 ```
 
-Refer to the following table for detail on all of the conifgurable `network` fields:
+Refer to the following table for detail on all of the configurable `network` fields:
 
 | Field                                                      | Description                                                                        | Valid values        |  Default     |
 |------------------------------------------------------------|------------------------------------------------------------------------------------|---------------------|:------------:|
