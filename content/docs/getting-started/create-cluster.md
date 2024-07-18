@@ -3,7 +3,6 @@ title: Create a cluster
 weight: 3
 ---
 
-
 ## Install dependecies
 
 Verify that you have installed `mkectl` and other dependencies on your system
@@ -29,111 +28,111 @@ process and ensures consistency in cluster deployments.
 
    ```yaml
    hosts:
-      - ssh:
-           address: 1.1.1.1  # external IP of the first node
-           keyPath: /path/to/ssh/key.pem
-           port: 22
-           user: username
-        role: controller+worker
-      - ssh:
-           address: 2.2.2.2  # external IP of the second node
-           keyPath: /path/to/ssh/key.pem
-           port: 22
-           user: username
-        role: worker
+     - ssh:
+         address: 1.1.1.1  # external IP of the first node
+         keyPath: /path/to/ssh/key.pem
+         port: 22
+         user: username
+       role: controller+worker
+     - ssh:
+         address: 2.2.2.2  # external IP of the second node
+         keyPath: /path/to/ssh/key.pem
+         port: 22
+         user: username
+       role: worker
    hardening:
-      enabled: true
+     enabled: true
    authentication:
-      enabled: true
-      saml:
-         enabled: false
-      oidc:
-         enabled: false
-      ldap:
-         enabled: false
+     enabled: true
+     saml:
+       enabled: false
+     oidc:
+       enabled: false
+     ldap:
+       enabled: false
    backup:
-      enabled: true
-      storage_provider:
-         type: InCluster
-         in_cluster_options:
-            exposed: true
+     enabled: true
+     storage_provider:
+       type: InCluster
+       in_cluster_options:
+         exposed: true
    tracking:
-      enabled: true
+     enabled: true
    trust:
-      enabled: true
+     enabled: true
    logging:
-      enabled: true
+     enabled: true
    audit:
-      enabled: true
+     enabled: true
    license:
-      refresh: true
+     refresh: true
    apiServer:
-      externalAddress: mke.example.com
-      sans: []
+     externalAddress: mke.example.com
+     sans: []
    ingressController:
-      enabled: true
-      replicaCount: 2
-      extraArgs:
-         httpPort: 80
-         httpsPort: 443
-         enableSslPassthrough: false
-         defaultSslCertificate: mke/auth-https.tls
+     enabled: true
+     replicaCount: 2
+     extraArgs:
+       httpPort: 80
+       httpsPort: 443
+       enableSslPassthrough: false
+       defaultSslCertificate: mke/auth-https.tls
    monitoring:
-      enableGrafana: true
-      enableOpscare: false
+     enableGrafana: true
+     enableOpscare: false
    network:
-      kubeProxy:
-         disabled: false
-         mode: iptables
-         metricsbindaddress: 0.0.0.0:10249
-         iptables:
-            masqueradebit: null
-            masqueradeall: false
-            localhostnodeports: null
-            syncperiod:
-               duration: 0s
-            minsyncperiod:
-               duration: 0s
-         ipvs:
-            syncperiod:
-               duration: 0s
-            minsyncperiod:
-               duration: 0s
-            scheduler: ""
-            excludecidrs: []
-            strictarp: false
-            tcptimeout:
-               duration: 0s
-            tcpfintimeout:
-               duration: 0s
-            udptimeout:
-               duration: 0s
-         nodeportaddresses: []
-      nllb:
-         disabled: true
-      cplb:
-         disabled: true
-      providers:
-         - provider: calico
-           enabled: true
-           CALICO_DISABLE_FILE_LOGGING: true
-           CALICO_STARTUP_LOGLEVEL: DEBUG
-           FELIX_LOGSEVERITYSCREEN: DEBUG
-           clusterCIDRIPv4: 192.168.0.0/16
-           deployWithOperator: false
-           enableWireguard: false
-           ipAutodetectionMethod: null
-           mode: vxlan
-           overlay: Always
-           vxlanPort: 4789
-           vxlanVNI: 10000
-           windowsNodes: false
-         - provider: kuberouter
-           enabled: false
-           deployWithOperator: false
-         - provider: custom
-           enabled: false
-           deployWithOperator: false
+     kubeProxy:
+       disabled: false
+       mode: iptables
+       metricsbindaddress: 0.0.0.0:10249
+       iptables:
+         masqueradebit: null
+         masqueradeall: false
+         localhostnodeports: null
+         syncperiod:
+           duration: 0s
+         minsyncperiod:
+           duration: 0s
+       ipvs:
+         syncperiod:
+           duration: 0s
+         minsyncperiod:
+           duration: 0s
+         scheduler: ""
+         excludecidrs: []
+         strictarp: false
+         tcptimeout:
+           duration: 0s
+         tcpfintimeout:
+           duration: 0s
+         udptimeout:
+           duration: 0s
+       nodeportaddresses: []
+     nllb:
+       disabled: true
+     cplb:
+       disabled: true
+     providers:
+       - provider: calico
+         enabled: true
+         CALICO_DISABLE_FILE_LOGGING: true
+         CALICO_STARTUP_LOGLEVEL: DEBUG
+         FELIX_LOGSEVERITYSCREEN: DEBUG
+         clusterCIDRIPv4: 192.168.0.0/16
+         deployWithOperator: false
+         enableWireguard: false
+         ipAutodetectionMethod: null
+         mode: vxlan
+         overlay: Always
+         vxlanPort: 4789
+         vxlanVNI: 10000
+         windowsNodes: false
+       - provider: kuberouter
+         enabled: false
+         deployWithOperator: false
+       - provider: custom
+         enabled: false
+         deployWithOperator: false
    ```
 
 {{< /details >}}
@@ -144,20 +143,22 @@ process and ensures consistency in cluster deployments.
    mkectl init > mke.yaml
    ```
 
-2. In the configuration file, edit the `hosts` section to match your roster
-   of nodes. Provide the SSH information for each cluster node, as well as
-   the role of the node based on their functions within the cluster. The table
-   below provides the list of available node roles and their descriptions:
+2. In the generated configuration file:
 
-   | Node Role             | Description                                                                                     |
-   |-----------------------|-------------------------------------------------------------------------------------------------|
-   | **controller+worker** | A manager node that runs both control plane and data plane components. This role combines the responsibilities of managing cluste   operations and executing workloads. |
-   | **worker**            | A worker node that runs the data plane components. These nodes are dedicated to executing workloads and handling the operational task   assigned by the control plane. |
-   | **single**            | A special role used when the cluster consists of a single node. This node handles both control plane and data plane components, effectivel   managing and executing workloads within a standalone environment. |
+   - Edit the `hosts` section to match your roster of nodes. Provide the SSH
+     information for each cluster node, as well as the role of the node based
+     on their functions within the cluster. The table below provides the list
+     of available node roles and their descriptions:
 
-   Additionally, you must provide the external address, which is the domain name of the load balancer configured
-   as described in the [System Requirements "Load Balancer" section](../system-requirements#load-balancer-requirements).  
-   The external address must be set in `apiServer.externalAddress` field in the config file.
+     | Node Role             | Description                                                                                     |
+     |-----------------------|-------------------------------------------------------------------------------------------------|
+     | **controller+worker** | A manager node that runs both control plane and data plane components. This role combines the responsibilities of managing cluster operations and executing workloads. |
+     | **worker**            | A worker node that runs the data plane components. These nodes are dedicated to executing workloads and   handling the operational tasks assigned by the control plane. |
+     | **single**            | A special role used when the cluster consists of a single node. This node handles both control plane and data plane components, effectively managing and executing workloads within a standalone environment. |
+
+   - Specify the external address in the in `apiServer.externalAddress` field.
+     The external address is the domain name of the load balancer configured
+     as described in [System Requirements: Load balancer](../system-requirements#load-balancer-requirements).  
 
 ## Create a cluster
 
