@@ -20,34 +20,35 @@ documentation](https://docs.k0sproject.io/v1.29.4+k0s.0/system-requirements/).
 - Architecture: `amd64`
 - CNI: Calico
 
-## Load Balancer requirements
+## Load balancer requirements
 
-In order for MKE Dashboard to function properly, MKE 4 requires a TCP load balancer, 
-which acts as a single point of contact to access the controllers. 
-With the default MKE 4 configuration, the load balancer needs to allow and route traffic to each controller 
-through the following ports:
+The load balancer can be implemented in many different ways. You can use for example
+HAProxy, NGINX, or the load balancer of your cloud provider.
 
-| Listen Port | Target Port | Purpose             |
-|-------------|-------------|---------------------|
-| 6443        | 6443        | Kubernetes API      |
-| 8132        | 8132        | Konnectivity        |
-| 9443        | 9443        | Controller join API |
-| 443         | 33001       | Ingress Controller  |
+To ensure the MKE Dashboard functions properly, MKE requires a TCP load balancer.
+This load balancer acts as a single point of contact to access the controllers.
+With the default MKE configuration, the load balancer must allow and route traffic
+to each controller through the following ports:
 
-The first 3 ports are not configurable.
+| Listen port | Target port | Purpose             | Configurable          |
+|-------------|-------------|---------------------|-----------------------|
+| 6443        | 6443        | Kubernetes API      | {{< icon "ban" >}}    |
+| 8132        | 8132        | Konnectivity        | {{< icon "ban" >}}    |
+| 9443        | 9443        | Controller join API | {{< icon "ban" >}}    |
+| 443         | 33001       | Ingress Controller  | {{< icon "check" >}}  |
 
-The listen port of the Ingress Controller can be different from 443, but in this case, you must append the listen port
-to the external address in the configuration file. E.g. if you set listen port to be the same as the target port, 33001, 
-the configuration would look as follows
+You can configure the listen port of the Ingress Controller to be different from
+the default port `443`. However, if you change the listen port, you must append
+the new port number to the external address in the configuration file. For example,
+if you set the listen port to be the same as the target port, `33001`, the configuration
+should look as follows:
 
 ```yaml
 apiServer:
   externalAddress: "mke.example.com:33001"
 ```
 
-The target port must be the same as the Ingress Controller's HTTPS node port. It defaults to 33001, 
-but may be adjusted. See `nodePorts` in the 
-[Ingress Controller configuration](../../reference/ingress/ingress-controller.md#configuration)
-
-The load balancer can be implemented in many different ways and MKE 4 doesn't have any additional requirements. 
-You can use for example HAProxy, NGINX or your cloud provider's load balancer.
+The target port must match the HTTPS node port of the Ingress Controller,
+which is `33001` by default, but can be adjusted as needed. See the configuration
+details for `nodePorts` in the 
+[Ingress Controller configuration](../../operations/ingress#configuration)
