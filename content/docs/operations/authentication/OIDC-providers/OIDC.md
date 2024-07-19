@@ -39,7 +39,7 @@ authentication:
 ## Test authentication flow
 
 {{< callout type="info" >}}
-  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available. 
+  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available.
 {{< /callout >}}
 
 1. Navigate to `http://{MKE hostname}:5555/login`
