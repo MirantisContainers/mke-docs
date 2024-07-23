@@ -38,6 +38,6 @@ authentication:
 
 Documentation for specific authentication methods as they apply to MKE 4 is available:
 
-- [OIDC (OpenID Connect)](OIDC-providers/OIDC)
-- [SAML (Security Assertion Markup Language)](SAML-providers/SAML)
-- [LDAP (Lightweight Directory Access Protocol)](LDAP)
+- [OIDC (OpenID Connect)](OIDC-providers/OIDC.md)
+- [SAML (Security Assertion Markup Language)](SAML-providers/SAML.md)
+- [LDAP (Lightweight Directory Access Protocol)](LDAP.md)
