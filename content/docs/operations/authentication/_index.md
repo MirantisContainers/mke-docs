@@ -16,10 +16,10 @@ the authentication in the MKE configuration file and add your preferred method.
 ## Prerequisites
 
 - **Identity Provider (IdP):** To set OIDC or SAML you need to configure an IdP
-  with an application. Refer to [OIDC](./OIDC-providers/OIDC) or
-  [SAML](./SAML-providers/SAML) for detailed procedures.
+  with an application. Refer to [OIDC](OIDC-providers/OIDC.md) or
+  [SAML](SAML-providers/SAML.md) for detailed procedures.
 
-- **LDAP Server:** To set LDAP you need to [configure an LDAP server](./LDAP) with the users.
+- **LDAP Server:** To set LDAP you need to [configure an LDAP server](LDAP.md) with the users.
 
 ## Configuration
 
@@ -38,6 +38,6 @@ authentication:
 
 Documentation for specific authentication methods as they apply to MKE 4 is available:
 
-- [OIDC (OpenID Connect)](./OIDC-providers/OIDC)
-- [SAML (Security Assertion Markup Language)](./SAML-providers/SAML)
-- [LDAP (Lightweight Directory Access Protocol)](./LDAP)
+- [OIDC (OpenID Connect)](OIDC-providers/OIDC)
+- [SAML (Security Assertion Markup Language)](SAML-providers/SAML)
+- [LDAP (Lightweight Directory Access Protocol)](LDAP)
