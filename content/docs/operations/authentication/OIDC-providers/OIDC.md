@@ -10,7 +10,7 @@ the OIDC provider.
 
 For information on how to obtain the field values, refer to your chosen provider:
 
-- [Okta](OIDC-OKTA-configuration.md)
+- [Okta](../OIDC-OKTA-configuration)
 
 ## Configure MKE
 
