@@ -40,3 +40,17 @@ command is ignored.
    ```sh
    mkectl apply
    ```
+
+## [BOP-583] LDAP settings fail to migrate during upgrade from MKE 3
+
+LDAP configurations are not stored in MKE 3 configuration files, and thus they
+are not included when you upgrade to MKE 4 from an MKE 3 installation.
+
+**Workaround:**
+
+When upgrading from MKE 3, you must manually add the LDAP configuration.
+
+1. Make a request to https://{{host}}/enzi/v0/config/auth/ldap on the MKE 3
+cluster prior to the migration.
+2. Convert the LDAP response to the MKE 4 LDAP settings.
+3. Apply the translated LDAP settings to the cluster following migration.
