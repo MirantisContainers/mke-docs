@@ -5,6 +5,22 @@ weight: 2
 
 The MKE 4 known issues with available workarounds are described herein.
 
+## [BOP-583] LDAP settings fail to migrate during upgrade from MKE 3
+
+LDAP configurations are not stored in MKE 3 configuration files, and thus they
+are not included when you upgrade to MKE 4 from an MKE 3 installation.
+
+**Workaround:**
+
+When upgrading from MKE 3, you must manually add the LDAP configuration.
+
+1. Make a request to ``https://{{host}}/enzi/v0/config/auth/ldap`` on the MKE 3
+cluster prior to the migration. For more information, refer to the [MKE 3
+LDAP Configuration through API documentation](https://docs.mirantis.com/mke/3.7/ops/administer-cluster/integrate-with-LDAP-directory/configure-ldap-integration.html#ldap-configuration-through-api).
+
+2. Convert the LDAP response to the MKE 4 LDAP settings.
+3. Apply the translated LDAP settings to the cluster following migration.
+
 ## [BOP-708] OIDC authentication fails after mkectl upgrade
 
 Due to an issue with client secret migration, OIDC authentication fails
@@ -45,18 +61,47 @@ The mke-operator-controller-manager is in crashloopbackoff status in MKE 4
 Alpha 2. You can safely ignore this, however, as it has no effect on MKE
 4.0.0-alpha.2.0 functionality.
 
-## [BOP-583] LDAP settings fail to migrate during upgrade from MKE 3
+## [BOP-982] Cannot change password with mkectl
 
-LDAP configurations are not stored in MKE 3 configuration files, and thus they
-are not included when you upgrade to MKE 4 from an MKE 3 installation.
+You cannot change the password for an existing MKE 4 deployment by running
+``mkectl apply -f mke4.yaml --admin-password <password>``, which is the
+expected behavior.
 
 **Workaround:**
 
-When upgrading from MKE 3, you must manually add the LDAP configuration.
+Use ``kubectl`` to change the ``Password`` object:
 
-1. Make a request to ``https://{{host}}/enzi/v0/config/auth/ldap`` on the MKE 3
-cluster prior to the migration. For more information, refer to the [MKE 3
-LDAP Configuration through API documentation](https://docs.mirantis.com/mke/3.7/ops/administer-cluster/integrate-with-LDAP-directory/configure-ldap-integration.html#ldap-configuration-through-api).
+1. Obtain the list of users:
 
-2. Convert the LDAP response to the MKE 4 LDAP settings.
-3. Apply the translated LDAP settings to the cluster following migration.
+   ```sh
+   $ kubectl -n mke get passwords -o custom-columns=NAME:.metadata.name,EMAIL:.email
+   ```
+
+   Example output:
+
+   ```sh
+   NAME                    EMAIL
+   mfsg22lozpzjzzeeeirsk   admin
+2. Reveal the Password object for the target user.
+
+   ```sh
+   $ % km get password mfsg22lozpzjzzeeeirsk -oyaml
+   ```
+
+   Example output:
+
+   ```sh
+   apiVersion: dex.coreos.com/v1
+   email: admin
+   hash: JDJhJDEwJFA5RUppWmVJLkRCMVlqMWJqZk5rUk9RQ1oybFFpOUhXUFhnYmIxdUFPSkpHeGFDWUl1OTcy
+   kind: Password
+   metadata:
+     creationTimestamp: "2024-07-23T18:39:11Z"
+     generation: 1
+     name: mfsg22lozpzjzzeeeirsk
+     namespace: mke
+     resourceVersion: "3558"
+     uid: 91a9e728-abfa-4daa-bdab-4c09cf888281
+   userID: 7668fdb9-a979-4645-b6cc-10985df77da6
+   username: admin
+3. Edit the ``hash`` field with the desired password hash.
