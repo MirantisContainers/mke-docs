@@ -40,3 +40,8 @@ command is ignored.
    ```sh
    mkectl apply
    ```
+
+## [BOP-947] Managed user passwords are not migrated during upgrade from MKE 3
+
+Admin passwords are migrated during upgrade from MKE 3, however managed user
+passwords are not migrated.
