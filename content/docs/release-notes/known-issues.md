@@ -54,10 +54,9 @@ are not included when you upgrade to MKE 4 from an MKE 3 installation.
 
 When upgrading from MKE 3, you must manually add the LDAP configuration.
 
-1. Make a request to https://{{host}}/enzi/v0/config/auth/ldap on the MKE 3
+1. Make a request to ``https://{{host}}/enzi/v0/config/auth/ldap`` on the MKE 3
 cluster prior to the migration. For more information, refer to the [MKE 3
 LDAP Configuration through API documentation](https://docs.mirantis.com/mke/3.7/ops/administer-cluster/integrate-with-LDAP-directory/configure-ldap-integration.html#ldap-configuration-through-api).
-
 
 2. Convert the LDAP response to the MKE 4 LDAP settings.
 3. Apply the translated LDAP settings to the cluster following migration.
