@@ -40,3 +40,12 @@ command is ignored.
    ```sh
    mkectl apply
    ```
+
+## Upgrade from MKE 3 in IPVS mode terminates with fatal error
+
+The following message displays when you attempt to upgrade from MKE 3 to MKE 4
+in IPVS mode:
+
+```sh
+FATA[0640] Upgrade failed due to error: failed to run step [Upgrade Tasks]: unable to install BOP: unable to apply MKE4 config: failed to wait for pods: failed to wait for pods: failed to list pods: client rate limiter Wait returned an error: context deadline exceeded
+```
