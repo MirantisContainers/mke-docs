@@ -40,3 +40,8 @@ command is ignored.
    ```sh
    mkectl apply
    ```
+
+## [BOP-905] Prometheus dashboard reports incorrect heavy memory use
+
+The Prometheus dashboard displays heavy memory use that does not accurately
+reflect true memory status.
