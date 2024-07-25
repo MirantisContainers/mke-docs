@@ -1,26 +1,24 @@
 ---
+title: Architecture
 weight: 1
 ---
-
-# MKE Architecture
 
 Mirantis Kubernetes Engine (MKE) 4 is an enterprise-grade, production-ready
 Kubernetes platform that is designed to be secure, scalable, and reliable.
 
-You can manage the entire MKE 4 cluster through the MKE configuration file.
-Refer to [Configuration](../configuration) for more information.
+You can manage the entire MKE cluster through the MKE configuration file.
+Refer to [Configuration](../configuration) for details.
 
 ## Components
 
 MKE 4 is built on top of k0s, a lightweight Kubernetes distribution.
-Refer to the [official k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/)
-for more information.
+To learn more, refer to [k0s documentation](https://docs.k0sproject.io/v1.29.3+k0s.0/).
 
 <!-- ### Control plane -->
 
 <!-- [Discuss the control plane component and its function] -->
 
-### Container Network Interface
+### Networking
 
 By default, Calico is installed as the Container Network Interface (CNI) plugin,
 with the following configuration:
@@ -30,11 +28,7 @@ with the following configuration:
 - `kube-proxy` set to `iptables` mode.
 - A `vxlan` backend, which uses the default port of `4789` for traffic and default virtual network ID of `4096`.
 
-The MKE 4 Alpha.1 release has the following limitations:
-
-- The CNI plugin cannot be changed.
-- Calico cannot be reconfigured.
-- The Calico configuration is not migrated during an upgrade to MKE4 from MKE 3.
+Refer to [Container Network Interface](../cni) for the network configuration details
 
 <!-- ### Data Plane -->
 

@@ -24,7 +24,7 @@ addition, where applicable, the table offers links to associated documentation.
 | Licensing                                                        |   |          |
 | Load Balancing                                                   |   |          |
 | Logging, Monitoring and Alerting                                 | alpha.1 | MVP      |  
-| [Networking (CNI)](../../concepts/architecture)                  | alpha.1 | MVP      |  
+| [Networking (CNI)](../../concepts/cni)                  | alpha.2 | MVP      |  
 | Node Feature Discovery                                           |   |          |
 | Offline Bundle                                                   |   |          |
 | OpsCare                                                          |   |          |
