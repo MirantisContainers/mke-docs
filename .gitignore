@@ -8,8 +8,11 @@
 **/terraform.tfstate.backup
 **/terraform.tfvars
 **/VMs.yaml
+**/aws_private.pem
 
 # MKE 4 config files
 
 **/mke4.yaml
 **/mke.yaml
+
+./public/

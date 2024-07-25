@@ -20,7 +20,9 @@ you need to do the following:
 
 To create virtual machines on AWS using the example Terraform scripts:
 
-1. Copy the [example Terraform folder](./terraform) to your local machine.
+1. Copy the [example Terraform
+   folder](https://github.com/Mirantis/mke-docs/tree/main/content/docs/tutorials/k0s-in-aws/terraform)
+   to your local machine.
 2. Create a `terraform.tfvars` file with content similar to:
 
    ```
