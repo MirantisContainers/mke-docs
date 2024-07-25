@@ -61,7 +61,7 @@ The mke-operator-controller-manager is in crashloopbackoff status in MKE 4
 Alpha 2. You can safely ignore this, however, as it has no effect on MKE
 4.0.0-alpha.2.0 functionality.
 
-## [BOP-982] Cannot change password with mkectl
+## [BOP-982] Cannot change MKE 4 password using mkectl
 
 You cannot change the password for an existing MKE 4 deployment by running
 ``mkectl apply -f mke4.yaml --admin-password <password>``, which is the
