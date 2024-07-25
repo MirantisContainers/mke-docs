@@ -40,3 +40,9 @@ command is ignored.
    ```sh
    mkectl apply
    ```
+
+## [BOP-964] mke-operator in crashloopbackoff status
+
+The mke-operator-controller-manager is in crashloopbackoff status in MKE 4
+Alpha 2. You can safely ignore this, however, as it has no effect on MKE
+4.0.0-alpha.2.0 functionality.
