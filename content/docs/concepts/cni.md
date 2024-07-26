@@ -78,8 +78,8 @@ network:
 
 The following table includes details on all of the configurable `network` fields.
 
-| Field | Description | Valid values |  Default |
-|-------|-------------|--------------|----------|
+| Field | Description | Values |  Default |
+|-------|-------------|--------|----------|
 | `serviceCIDR` | Sets the IPv4 range of IP addresses for services in a Kubernetes cluster. | Valid IPv4 CIDR | `10.96.0.0/16` |
 | `nodePortRange` | Sets the allowed port range for Kubernetes services of the NodePort type. | Valid port range | `32768-35535` |
 | `providers` | Sets the provider for the active CNI. | `calico` | `calico` |
@@ -89,8 +89,8 @@ The following table includes details on all of the configurable `network` fields
 The following table includes details on the configurable settings
 for the Calico provider.
 
-| Field   | Description  | Valid values        |  Default     |
-|---------|--------------|---------------------|--------------|
+| Field   | Description  | Values        |  Default     |
+|---------|--------------|---------------|--------------|
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
 | `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` |
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
@@ -100,7 +100,7 @@ for the Calico provider.
 | `CALICO_STARTUP_LOGLEVEL` | Sets the early log level for `calico/node`. | Provider specific[^0] | `DEBUG` |
 | `FELIX_LOGSEVERITYSCREEN` | Sets the log level for `calico/felix`. | Provider specific[^0] | `DEBUG` |
 
-[^0]: For the valid values, consult your provider documentation.
+[^0]: For the available values, consult your provider documentation.
 
 ## Limitations
 
