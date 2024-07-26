@@ -104,5 +104,5 @@ for the Calico provider.
 
 ## Limitations
 
-Components using `nodeports` may have their own specific way to specify the port numbers for NodePorts,
-and they may need to be changed at the same time as the `nodePortRange`.
+Components using `nodeports` may have their own specific way of specifying the port numbers for NodePorts,
+and these may need to be changed simultaneusly with the `nodePortRange`.
