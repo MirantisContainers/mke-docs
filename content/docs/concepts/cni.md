@@ -86,7 +86,7 @@ The following table includes details on all of the configurable `network` fields
 
 ## Providers configuration
 
-The following table includes the details on the configurable settings
+The following table includes details on the configurable settings
 for the Calico provider.
 
 | Field   | Description  | Valid values        |  Default     |
