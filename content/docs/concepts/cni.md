@@ -94,7 +94,7 @@ for the Calico provider.
 | `enabled` | Sets the name of the external storage provider. AWS is currently the only available option. | `true` | `true` |
 | `clusterCIDRIPv4` | Sets the IP pool in the Kubernetes cluster from which Pods are allocated. | Valid IPv4 CIDR | `192.168.0.0/16` |
 | `ipAutodetectionMethod` | Sets the autodetecting method for the IPv4 address for the host. | Provider specific[^0] | None |
-| `mode` | Sets the ipv4 overlay networking mode. | `ipip`, `vxlan` | `vxlan` |
+| `mode` | Sets the IPv4 overlay networking mode. | `ipip`, `vxlan` | `vxlan` |
 | `vxlanPort` | Sets the VXLAN port for the VXLAN mode. | Valid port number | `4789` |
 | `vxlanVNI` | Sets the VXLAN VNI for the VXLAN mode. | Valid VNI number | `10000` |
 | `CALICO_STARTUP_LOGLEVEL` | Sets the early log level for `calico/node`. | Provider specific[^0] | `DEBUG` |
