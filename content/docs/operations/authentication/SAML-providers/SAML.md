@@ -23,9 +23,8 @@ The MKE configuration file `authentication.smal` fields are detailed below:
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `enabled`                         | Enable authentication through dex.                                                                                                                                                  |
 | `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.                                                                      |
-| `ca`                              | Certificate Authority (CA) alternative to `caData` and `localCa`, to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex. |
-| `caData`                          | CA alternative to `ca` and `localCa`, which you can use to place the certificate data directly into the config file.                                                                |
-| `localCa`                         | Alternative to `ca` and `caData`. A path to a CA file in the local system, with which MKE mounts and creates a secret for the certificate.                                          |
+| `ca`                              | Certificate Authority (CA) alternative to `caData` to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex. |
+| `caData`                          | CA alternative to `ca`, which you can use to place the certificate data directly into the config file.                                                                |
 | `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                                          |
 | `redirectURI`                     | Callback URL for dex to which users are returned to following successful IdP authentication.                                                                                        |
 | `insecureSkipSignatureValidation` | Optional. Use to skip the signature validation. For testing purposes only.                                                                                                          |
@@ -46,7 +45,6 @@ authentication:
     enabled: true
     ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
     redirectURI: http://{MKE host}:5556/callback
-    localCa: /etc/ssl/okta.cert
     usernameAttr: name
     emailAttr: email
 ```
