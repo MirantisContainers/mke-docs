@@ -76,7 +76,7 @@ network:
 
 ## Network configuration
 
-The following table includes the details on all of the configurable `network` fields.
+The following table includes details on all of the configurable `network` fields.
 
 | Field | Description | Valid values |  Default |
 |-------|-------------|--------------|----------|
