@@ -31,21 +31,7 @@ tools installed on your system as well:
 
 ## Install using script
 
-To install the required dependencies automatically, use the [install.sh](./install.sh) script.
-
-By default, the script installs the following software:
-
-| Tool     | Default version   |
-|----------|-------------------|
-| `mkectl` | v4.0.0-alpha.2.0  |
-| `k0sctl` | 0.17.8            |
-| `kubectl`| v1.30.0           |
-
-The `install.sh` script detects whether `kubectl` is already installed on your
-system and will not overwrite it. It also detects the operating system and the
-underlying architecture, based on which it will install the `k0sctl`, `kubectl`
-and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
-` /usr/local/bin` is in your `PATH` environment variable.
+To automatically install the necessary dependencies, you can utilize the `install.sh` script as shown in the example below.
 
 **Procedure:**
 
@@ -121,5 +107,19 @@ and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
    {{< /tab >}}
 
 {{< /tabs >}}
+
+By default, the script installs the following software:
+
+| Tool     | Default version   |
+|----------|-------------------|
+| `mkectl` | v4.0.0-alpha.2.0  |
+| `k0sctl` | 0.17.8            |
+| `kubectl`| v1.30.0           |
+
+The `install.sh` script detects whether `kubectl` is already installed on your
+system and will not overwrite it. It also detects the operating system and the
+underlying architecture, based on which it will install the `k0sctl`, `kubectl`
+and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
+` /usr/local/bin` is in your `PATH` environment variable.
 
 Now, you can proceed with the MKE cluster creation.
