@@ -34,7 +34,7 @@ addition, where applicable, the table offers links to associated documentation.
 | Telemetry                                                        |   |          |
 | TLS                                                              |   |          |
 | 2FA                                                              |   |          |
-| [Web UI](../../operations/install-dashboard)                      | alpha.2.0  |          |
+| [MKE Dashboard](../../concepts/dashboard)                        | alpha.2.0  |          |
 | Windows                                                          |   |          |
 
 
