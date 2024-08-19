@@ -19,20 +19,21 @@ the `lameduck` section of the MKE configuration file under `dns`:
       duration: "7s"
 ```
 
-The lameduck parameters that you can configure are
-detailed in the following table.
+**Configuration parameters**
 
 | Field                      | Description                                                             | Default |
 |----------------------------|-------------------------------------------------------------------------|---------|
 | enabled                    | Enables the lameduck health function.<br/>  Valid values: true, false.  | false   |
 | duration                   | Length of time during which lameduck will run, expessed with integers and time suffixes, such as s for seconds and m for minutes.                                            | 7s      |
 
-    Note: Editing the CoreDNS config map outside MKE to configure the lameduck function is not supported. Any such attempts shall be superseded by the values that are configured in the MKE configuration file.
 
+<callout type="info"> Editing the CoreDNS config map outside MKE to configure the lameduck function is not supported. Any such attempts will be superseded by the values that are configured in the MKE configuration file.</callout >
 
-## Applying the Configuration
+## Applying configuration
 
-After enabling/adjusting the lameduck configuration, you must wait for the CoreDNS pods to apply the changes. You can check the CoreDNS logs to verify that the lameduck configuration is applied.
+1. Enable or adjust the lameduck configuration.
+2. Wait for the CoreDNS pods to apply the changes.
+3. Check the CoreDNS logs to verify if the lameduck configuration is applied.
 
 ```bash
 kubectl logs -f deployment/coredns -n kube-system
@@ -52,9 +53,11 @@ linux/arm64, go1.20, 055b2c3
 [INFO] Reloading complete
 ```
 
-## MKE version comparison: Lameduck configuration parameters
+## MKE version comparison
 
-| MKE-3                                                 | MKE-4                                                                                                                                                                                                                                                                                                                                                                                                                |
+**Lameduck configuration parameters**
+
+| MKE 3                                                 | MKE 4                                                                                                                                                                                                                                                                                                                                                                                                                |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [cluster_config.core_dns_lameduck_config.enabled]     |  dns.lameduck.enabled                                                                                                                                                                                                                                                                                                                                                                                           |
 | [cluster_config.core_dns_lameduck_config.duration]    |  dns.lameduck.duration                                                                                                                                                                                                                                                                                                                                                                                       |
