@@ -9,7 +9,7 @@ service, set `enabled` to `true`. The remaining fields in the
 `authentication.saml` section are used to configure the SAML provider. For
 information on how to obtain the field values, refer to your chosen provider:
 
-- [Okta](SAML-OKTA-configuration)
+- [Okta](../SAML-providers/SAML-OKTA-configuration)
 
 For more information, refer to the official DEX documentation
 [Authentication through SAML 2.0](https://dexidp.io/docs/connectors/saml/).
@@ -21,7 +21,7 @@ The MKE configuration file `authentication.smal` fields are detailed below:
 | Field                             | Description                                                                                                                                                                         |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `enabled`                         | Enable authentication through dex.                                                                                                                                                  |
-| `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.                                                                      |
+| `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.<br><br>When a URL is provided for `ssoMetadataURL`, the other SAML fields are not required.                                                                       |
 | `ca`                              | Certificate Authority (CA) alternative to `caData` to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex. |
 | `caData`                          | CA alternative to `ca`, which you can use to place the certificate data directly into the config file.                                                                |
 | `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                                          |
@@ -48,21 +48,15 @@ authentication:
     emailAttr: email
 ```
 
-### Example `ssoMetadataURL` use:
+## Use `ssoMetadataURL` ##
 
 You can retrieve information for all of the SAML configurations in your MKE
 cluster by accessing the URL configured to `ssoMetadataURL` in the MKE
 configruation file.
 
-Example `ssoMetadataURL` URL:
+Example of information provided when you access the `ssoMetadataURL` URL:
 
-```bash
-https://dev-64105006.okta.com/app/exk75pi5do2MzU1t95r7/sso/saml/metadata
-```
-
-Example output:
-
-```bash
+```shell
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="http://www.okta.com/exk75pi5do2MzU1t95r7">
 <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 <md:KeyDescriptor use="signing">
