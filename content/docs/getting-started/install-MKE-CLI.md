@@ -38,7 +38,7 @@ To automatically install the necessary dependencies, you can utilize the `instal
 1. Install the dependencies by downloading and executing the following shell script:
 
    ```shell
-   sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/getting-started/install.sh)"
+   sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Mirantis/mke-docs/main/content/docs/getting-started/install.sh)"
     ```
 
    If you want to override default dependency versions, pass the `MKECTL_VERSION`, `KUBECTL_VERSION`
