@@ -3,37 +3,15 @@ title: Install the MKE CLI
 weight: 2
 ---
 
-Before you can proceed with the MKE installation, you need to download and install
-`mkectl`, the MKE CLI tool, along with the `kubectl` and `k0sctl` tools, either manually
-or using the script provided below.
-
-## Install manually
-
-You can download `mkectl` from the S3 bucket:
-
-| Distribution | Architecture | Download |
-|--------------|--------------|----------|
-| Linux        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_linux_arm64.tar.gz) |
-| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_linux_x86_64.tar.gz) |
-| MacOS        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_darwin_arm64.tar.gz) |
-| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_darwin_x86_64.tar.gz) |
-| Windows      | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_windows_arm64.zip) |
-| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.2.0/mkectl_windows_x86_64.zip) |
-
-Envisioned as a single binary, capable of managing MKE clusters without any
-additional dependencies, the MKE CLI requires that you have the following
-tools installed on your system as well:
-
-| Tool     | Version          | Download |
-|----------|------------------|----------|
-| kubectl  | 1.29.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
-| k0sctl   | 0.17.0 or later but less than `0.18.0` | [download](https://github.com/k0sproject/k0sctl/releases) |
+Before you can proceed with the MKE installation, you must download and install
+`mkectl`, the MKE CLI tool, as well as `kubectl` and `k0sctl`. You can do this
+automatically, using the script provided in the section that immediately
+follows, or you can do it manually.
 
 ## Install using script
 
-To automatically install the necessary dependencies, you can utilize the `install.sh` script as shown in the example below.
-
-**Procedure:**
+To automatically install the necessary dependencies, you can use the
+`install.sh` script offered in the example procedure that follows.
 
 1. Install the dependencies by downloading and executing the following shell script:
 
@@ -67,7 +45,7 @@ To automatically install the necessary dependencies, you can utilize the `instal
        Expected output:
 
        ```shell
-       Version: v4.0.0-alpha.2.0
+       Version: v4.0.0-alpha.4.0
        ```
      {{< /tab >}}
 
@@ -112,7 +90,7 @@ By default, the script installs the following software:
 
 | Tool     | Default version   |
 |----------|-------------------|
-| `mkectl` | v4.0.0-alpha.2.0  |
+| `mkectl` | v4.0.0-alpha.4.0  |
 | `k0sctl` | 0.17.8            |
 | `kubectl`| v1.30.0           |
 
@@ -122,4 +100,27 @@ underlying architecture, based on which it will install the `k0sctl`, `kubectl`
 and `mkectl` binaries in `/usr/local/bin`. Thus, you must ensure that
 ` /usr/local/bin` is in your `PATH` environment variable.
 
-Now, you can proceed with the MKE cluster creation.
+You can now proceed with MKE cluster creation.
+
+## Install manually
+
+Download `mkectl` from the S3 bucket:
+
+| Distribution | Architecture | Download |
+|--------------|--------------|----------|
+| Linux        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_linux_arm64.tar.gz) |
+| Linux        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_linux_x86_64.tar.gz) |
+| MacOS        | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_darwin_arm64.tar.gz) |
+| MacOS        | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_darwin_x86_64.tar.gz) |
+| Windows      | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_windows_arm64.zip) |
+| Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_windows_x86_64.zip) |
+
+Envisioned as a single binary that is capable of managing MKE clusters without
+any additional dependencies, the MKE CLI also requires that you have the
+following tools installed on your system:
+
+| Tool     | Version          | Download |
+|----------|------------------|----------|
+| kubectl  | 1.29.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+| k0sctl   | 0.17.0 or later but less than `0.18.0` | [download](https://github.com/k0sproject/k0sctl/releases) |
+
