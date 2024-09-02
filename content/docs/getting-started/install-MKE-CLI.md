@@ -5,13 +5,12 @@ weight: 2
 
 Before you can proceed with the MKE installation, you must download and install
 `mkectl`, the MKE CLI tool, as well as `kubectl` and `k0sctl`. You can do this
-automatically, using the script provided in the section that immediately
-follows, or you can do it manually.
+automatically using an `install.sh` script, or you can do it manually.
 
-## Install using script
+## Install automatically with a script
 
-To automatically install the necessary dependencies, you can use the
-`install.sh` script offered in the example procedure that follows.
+To automatically install the necessary dependencies, you can use an
+`install.sh` script, as exemplified in the following procedure:
 
 1. Install the dependencies by downloading and executing the following shell script:
 
@@ -115,9 +114,9 @@ Download `mkectl` from the S3 bucket:
 | Windows      | arm64        | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_windows_arm64.zip) |
 | Windows      | x86_64       | [download](https://s3.us-east-2.amazonaws.com/packages-stage-mirantis.com/v4.0.0-alpha.4.0/mkectl_windows_x86_64.zip) |
 
-Envisioned as a single binary that is capable of managing MKE clusters without
-any additional dependencies, the MKE CLI also requires that you have the
-following tools installed on your system:
+The MKE CLI is a single binary that is capable of managing MKE clusters without
+any additional dependencies. Its use, though, requires that you have the
+following tools on your system:
 
 | Tool     | Version          | Download |
 |----------|------------------|----------|
