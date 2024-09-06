@@ -81,6 +81,10 @@ file:
 mkectl init --mke3-config </path/to/mke3-config.toml>
 ```
 
+{{< callout type="info" >}} To upgrade an MKE 3 cluster with GPU enabled,
+ensure you complete the [GPU prerequisites](/docs/operations/gpu/#prerequisites) before
+starting the upgrade process. {{< /callout >}}
+
 ## Perform the migration
 
 An upgrade from MKE 3 to MKE 4 consists of the following steps, all of which

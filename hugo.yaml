@@ -1,5 +1,5 @@
 # Configuration
-baseURL: "https://mke4-docs/"
+baseURL: "https://mirantis.github.io/mke-docs"
 title: "Mirantis Kubernetes Engine 4"
 theme: hextra
 

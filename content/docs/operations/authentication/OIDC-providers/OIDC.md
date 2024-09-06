@@ -10,7 +10,7 @@ the OIDC provider.
 
 For information on how to obtain the field values, refer to your chosen provider:
 
-- [Okta](OIDC-OKTA-configuration)
+- [Okta](../OIDC-OKTA-configuration)
 
 ## Configure MKE
 
@@ -39,7 +39,7 @@ authentication:
 ## Test authentication flow
 
 {{< callout type="info" >}}
-  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available. 
+  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available.
 {{< /callout >}}
 
 1. Navigate to `http://{MKE hostname}:5555/login`

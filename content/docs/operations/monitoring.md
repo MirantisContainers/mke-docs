@@ -36,7 +36,7 @@ To access the Grafana dashboard:
     kubectl --namespace mke port-forward svc/monitoring-grafana 3000:80
     ```
 
-2. Go to [http://localhost:3000](http://localhost:3000).
+2. Go to `http://localhost:3000`.
 
 ## Prometheus
 
@@ -52,7 +52,7 @@ To access the Prometheus dashboard:
     kubectl --namespace mke port-forward svc/prometheus-operated 9090
     ```
 
-2. Go to [http://localhost:9090](http://localhost:9090).
+2. Go to `http://localhost:9090`.
 
 ## Opscare (Under development)
 

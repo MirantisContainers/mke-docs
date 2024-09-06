@@ -30,5 +30,4 @@ weight: 4
 
     b. Click **Actions** for the active certificate and initiate the download.
 
-8. Configure the `localCa` to point to the downloaded certificate file.
 9. Run the `mkectl apply` command with your MKE configuration file.

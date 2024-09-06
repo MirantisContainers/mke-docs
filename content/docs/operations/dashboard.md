@@ -1,5 +1,5 @@
 ---
-title: Install the MKE Dashboard
+title: MKE Dashboard
 weight: 6
 ---
 
@@ -11,9 +11,4 @@ The MKE Dashboard add-on provides the web UI to manage Kubernetes resources mana
 
 **To install the Dashboard add-on:**
 
-```
-[TBD]
-
-```
-
-
+The dashboard is enabled by default in the MKE installation.
