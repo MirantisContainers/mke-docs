@@ -10,7 +10,7 @@ use MKE. It also provides product usage statistics, which is key feedback that
 helps our product teams in their efforts to enhance Mirantis products and
 services.
 
-## Enable telemetry through the MKE CLI ##
+## Enable telemetry through the MKE CLI
 
 In the `mkeconfig` object in the `mke` namespace, set `tracking.enabled` to `true`.
 
