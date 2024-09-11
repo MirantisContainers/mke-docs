@@ -22,5 +22,5 @@ Following this, `mke-opeartor` reconciles the change in the configuration. Once
 this is complete, MKE will thereafter transmit key usage data to Mirantis by
 way of a a secure Segment endpoint.
 
-## Enable telemetry through the MKE web UI ##
+## Enable telemetry through the MKE web UI
 
