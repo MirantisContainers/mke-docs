@@ -22,5 +22,14 @@ kubectl edit mkeconfig -n mke
 configuration, after which MKE will thereafter transmit key usage data to
 Mirantis by way of a secure Segment endpoint.
 
-<!-- [## Enable telemetry through the MKE web UI] -->
-<!-- [Content to be provided] -->
+## Enable telemetry through the MKE web UI
+
+1. Log in to the MKE web UI as an administrator.
+
+2. Click **Admin Settings** to display the available options.
+
+3. Click **Telementry** to call the **Telemetry** screen.
+
+4. Clcik **enable telemetry**.
+
+5. Click **Save**.
