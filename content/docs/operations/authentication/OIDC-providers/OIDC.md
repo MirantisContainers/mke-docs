@@ -3,25 +3,8 @@ title: OIDC
 weight: 1
 ---
 
-You can configure OIDC (OpenID Connect) for MKE 4 through the `authentication`
-section of the MKE configuration file. To enable the service, set `enabled` to `true`.
-The remaining fields in the `authentication.oidc` section are used to configure
-the OIDC provider.
-
-For information on how to obtain the field values, refer to your chosen provider:
-
-- [Okta](../OIDC-OKTA-configuration)
-
-## Configure MKE
-
-The MKE configuration file `authentication.oidc` fields are detailed below:
-
-| Field          | Description                                                       |
-|----------------|-------------------------------------------------------------------|
-| `issuer`       | OIDC provider root URL.                                           |
-| `clientID`     | ID from the IdP application configuration.                        |
-| `clientSecret` | Secret from the IdP application configuration.                    |
-| `redirect URI` | URI to which the provider will return successful authentications. |
+You configure OIDC (OpenID Connect) for MKE 4 through the `authentication.oidc`
+section of the MKE configuration file.
 
 OIDC example configuration:
 
@@ -35,6 +18,23 @@ authentication:
     clientSecret: DFA9NYLfE1QxwCSFkZunssh2HCx16kDl41k9tIBtFZaNcqyEGle8yZPtMBesyomD
     redirectURI: http://dex.example.com:32000/callback
 ```
+
+## Configure OIDC service for MKE
+
+In the MKE configuration file `authentication.oidc` section, enable your
+OIDC service by setting `enabled` to `true`. Use the remaining fields, which
+are defined in the following table, to configure your chosen OIDC provider.
+
+| Field          | Description                                                       |
+|----------------|-------------------------------------------------------------------|
+| `issuer`       | OIDC provider root URL.                                           |
+| `clientID`     | ID from the IdP application configuration.                        |
+| `clientSecret` | Secret from the IdP application configuration.                    |
+| `redirect URI` | URI to which the provider will return successful authentications. |
+
+The links below provide information on how to obtain the field values for select OIDC providers:
+
+- [Okta](../../OIDC-providers/OIDC-OKTA-configuration)
 
 ## Test authentication flow
 
