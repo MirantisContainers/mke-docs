@@ -309,7 +309,7 @@ No Kubernetes RBAC permissions correlate to the Scheduler role.
 
 ## CoreDNS Lameduck migration
 
-MKE 4 supports migration MKE 3 systems with CoreDNS and Lameduck enabled. Refer
+MKE 4 supports migration from MKE 3 systems are running with CoreDNS and Lameduck enabled. Refer
 to the table below for a comparison of the CoreDNS Lameduck configuration
 parameters between MKE 3 and MKE 4:
 
