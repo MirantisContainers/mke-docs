@@ -30,6 +30,6 @@ Mirantis by way of a secure Segment endpoint.
 
 3. Click **Telementry** to call the **Telemetry** screen.
 
-4. Clcik **Enable Telemetry**.
+4. Click **Enable Telemetry**.
 
 5. Click **Save**.
