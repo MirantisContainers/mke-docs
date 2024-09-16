@@ -313,8 +313,8 @@ MKE 4 supports migration from MKE 3 systems that are running with CoreDNS and La
 to the table below for a comparison of the CoreDNS Lameduck configuration
 parameters between MKE 3 and MKE 4:
 
-| MKE 3                                                 | MKE 4                                                                                                                                                                                                                                                                                                                                                                                                                |
-|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [cluster_config.core_dns_lameduck_config.enabled]     |  dns.lameduck.enabled                                                                                                                                                                                                                                                                                                                                                                                           |
-| [cluster_config.core_dns_lameduck_config.duration]    |  dns.lameduck.duration                                                                                                                                                                                                                                                                                                                                                                                       |
+| MKE 3                                              | MKE 4                 |
+|----------------------------------------------------|-----------------------|
+| [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
+| [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
 
