@@ -142,3 +142,179 @@ client bundle. The docker swarm cluster will no longer be accessible as well.
 
 In the event of an upgrade failure, the upgrade process rolls back,
 restoring the MKE 3 cluster to its original state.
+
+## RBAC Migrations
+
+The RBAC model MKE 4 uses differs significantly from the one in use by MKE 3.
+
+As MKE 4 no longer supports Swarm mode, the platform uses Kubernetes RBAC for authorization. Thus, the RBAC configuration for Swarm mode does not exist in MKE 4. The Swarm mode roles have Kubernetes RBAC roles associated with them, however, and the MKE 4 upgrade process migrates these
+Kubernetes roles and bindings to the new MKE 4 cluster.
+
+The sections that follow detail the MKE 3 Swarm mode roles and their corresponding
+Kubernetes RBAC permissions:
+
+### View Only
+
+<details>
+<summary>get, list, watch</summary>
+
+- CertificateSigningRequest
+- ClusterRoleBinding
+- ClusterRole
+- ComponentStatus
+- ConfigMap
+- ControllerRevision
+- CronJob
+- CustomResourceDefinition
+- DaemonSet
+- Deployment
+- Endpoint
+- Event
+- ExternalAdmissionHookConfiguration
+- HorizontalPodAutoscaler
+- Ingress
+- InitializerConfiguration
+- Job
+- LimitRange
+- Namespace
+- NetworkPolicy
+- Node
+- PersistentVolumeClaim
+- PersistentVolume
+- PodDisruptionBudget
+- PodPreset
+- Pod
+- PodTemplate
+- ReplicaSet
+- ReplicationController
+- ResourceQuota
+- RoleBinding
+- Role
+- ServiceAccount
+- Service
+- Stack
+- StatefulSet
+- StorageClass
+- ThirdPartyResource
+- User
+
+</details>
+
+### Restricted Control
+
+<details>
+<summary>get, list, watch</summary>
+
+- ClusterRoles
+- ClusterRoleBindings
+- Namespaces
+- Nodes
+- ResourceQuotas
+- NamespaceRoles
+- NamespaceRoleBindings
+- StorageClasses
+- Users
+
+</details>
+
+<details>
+<summary>create, delete, patch, update</summary>
+
+- CertificateSigningRequest
+- ComponentStatus
+- ConfigMap
+- ControllerRevision
+- CronJob
+- CustomResourceDefinition
+- DaemonSet
+- Deployment
+- Endpoint
+- Event
+- ExternalAdmissionHookConfiguration
+- HorizontalPodAutoscaler
+- Ingress
+- InitializerConfiguration
+- Job
+- LimitRange
+- NetworkPolicy
+- PersistentVolumeClaim
+- PersistentVolume
+- PodDisruptionBudget
+- PodPreset
+- Pod
+- PodTemplate
+- ReplicaSet
+- ReplicationController
+- RoleBinding
+- Role
+- Secret
+- ServiceAccount
+- Service
+- Stack
+- StatefulSet
+- ThirdPartyResource
+
+</details>
+
+### Full Control
+
+<details>
+<summary>get, list, watch, create, delete, patch, update</summary>
+
+- CertificateSigningRequest
+- ClusterRoleBinding
+- ClusterRole
+- ComponentStatus
+- ConfigMap
+- ControllerRevision
+- CronJob
+- CustomResourceDefinition
+- DaemonSet
+- Deployment
+- Endpoint
+- Event
+- ExternalAdmissionHookConfiguration
+- HorizontalPodAutoscaler
+- Ingress
+- InitializerConfiguration
+- Job
+- LimitRange
+- Namespace
+- NetworkPolicy
+- Node
+- PersistentVolumeClaim
+- PersistentVolume
+- PodDisruptionBudget
+- PodPreset
+- Pod
+- PodTemplate
+- ReplicaSet
+- ReplicationController
+- ResourceQuota
+- RoleBinding
+- Role
+- ServiceAccount
+- Service
+- Stack
+- StatefulSet
+- StorageClass
+- ThirdPartyResource
+- User
+
+</details>
+
+### Scheduler
+
+No Kubernetes RBAC permissions correlate to the Scheduler role.
+
+## CoreDNS Lameduck migration
+
+MKE 4 supports migration from MKE 3 systems that are running with CoreDNS and Lameduck enabled. Refer
+to the table below for a comparison of the CoreDNS Lameduck configuration
+parameters between MKE 3 and MKE 4:
+
+| MKE 3                                              | MKE 4                 |
+|----------------------------------------------------|-----------------------|
+| [cluster_config.core_dns_lameduck_config.enabled]  | dns.lameduck.enabled  |
+| [cluster_config.core_dns_lameduck_config.duration] | dns.lameduck.duration |
+
