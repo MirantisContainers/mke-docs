@@ -4,20 +4,30 @@ weight: 3
 ---
 
 You can configure SAML (Security Assertion Markup Language) for MKE 4 through
-the `authentication` section of the MKE configuration file.
-To enable the service, set `enabled` to `true`.
-The remaining fields in the `authentication.saml` section are used to configure
-the SAML provider. 
-For information on how to obtain the field values, refer to your chosen provider:
+the `authentication.saml` section of the MKE configuration file.
 
-- [Okta](../../SAML-providers/SAML-OKTA-configuration)
+SAML example configuration:
 
-For more information, refer to the official DEX documentation
-[Authentication through SAML 2.0](https://dexidp.io/docs/connectors/saml/).
+```yaml
+authentication:
+  enabled: true
+  saml:
+    enabled: true
+    ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
+    redirectURI: http://{MKE host}:5556/callback
+    usernameAttr: name
+    emailAttr: email
+```
 
-## Configure MKE
+## Configure SAML service for MKE
 
-The MKE configuration file `authentication.smal` fields are detailed below:
+In the MKE configuration file `authentication.saml` section, enable your
+SAML service by setting `enabled` to `true`. Use the remaining fields, which
+are defined in the following table, to configure your chosen SAML provider.
+
+{{< callout type="info" >}}
+  For information on how to obtain the field values, refer to [SAML provider setup](#saml-provider-setup).
+{{< /callout >}}
 
 | Field                             | Description                                                                                                                                                                         |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -36,18 +46,47 @@ The MKE configuration file `authentication.smal` fields are detailed below:
 | `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter splits the attribute value into multiple groups.                                            |
 | `nameIDPolicyFormat`              | Requested name ID format.                                                                                                                                                           |
 
-An example configuration for SAML:
+## SAML provider setup<a name="saml-provider-setup"></a>
 
-```yaml
-authentication:
-  enabled: true
-  saml:
-    enabled: true
-    ssoURL: https://dev64105006.okta.com/app/dev64105006_mke4saml_1/epkdtszgindywD6mF5s7/sso/saml
-    redirectURI: http://{MKE host}:5556/callback
-    usernameAttr: name
-    emailAttr: email
-```
+Setup instruction is available below for the SAML authentication providers that
+are supported by MKE 4:
+
+<details>
+<summary>Okta</summary>
+
+1. Select **SAML 2.0** for **Sign-in method**.
+2. For **App name**, choose a name that you can easily remember.
+3. Configure the host for your redirect URLs:
+   - Single sign-on URL: `http://{MKE hostname}/callback`
+   - Audience URI (SP Entity ID): `http://{MKE hostname}/callback`
+   - Attribute statements:
+     - Name: email
+       <br>Value: user.email
+     - Name: name
+       <br>Value: user.login
+4. Click **Save**.
+5. Click **Finish**.
+6. Navigate to the **Assignments** tab:
+
+   a. Click **Assign** -> **Assign to people**.
+
+   b. Click the blue **Assign** button that corresponds to the account you want to use for authentication.
+
+    Okta generates the `ssoURL` and certificate under the `Sign On` tab.
+    The `ssoURL` is the MetadataURL with the final metadata removed from the path.
+
+7. Download the certificate to the system from which you will run mkectl:
+
+    a. Navigate to the SAML **Signing Certificates** section.
+
+    b. Click **Actions** for the active certificate and initiate the download.
+
+9. Run the `mkectl apply` command with your MKE configuration file.
+
+</details>
+
+For more information, refer to the official DEX documentation
+[Authentication through SAML 2.0](https://dexidp.io/docs/connectors/saml/).
 
 ## Test authentication flow
 
