@@ -1,6 +1,6 @@
 ---
 title: LDAP
-weight: 4
+weight: 3
 ---
 
 You can configure SAML (Security Assertion Markup Language) for MKE 4 through

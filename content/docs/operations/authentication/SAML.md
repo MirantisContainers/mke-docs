@@ -1,6 +1,6 @@
 ---
 title: SAML
-weight: 3
+weight: 2
 ---
 
 You can configure SAML (Security Assertion Markup Language) for MKE 4 through
@@ -26,7 +26,7 @@ SAML service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure your chosen SAML provider.
 
 {{< callout type="info" >}}
-  For information on how to obtain the field values, refer to [SAML provider setup](content/docs/tutorials/authorization-provider-setup/_index.md#saml-provider-setup).
+  For information on how to obtain the field values, refer to [SAML provider setup](../../../tutorials/authentication-provider-setup/saml-provider-setup).
 {{< /callout >}}
 
 | Field                             | Description                                                                                                                                                                         |

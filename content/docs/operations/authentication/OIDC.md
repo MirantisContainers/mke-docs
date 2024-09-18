@@ -26,7 +26,7 @@ OIDC service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure your chosen OIDC provider.
 
 {{< callout type="info" >}}
-  For information on how to obtain the field values, refer to [OIDC provider setup](../../../tutorials/authorization-provider-setup/_index.md#oidc-provider-setup).
+  For information on how to obtain the field values, refer to [OIDC provider setup](../../../tutorials/authentication-provider-setup/oidc-provider-setup).
 {{< /callout >}}
 
 | Field          | Description                                                       |
