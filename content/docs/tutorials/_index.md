@@ -7,5 +7,5 @@ weight: 3
 {{< cards >}}
   {{< card link="k0s-in-aws/terraform-scenario" title="Scenario 1: Terraform"
   icon="lightning-bolt" >}}
-  {{< card link="authentication-provider-setup" title="Scenario 2: IdP Setup" icon="lightning-bolt" >}}
+  {{< card link="authentication-provider-setup/auth-provider-setup" title="Scenario 2: IdP Setup" icon="lightning-bolt" >}}
 {{< /cards >}}
