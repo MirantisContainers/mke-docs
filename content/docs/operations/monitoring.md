@@ -30,14 +30,21 @@ monitoring:
 
 To access the Grafana dashboard:
 
+1. Get the `admin` user password of the Grafana dashboard from the `monitoring-grafana` secret in the `mke` namespace.
+   ```bash
+    kubectl get secret monitoring-grafana -n mke -o jsonpath="{.data.admin-password}" | base64 --decode
+    ```
+   
 1. Run the following command to `port-forward` Grafana:
 
     ```bash
     kubectl --namespace mke port-forward svc/monitoring-grafana 3000:80
     ```
 
-2. Go to `http://localhost:3000`.
-
+1. Go to `http://localhost:3000`.
+   **Welcome to Grafana** login page appears.
+   Login using the default username `admin` and provide the password that you retrieved from the `monitoring-grafana` secret.    
+   
 ## Prometheus
 
 [Prometheus](https://prometheus.io/) is an open-source monitoring and alerting
