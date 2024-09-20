@@ -29,7 +29,7 @@ authentication:
 ## Configure LDAP service for MKE
 
 In the MKE configuration file `authentication.ldap` section, enable your
-SAML service by setting `enabled` to `true`. Use the remaining fields, which
+LDAP service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure
 the interactions with your LDAP server.
 
