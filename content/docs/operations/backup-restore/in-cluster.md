@@ -1,5 +1,5 @@
 ---
-title: Use the in-cluster storage provider
+title: Back up with an in-cluster storage provider
 weight: 2
 ---
 
@@ -57,6 +57,9 @@ mkectl backup logs --name test
 ```
 
 ## Restore from an in-cluster backup
+
+Restore operation returns the Kubernetes cluster state to what it was at the
+time of a backup creation.
 
 To perform a restore using an in-cluster backup, run:
 

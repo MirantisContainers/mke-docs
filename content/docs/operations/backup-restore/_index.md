@@ -1,14 +1,14 @@
 ---
-title: Back up and restore
+title: Backup and restore
 weight: 1
 ---
 
-MKE 4 supports backup and restore of cluster data through the use of the
-[Velero](https://velero.io/) addon. Backup is enabled by default.
+MKE 4 supports backups and restores of cluster data through the use of the
+[Velero](https://velero.io/) addon. Backups are enabled by default.
 
-## Configuration
+## Backup configuration
 
-The `backup` section of the MKE4 configuration file renders as follows:
+The `backup` section of the MKE 4 configuration file renders as follows:
 
 ```yaml
 backup:
@@ -86,7 +86,7 @@ Refer to the following list to detail on all the configuration file
 
 : Profile in the Credentials file to use
 
-## Create backups and perform restores
+## Create a backup and perform a restore
 
 For information on how to create backups and perform restores for both storage
 provider types, refer to:
@@ -96,7 +96,7 @@ provider types, refer to:
 
 ## Existing limitations
 
-- Scheduled backups have not been implemented.
+- Scheduled backups are not implemented.
 
 - Restoring a backup to a new set of nodes is not supported for the in-cluster 
   storage provider. Backups must currently be restored in the same cluster in

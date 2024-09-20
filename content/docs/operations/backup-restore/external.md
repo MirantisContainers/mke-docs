@@ -1,5 +1,5 @@
 ---
-title: Use an external storage provider
+title: Back up with an external storage provider
 weight: 2
 ---
 
@@ -8,7 +8,7 @@ in object storage provided by a public cloud provider.
 
 {{< callout type="info" >}}
     AWS S3 is currently the only supported external backup storage
-    that MKE 4 supports.
+    for an MKE 4.
 {{< /callout >}}
 
 ## Configure an external storage provider
@@ -19,9 +19,11 @@ credentials file.
     ![AWS console](aws-console-credentials.png)
 
 2. Edit the `storage_provider` section of the MKE configuration file to point
-to the file, including the profile name.
+to the IAM credentials file, including the profile name.
 
-3. Create an S3 bucket and point the configuration to the bucket and region.
+3. Create an S3 bucket.
+
+4. Point the configuration to the S3 bucket and region.
 
     Example configuration:
     
@@ -36,16 +38,20 @@ to the file, including the profile name.
           credentials_file_profile: "386383511305_docker-testing"
     ```
     
-    Once you have configured the AWS backup storage and the MKE configuration file
-    has been applied, verify the existence of the `BackupStorageLocation` custom resource.
+5. Once you have configured the AWS backup storage and the MKE configuration file
+has been applied, verify the existence of the `BackupStorageLocation` custom resource:
     
     ```shell
     kubectl get backupstoragelocation -n mke
     ```
 
-4. Run `mkectl apply`, the output may require a few minutes to display.
+6. Run the `apply` command:
 
-    Example output:
+   ```shell
+    mkectl apply
+   ```
+
+    Example output may require a few minutes to display:
     
     ```shell
     NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
@@ -55,9 +61,7 @@ to the file, including the profile name.
 ## Create an external storage backup
 
 With the configuration complete, you can now create backups and perform restores
-from those backups. After you have run a restore operation from a backup, the
-Kubernetes cluster state should resemble what it was at the time of backup
-creation.
+from those backups.
 
 To create a backup, run:
 
@@ -94,6 +98,9 @@ aws-backup   Completed   0        0          2024-05-08 16:17:18 -0400 EDT   29d
 ```
 
 ##  Restore from an external storage backup
+
+Restore operation returns the Kubernetes cluster state to what it was at the
+time of a backup creation.
 
 To perform a restore using an external backup, run:
 
