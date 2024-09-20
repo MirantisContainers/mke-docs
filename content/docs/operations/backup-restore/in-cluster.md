@@ -7,8 +7,8 @@ By default, MKE 4 stores backups and restores using the in-cluster storage
 provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
 
 {{< callout type="info" >}}
-The offered instructions assume that you have created a cluster and
-applied a blueprint with the default MKE backup configuration.
+   The offered instructions assume that you have created a cluster and
+   applied a blueprint with the default MKE backup configuration.
 {{< /callout >}}
 
 ## Create an in-cluster backup

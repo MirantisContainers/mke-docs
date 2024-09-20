@@ -7,8 +7,8 @@ You can configure MKE 4 to store backups and restores externally, for example,
 in object storage provided by a public cloud provider.
 
 {{< callout type="info" >}}
-AWS S3 is currently the only supported external backup storage
-for an MKE 4.
+   AWS S3 is currently the only supported external backup storage
+   for an MKE 4.
 {{< /callout >}}
 
 ## Configure an external storage provider
