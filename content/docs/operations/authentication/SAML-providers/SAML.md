@@ -17,7 +17,7 @@ For more information, refer to the official DEX documentation
 
 ## Configure MKE
 
-The MKE configuration file `authentication.smal` fields are detailed below:
+The MKE configuration file `authentication.saml` fields are detailed below:
 
 | Field                             | Description                                                                                                                                                                         |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
