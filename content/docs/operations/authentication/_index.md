@@ -30,7 +30,7 @@ You must have certain dependencies in place before you can configure
 authentication. These dependencies differ, depending on which authentication
 protocol you choose to deploy.
 
-- **Identity Provider (IdP):** To set OIDC or SAML you must configure an IdP
+- **Identity Provider (IdP):** To set OIDC or SAML, you must configure an IdP
   with an application. Refer to [OIDC](../../operations/authentication/oidc-providers/oidc) or
   [SAML](../../operations/authentication/saml-providers/saml) for detailed information.
 
