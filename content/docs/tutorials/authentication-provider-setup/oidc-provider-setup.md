@@ -3,7 +3,7 @@ title: OIDC provider setup
 weight: 1
 ---
 
-To configure an Okta application to serve as your [OIDC authentication](../../../operations/authentication/OIDC) provider for MKE 4:
+To configure an Okta application to serve as your [OIDC authentication](../../../../operations/authentication/OIDC) provider for MKE 4:
 
 1. Select **OIDC - OpenID Connect** for **Sign-in method**.
 2. Select **Web Application** for **Application Type**.

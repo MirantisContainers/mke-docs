@@ -3,7 +3,7 @@ title: SAML provider setup
 weight: 1
 ---
 
-To configure an Okta application to serve as your [SAML authentication](../../../operations/authentication/SAML) provider for MKE 4:
+To configure an Okta application to serve as your [SAML authentication](../../../../operations/authentication/SAML) provider for MKE 4:
 
 1. Select **SAML 2.0** for **Sign-in method**.
 2. For **App name**, choose a name that you can easily remember.
