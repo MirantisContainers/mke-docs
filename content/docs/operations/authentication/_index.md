@@ -42,7 +42,7 @@ protocol you choose to deploy.
 You configure authentication for MKE through the `authentication` section
 of the MKE configuration file.
 
-Authentication is enabled by default, however the settings for each of the
+Authentication is enabled by default, however, the settings for each of the
 individual authentication protocols are disabled. To enable and install an authentication protocol, set its `enabled` configuration option to `true`.
 
 ```yaml
