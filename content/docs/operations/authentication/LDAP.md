@@ -3,7 +3,7 @@ title: LDAP
 weight: 3
 ---
 
-You can configure SAML (Security Assertion Markup Language) for MKE 4 through
+You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4 through
 the `authentication.ldap` section of the MKE configuration file.
 
 LDAP example configuration:
