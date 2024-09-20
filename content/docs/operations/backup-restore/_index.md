@@ -98,6 +98,6 @@ provider types, refer to:
 
 - Scheduled backups are not implemented.
 
-- Restoring a backup to a new set of nodes is not supported for the in-cluster 
+- Restoration of a backup to a new set of nodes is not supported for the in-cluster 
   storage provider. Backups must currently be restored in the same cluster in
   which the backup was taken.
