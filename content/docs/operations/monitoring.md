@@ -30,7 +30,7 @@ monitoring:
 
 To access the Grafana dashboard:
 
-1. Get the `admin` user password of the Grafana dashboard from the `monitoring-grafana` secret in the `mke` namespace.
+1. Obtain the `admin` user password for the Grafana dashboard from the `monitoring-grafana` secret in the `mke` namespace.
    ```bash
     kubectl get secret monitoring-grafana -n mke -o jsonpath="{.data.admin-password}" | base64 --decode
     ```
