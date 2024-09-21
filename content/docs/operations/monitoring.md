@@ -35,7 +35,7 @@ To access the Grafana dashboard:
     kubectl get secret monitoring-grafana -n mke -o jsonpath="{.data.admin-password}" | base64 --decode
     ```
    
-1. Run the following command to `port-forward` Grafana:
+2. Run the following command to `port-forward` Grafana:
 
     ```bash
     kubectl --namespace mke port-forward svc/monitoring-grafana 3000:80
