@@ -41,9 +41,11 @@ To access the Grafana dashboard:
     kubectl --namespace mke port-forward svc/monitoring-grafana 3000:80
     ```
 
-1. Go to `http://localhost:3000`.
-   **Welcome to Grafana** login page appears.
-   Login using the default username `admin` and provide the password that you retrieved from the `monitoring-grafana` secret.    
+3. Navigate to `http://localhost:3000` to access the **Welcome to Grafana** login page.
+
+4. Enter the default username **admin** into the **Email or username** field and type the password you retrieved from the `monitoring-grafana` secret into the **Password** field.
+
+5. Click **Log In**.
    
 ## Prometheus
 
