@@ -35,7 +35,7 @@ Verify that you have the following components in place before you begin upgradin
   Version: v4.0.0-alpha.1.0
   ```
 
-- `k0sctl` version `0.17.4`, installed on your local enviroment:
+- `k0sctl` version `0.19.0`, installed on your local enviroment:
 
   ```shell
   k0sctl version
@@ -44,8 +44,8 @@ Verify that you have the following components in place before you begin upgradin
   Example output:
 
   ```shell
-  version: v0.17.4
-  commit: 372a589
+  version: v0.19.0
+  commit: 9246ddc
   ```
 
 - A `hosts.yaml` file, to provide the information required by `mkectl` to

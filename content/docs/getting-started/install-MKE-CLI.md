@@ -56,7 +56,7 @@ To automatically install the necessary dependencies, you can use an
        Expected output:
 
        ```shell
-       version: v0.17.8
+       version: v0.19.0
        commit: b061291
        ```
 
