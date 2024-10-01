@@ -16,7 +16,7 @@ backup:
   storage_provider:
     type: InCluster
     in_cluster_options:
-      exposed: true
+      enable_ui: true
       distributed: false
 ```
 
@@ -25,10 +25,10 @@ provider, as indicated in the `type` option setting of `InCluster`. MKE 4
 in-cluster backups are implemented using the [MinIO
 addon](https://microk8s.io/docs/addon-minio).
 
-The `exposed` option setting of `true` indicates that the MinIO service is
-exposed through `NodePort`, which Velero requires to function correctly. Core
+The `enable_ui` option setting of `true` indicates that the MinIO console is
+exposed through the Ingress and can be accessed via UI. Core
 backup functionality should work, however, even if
-the service is not exposed.
+the ui is disabled.
 
 The `distributed` option configures MinIO storage to run in distributed mode.
 
@@ -63,3 +63,6 @@ provider types, refer to:
 - Backups must currently be restored in the same cluster in which the backup
   was taken, and thus restoring a backup to a new set of nodes is not yet
   supported for the in-cluster storage provider.
+
+- Downloading and uploading backups with an InCluster storage provider is not
+  yet supported via CLI. This can be done via the MinIO Console.
