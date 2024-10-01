@@ -10,7 +10,7 @@ virtual machine. The scenario consists of three primary steps:
 2. Attach a disk to a virtual machine
 3. Attach a network interface to a virtual machine
 
-## Launch a simple virtual machine
+## Launch a basic virtual machine
 
 1. Create a `cirros-vm.yaml` file.
 
@@ -96,8 +96,8 @@ virtual machine. The scenario consists of three primary steps:
 ## Attach a disk to a virtual machine
 
 {{< callout type="note" >}}
-  The following example scenario requires the presence of
-  `local-volume-provisioner`.
+  The following example scenario uses the `HostPathProvisioner` component,
+  which is deployed by default.
 {{< /callout >}}
 
 1. Manually create the `example-pvc.yaml` file, using the
@@ -109,7 +109,7 @@ virtual machine. The scenario consists of three primary steps:
    metadata:
      name: pvc-claim-1
    spec:
-     storageClassName: lvp-fake-root
+     storageClassName: hpp-local
      accessModes:
        - ReadWriteOnce
      resources:
@@ -117,13 +117,14 @@ virtual machine. The scenario consists of three primary steps:
          storage: 3Gi
    ```
 
-2. Run the following command to attach the disk to the virtual machine:
+2. Run the following command to create the `PersistentVolumeClaim` resource
+   that you defined in the `example-pvc.yaml` file::
 
    ```bash
    kubectl apply -f example-pvc.yaml
    ```
 
-3. Verify the connection of the disk to your VM:
+3. Verify the creation of the volume:
 
    ```bash
    kubectl get pvc
@@ -132,8 +133,8 @@ virtual machine. The scenario consists of three primary steps:
    Example output:
 
    ```bash
-   NAME          STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-   pvc-claim-1  Pending                                                                           lvp-fake-root             8s
+   NAME          STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+   pvc-claim-1   Bound    pvc-b7d68902-f340-4b7e-8a36-495d170b7193   10Gi       RWO            hpp-local       10s
    ```
 
 4. Run the following command to attach the disk to your VM:
