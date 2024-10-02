@@ -64,5 +64,4 @@ provider types, refer to:
   was taken, and thus restoring a backup to a new set of nodes is not yet
   supported for the in-cluster storage provider.
 
-- Downloading and uploading backups with an InCluster storage provider is not
-  yet supported via CLI. This can be done via the MinIO Console.
+- Backups must be downloaded and uploaded from the in-cluster storage provider using the MinIO Console, as the CLI does not currently support these actions.
