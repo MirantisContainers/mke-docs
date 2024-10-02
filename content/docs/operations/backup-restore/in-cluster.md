@@ -97,19 +97,20 @@ Optionally, you can view detailed logs by running the
 
 To access the MinIO console, first get the generated credentials from your cluster
 
-To get the username:
+1. Obtain the username from your cluster:
 ```shell
 kubectl --kubeconfig <path_to_kubeconfig> get secret -n mke minio-credentials -o jsonpath='{.data.root-user}' | base64 -d
 ```
 
-To get the password:
+2. Obtain the password from your cluster:
 ```shell
 kubectl --kubeconfig <path_to_kubeconfig> get secret -n mke minio-credentials -o jsonpath='{.data.root-password}' | base64 -d
 ```
 
-Next, navigate to your ingress controller's external address under `/minio/` i.e (https://<external_address>/minio/) and login with the credentials you retrieved.
+3. Navigate to the external address for your ingress controller under `/minio/`.
+Example:
+`https://<external_address>/minio/`
 
-From there you should see a Velero bucket under the Object browser
-You can then download or upload backups using the UI options provided.
+4.Log in using the username and password. The Velero bucket displays under the Object browser, and you can download or upload backups, using the options provided by the MinIO UI.
 
 ![img_2.png](img_2.png)
