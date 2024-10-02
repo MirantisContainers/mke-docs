@@ -75,8 +75,8 @@ main() {
   echo "#########################"
 
   if [ -z "${K0SCTL_VERSION}" ]; then
-    echo "Using default k0sctl version 0.17.8"
-    K0SCTL_VERSION=0.17.8
+    echo "Using default k0sctl version 0.19.0"
+    K0SCTL_VERSION=0.19.0
   fi
 
   k0sctlBinary=k0sctl
@@ -108,8 +108,8 @@ main() {
   echo "#########################"
 
   if [ -z "${MKECTL_VERSION}" ]; then
-    echo "Using default mkectl version v4.0.0-alpha.5.0"
-    MKECTL_VERSION=v4.0.0-alpha.5.0
+    echo "Using default mkectl version v4.0.0-rc.1"
+    MKECTL_VERSION=v4.0.0-rc.1
   fi
   printf "\n"
 
