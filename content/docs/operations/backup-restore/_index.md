@@ -23,7 +23,7 @@ backup:
 By default, MKE 4 supports backups that use the in-cluster storage
 provider, as indicated in the `type` option setting of `InCluster`. MKE 4
 in-cluster backups are implemented using the [MinIO
-addon](https://microk8s.io/docs/addon-minio).
+add-on](https://min.io/).
 
 The `enable_ui` option setting of `true` indicates that the MinIO Console is
 exposed through the Ingress and can be accessed through the UI. Core

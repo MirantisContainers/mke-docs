@@ -4,7 +4,7 @@ weight: 1
 ---
 
 By default, MKE 4 stores backups and restores using the in-cluster storage
-provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
+provider, the [MinIO add-on](https://min.io/).
 
 {{< callout type="note" >}}
   MinIO is not currently backed by persistent storage. For persistent storage of backups, use an external storage provider or download the MinIO backups.
@@ -93,9 +93,9 @@ test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-
 Optionally, you can view detailed logs by running the
 `mkectl restore logs --name test-20240507173309` command.
 
-## Accessing the minio console
+## Accessing the MinIO Console
 
-To access the MinIO console, first get the generated credentials from your cluster
+To access the MinIO Console:
 
 1. Obtain the username from your cluster:
 
