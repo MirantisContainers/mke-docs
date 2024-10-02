@@ -6,8 +6,9 @@ weight: 1
 By default, MKE 4 stores backups and restores using the in-cluster storage
 provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
 
-> **Note**
-> As of MKE 4.0.0 initial release, MinIO is not backed by persistent storage. For persistent storage of backups, please use an external storage provider or download the MinIO backup(s).
+{{< callout type="note" >}}
+  MinIO is not currently backed by persistent storage. For persistent storage of backups, use an external storage provider or download the MinIO backups.
+{{< /callout >}}
 
 >The offered instructions assume that you have created a cluster and
 applied a blueprint with the default MKE backup configuration.
