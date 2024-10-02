@@ -4,7 +4,7 @@ weight: 2
 ---
 
 MKE 4 supports backup and restore of cluster data through the use of the
-[Velero](https://velero.io/) addon. Backup is enabled by default.
+[Velero](https://velero.io/) add-on. Backup is enabled by default.
 
 ## Configuration
 

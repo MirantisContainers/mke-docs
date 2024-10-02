@@ -10,8 +10,10 @@ provider, the [MinIO add-on](https://min.io/).
   MinIO is not currently backed by persistent storage. For persistent storage of backups, use an external storage provider or download the MinIO backups.
 {{< /callout >}}
 
->The offered instructions assume that you have created a cluster and
+{{< callout type="info" >}}
+  The offered instructions assume that you have created a cluster and
 applied a blueprint with the default MKE backup configuration.
+{{< /callout >}}
 
 ## Create an in-cluster backup
 
@@ -79,8 +81,8 @@ INFO[0027] Restore test-20240507173309 completed successfully
 To list the restores, run:
 
 ```shell
- mkectl restore list
- ```
+mkectl restore list
+```
 
 Example output:
 
