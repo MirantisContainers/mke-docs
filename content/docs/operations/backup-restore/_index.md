@@ -28,7 +28,7 @@ addon](https://microk8s.io/docs/addon-minio).
 The `enable_ui` option setting of `true` indicates that the MinIO Console is
 exposed through the Ingress and can be accessed through the UI. Core
 backup functionality should work, however, even if
-the ui is disabled.
+the UI is disabled.
 
 The `distributed` option configures MinIO storage to run in distributed mode.
 
