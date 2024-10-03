@@ -4,7 +4,7 @@ weight: 5
 ---
 
 The example scenario illustrated herein pertains to the deployment of a CirrOS
-virtual machine. The scenario consists of three primary steps:
+virtual machine, which is comprised by the following primary steps:
 
 1. Launch a simple virtual machine
 2. Attach a disk to a virtual machine
@@ -117,8 +117,8 @@ virtual machine. The scenario consists of three primary steps:
          storage: 3Gi
    ```
 
-2. Run the following command to create the `PersistentVolumeClaim` resource
-   that you defined in the `example-pvc.yaml` file::
+2. Create the `PersistentVolumeClaim` resource that you defined in the
+   `example-pvc.yaml` file::
 
    ```bash
    kubectl apply -f example-pvc.yaml
@@ -137,7 +137,7 @@ virtual machine. The scenario consists of three primary steps:
    pvc-claim-1   Bound    pvc-b7d68902-f340-4b7e-8a36-495d170b7193   10Gi       RWO            hpp-local       10s
    ```
 
-4. Run the following command to attach the disk to your VM:
+4. Attach the disk to your virtual machine:
 
    ```bash
    kubectl patch vm vm-cirros --type='json' -p
@@ -147,7 +147,7 @@ virtual machine. The scenario consists of three primary steps:
    {"bus": "virtio"},"name": "example-pvc"}}]'
    ```
 
-5. Restart the VM and access the console:
+5. Restart the virtual machine and access the console:
 
    ```bash
    virtctl restart vm-cirros
@@ -206,8 +206,7 @@ virtual machine. The scenario consists of three primary steps:
    kubectl apply -f bridge-test.yaml
    ```
 
-3. Run the following command to attach the network interface to your virtual
-   machine:
+3. Attach the network interface to your virtual machine:
 
    ```bash
    kubectl patch vm vm-cirros --type='json' -p
