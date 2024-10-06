@@ -104,4 +104,4 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/Mirantis/mke-docs/edit/main/README.md"
+    base: "https://github.com/Mirantis/mke-docs/edit/main/content"

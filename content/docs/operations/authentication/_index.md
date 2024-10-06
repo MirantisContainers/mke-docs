@@ -3,38 +3,47 @@ title: Authentication
 weight: 1
 ---
 
-Mirantis Kubernetes Engine (MKE) supports OpenID Connect (OIDC),
-Security Assertion Markup Language (SAML), and Lightweight Directory
-Access Protocol (LDAP) authentication methods.
+By default, MKE is configured to use [Dex](https://dexidp.io/) for
+authentication. To configure a different authentication component, edit the
+`authentication` setting in the MKE configuration file to indicate your
+preferred method.
 
-MKE uses Dex for authentication. If you want to use a different authentication
-component, disable the authentication in the MKE configuration file and add
-your preferred method.
+<!-- [Flesh out specific MKE configuration file details] -->
+<!-- [Text originally said to disable authentication in MKE config file and add your own. Too vague.] -->
 
 {{< callout type="warning" >}}
-  Be aware that if you opt to use an authentication method other than Dex,
+  Be aware that if you opt to use an authentication component other than Dex,
    you will need to undertake all tasks and responsibilities associated with
    configuring and maintaining that method.
 {{< /callout >}}
 
+Mirantis Kubernetes Engine (MKE) supports the following authentication
+protocols:
+
+- OpenID Connect (OIDC)
+- Security Assertion Markup Language (SAML)
+- Lightweight Directory Access Protocol (LDAP)
+
 ## Prerequisites
 
-- **Identity Provider (IdP):** To set OIDC or SAML you need to configure an IdP
-  with an application. Refer to [OIDC](../../operations/authentication/oidc-providers/oidc) or
-  [SAML](../../operations/authentication/saml-providers/saml) for detailed procedures.
+You must have certain dependencies in place before you can configure
+authentication. These dependencies differ, depending on which authentication
+protocol you choose to deploy.
 
-- **LDAP Server:** To set LDAP, configure the LDAP server with the users as described in
-  [LDAP](../../operations/authentication/ldap).
+- **Identity Provider (IdP):** To set OIDC or SAML, you must configure an IdP
+  with an application. Refer to [OIDC](../../operations/authentication/oidc-providers/oidc) or
+  [SAML](../../operations/authentication/saml-providers/saml) for detailed information.
+
+- **LDAP Server:** To set LDAP, configure the LDAP server with the users, as
+  described in [LDAP](../../operations/authentication/ldap).
 
 ## Configuration
 
-You can configure authentication for MKE through the `authentication` section
+You configure authentication for MKE through the `authentication` section
 of the MKE configuration file.
 
-Authentication is enabled by default. However, the settings for each of the individual
-authentication methods are disabled. To enable a service, set its `enabled` configuration
-option to `true`. Doing so will install the authentication method of your choice
-on your cluster.
+Authentication is enabled by default, however, the settings for each of the
+individual authentication protocols are disabled. To enable and install an authentication protocol, set its `enabled` configuration option to `true`.
 
 ```yaml
 authentication:
