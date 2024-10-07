@@ -50,7 +50,7 @@ NAME   STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES  
 test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d       default            <none>
 ```
 
-Optional. To view detailed logs of a backup, run:
+To view detailed logs of a backup, run:
 
 ```shell
 mkectl backup logs --name test
@@ -58,8 +58,7 @@ mkectl backup logs --name test
 
 ## Restore from an in-cluster backup
 
-Restore operation returns the Kubernetes cluster state to what it was at the
-time of a backup creation.
+A restore operation returns the Kubernetes cluster to the state it was in at the time the backup you select was created.
 
 To perform a restore using an in-cluster backup, run:
 
@@ -99,7 +98,7 @@ NAME                  BACKUP   STATUS      STARTED                         COMPL
 test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-05-07 17:33:34 -0400 EDT   0        121        2024-05-07 17:33:09 -0400 EDT   <none>
 ```
 
-Optional. To view detailed logs, run:
+To view detailed logs, run:
 
 ```shell
 mkectl restore logs --name test-20240507173309

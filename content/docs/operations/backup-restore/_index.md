@@ -3,8 +3,8 @@ title: Backup and restore
 weight: 1
 ---
 
-MKE 4 supports backups and restores of cluster data through the use of the
-[Velero](https://velero.io/) addon. Backups are enabled by default.
+MKE 4 supports the backup and restoration of cluster data through the use of the
+[Velero](https://velero.io/) addon. System backup is enabled by default.
 
 ## Backup configuration
 
@@ -22,7 +22,7 @@ backup:
 
 By default, MKE 4 supports backups that use the in-cluster storage
 provider, as shown in the `type.InCluster` field.
-MKE 4 in-cluster backups are implemented using the
+In-cluster backups for MKE 4 are implemented using the
 [MinIO addon](https://microk8s.io/docs/addon-minio).
 
 The `exposed.true` setting indicates that the MinIO service is
@@ -96,8 +96,7 @@ provider types, refer to:
 
 ## Existing limitations
 
-- Scheduled backups are not implemented.
+- MKE 4 does not currently support scheduled backups.
 
-- Restoration of a backup to a new set of nodes is not supported for the in-cluster 
-  storage provider. Backups must currently be restored in the same cluster in
-  which the backup was taken.
+- Backups must currently be restored in the same cluster in which the backup
+  was taken. As such, you cannot restore a backup to a new set of nodes.

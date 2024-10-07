@@ -3,12 +3,11 @@ title: Back up with an external storage provider
 weight: 2
 ---
 
-You can configure MKE 4 to store backups and restores externally, for example,
+You can configure MKE 4 to externally store backups and restores, for example,
 in object storage provided by a public cloud provider.
 
 {{< callout type="info" >}}
-   AWS S3 is currently the only supported external backup storage
-   for an MKE 4.
+   AWS S3 is currently the only external backup storage supported by MKE 4.
 {{< /callout >}}
 
 ## Configure an external storage provider
@@ -38,8 +37,7 @@ to the IAM credentials file, including the profile name.
           credentials_file_profile: "386383511305_docker-testing"
     ```
     
-5. Once you have configured the AWS backup storage and the MKE configuration file
-has been applied, verify the existence of the `BackupStorageLocation` custom resource:
+5. Verify the existence of the `BackupStorageLocation` custom resource:
     
     ```shell
     kubectl get backupstoragelocation -n mke
@@ -58,7 +56,7 @@ has been applied, verify the existence of the `BackupStorageLocation` custom res
     default   Available   20s              32s   true
     ```
 
-## Create an external storage backup
+## Create an external backup
 
 With the configuration complete, you can now create backups and perform restores
 from those backups.
@@ -97,10 +95,9 @@ NAME         STATUS      ERRORS   WARNINGS   CREATED                         EXP
 aws-backup   Completed   0        0          2024-05-08 16:17:18 -0400 EDT   29d       default            <none>
 ```
 
-##  Restore from an external storage backup
+##  Restore from an external backup
 
-Restore operation returns the Kubernetes cluster state to what it was at the
-time of a backup creation.
+A restore operation returns the Kubernetes cluster to the state it was in at the time the backup you select was created.
 
 To perform a restore using an external backup, run:
 
@@ -139,7 +136,6 @@ aws-backup-20240508161811   aws-backup   Completed   2024-05-08 16:18:11 -0400 E
 
 ## Verify backups and restores
 
-To verify if both the backups and restores are created in the S3 bucket,
-go to your AWS console and navigate to the **backups** section:
+Using your AWS console, you can verify the presence of your backups and restores in the S3 bucket.
 
 ![aws-console-backups.png](aws-console-backups.png)
