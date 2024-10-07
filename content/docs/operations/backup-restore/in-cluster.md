@@ -131,4 +131,4 @@ To access the MinIO Console:
 
 4. Log in using the username and password. The Velero bucket displays under the Object browser, and you can download or upload backups, using the options provided by the MinIO UI.
 
-   ![img_2.png](img_2.png)
+   ![MinIO UI](minio_ui.png)
