@@ -31,8 +31,7 @@ backup functionality works, even if the UI is disabled.
 
 The `distributed` setting configures MinIO storage to run in distributed mode.
 
-Refer to the following list to detail on all the configuration file
-`backup` fields:
+Refer to the following list for detail on all the configuration file `backup` fields:
 
 <!-- [TODO turn this list into a table once column widths are fixed] -->
 
@@ -65,7 +64,7 @@ Refer to the following list to detail on all the configuration file
 
 `storage_provider.external_options.provider`
 
-: Name of the external storage provider. AWS is currently the only available option.
+: Name of the external storage provider. Currently, AWS is the only available option.
 
   - Valid values: `aws`
   - Default: `aws`

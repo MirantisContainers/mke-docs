@@ -1,5 +1,5 @@
 ---
-title: Back up with an external storage provider
+title: Back up using an external storage provider
 weight: 2
 ---
 
@@ -42,7 +42,7 @@ to the IAM credentials file, including the profile name.
     ```shell
     kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
     ```
-6. Run the `apply` command:
+6. Apply the configuration:
 
    ```shell
     mkectl apply
