@@ -11,8 +11,8 @@ provider, the [MinIO add-on](https://min.io/).
 {{< /callout >}}
 
 {{< callout type="info" >}}
-  The offered instructions assume that you have created a cluster and
-  applied a blueprint with the default MKE backup configuration.
+   The offered instructions assume that you have created a cluster and
+   applied a blueprint with the default MKE backup configuration.
 {{< /callout >}}
 
 ## Create an in-cluster backup
