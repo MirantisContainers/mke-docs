@@ -3,8 +3,8 @@ title: Backup and restore
 weight: 1
 ---
 
-MKE 4 supports the backup and restoration of cluster data through the use of the
-[Velero](https://velero.io/) addon. System backup is enabled by default.
+MKE 4 supports backup and restoration of cluster data through the use of the
+[Velero](https://velero.io/) add-on. System backup is enabled by default.
 
 ## Backup configuration
 
@@ -16,18 +16,18 @@ backup:
   storage_provider:
     type: InCluster
     in_cluster_options:
-      exposed: true
+      enable_ui: true
       distributed: false
 ```
 
 By default, MKE 4 supports backups that use the in-cluster storage
 provider, as shown in the `type.InCluster` field.
 In-cluster backups for MKE 4 are implemented using the
-[MinIO addon](https://microk8s.io/docs/addon-minio).
+[MinIO add-on](https://min.io/).
 
-The `exposed.true` setting indicates that the MinIO service is
-exposed through `NodePort`, which Velero requires to function correctly. Core
-backup functionality works, even if the service is not exposed.
+The `enable_ui` setting indicates that the MinIO Console is
+exposed through the Ingress and can be accessed through the UI. Core
+backup functionality works, even if the UI is disabled.
 
 The `distributed` setting configures MinIO storage to run in distributed mode.
 
@@ -100,3 +100,6 @@ provider types, refer to:
 
 - Backups must currently be restored in the same cluster in which the backup
   was taken. As such, you cannot restore a backup to a new set of nodes.
+
+- Backups must be downloaded and uploaded from the in-cluster storage provider
+  using the MinIO Console, as the CLI does not currently support these actions.

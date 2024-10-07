@@ -4,11 +4,15 @@ weight: 2
 ---
 
 By default, MKE 4 stores backups and restores using the in-cluster storage
-provider, the [MinIO addon](https://microk8s.io/docs/addon-minio).
+provider, the [MinIO add-on](https://min.io/).
+
+{{< callout type="note" >}}
+  MinIO is not currently backed by persistent storage. For persistent storage of backups, use an external storage provider or download the MinIO backups.
+{{< /callout >}}
 
 {{< callout type="info" >}}
-   The offered instructions assume that you have created a cluster and
-   applied a blueprint with the default MKE backup configuration.
+  The offered instructions assume that you have created a cluster and
+  applied a blueprint with the default MKE backup configuration.
 {{< /callout >}}
 
 ## Create an in-cluster backup
@@ -87,8 +91,8 @@ INFO[0027] Restore test-20240507173309 completed successfully
 To list the restores, run:
 
 ```shell
- mkectl restore list
- ```
+mkectl restore list
+```
 
 Example output:
 
@@ -104,4 +108,27 @@ To view detailed logs, run:
 mkectl restore logs --name test-20240507173309
 ```
 
+## Accessing the MinIO Console
 
+To access the MinIO Console:
+
+1. Obtain the username from your cluster:
+
+   ```shell
+   kubectl --kubeconfig <path_to_kubeconfig> get secret -n mke minio-credentials -o jsonpath='{.data.root-user}' | base64 -d
+   ```
+
+2. Obtain the password from your cluster:
+
+   ```shell
+   kubectl --kubeconfig <path_to_kubeconfig> get secret -n mke minio-credentials -o jsonpath='{.data.root-password}' | base64 -d
+   ```
+
+3. Navigate to the external address for your ingress controller under `/minio/`.
+
+   Example:
+   `https://<external_address>/minio/`
+
+4. Log in using the username and password. The Velero bucket displays under the Object browser, and you can download or upload backups, using the options provided by the MinIO UI.
+
+   ![img_2.png](img_2.png)

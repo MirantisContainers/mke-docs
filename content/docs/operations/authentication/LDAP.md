@@ -1,17 +1,37 @@
 ---
 title: LDAP
-weight: 5
+weight: 3
 ---
 
-You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4 
-through the `authentication` section of the MKE configuration file.
-To enable the service, set `enabled` to `true`.
-The remaining fields in the `authentication.ldap` section are used to configure
-the interactions with your LDAP server.
-For more information, refer to the official DEX documentation
-[LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration).
+You can configure LDAP (Lightweight Directory Access Protocol) for MKE 4 through
+the `authentication.ldap` section of the MKE configuration file.
 
-## Configure MKE
+LDAP example configuration:
+
+```yaml
+authentication:
+  enabled: true
+  ldap:
+    enabled: true
+    host: ldap.example.org:389
+    insecureNoSSL: true
+    bindDN: cn=admin,dc=example,dc=org
+    bindPW: admin
+    usernamePrompt: Email Address
+    userSearch:
+      baseDN: ou=People,dc=example,dc=org
+      filter: "(objectClass=person)"
+      username: mail
+      idAttr: DN
+      emailAttr: mail
+      nameAttr: cn
+```
+## Configure LDAP service for MKE
+
+In the MKE configuration file `authentication.ldap` section, enable your
+LDAP service by setting `enabled` to `true`. Use the remaining fields, which
+are defined in the following table, to configure
+the interactions with your LDAP server.
 
 The MKE configuration file `authentication.ldap` fields are detailed below:
 
@@ -36,26 +56,8 @@ The MKE configuration file `authentication.ldap` fields are detailed below:
 | `groupSearch.userMatchers`         | Field pairs list to use to match a user to a group.                   |
 | `groupSearch.nameAttr`             | Group name.                                                           |
 
-LDAP example configuration:
-
-```yaml
-authentication:
-  enabled: true
-  ldap:
-    enabled: true
-    host: ldap.example.org:389
-    insecureNoSSL: true
-    bindDN: cn=admin,dc=example,dc=org
-    bindPW: admin
-    usernamePrompt: Email Address
-    userSearch:
-      baseDN: ou=People,dc=example,dc=org
-      filter: "(objectClass=person)"
-      username: mail
-      idAttr: DN
-      emailAttr: mail
-      nameAttr: cn
-```
+For more information, refer to the official DEX documentation
+[LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration).
 
 ## Test authentication flow
 
