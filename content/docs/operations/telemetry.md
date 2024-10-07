@@ -12,11 +12,13 @@ services.
 
 ## Enable telemetry through the MKE CLI
 
-Go to the `mkeconfig` object in the `mke` namespace and set `tracking.enabled` to `true`.
+To enable telemetry for MKE 4, set the `tracking.enabled` section of the MKE configuration file.
 
-```bash
-kubectl edit mkeconfig -n mke
+```yaml
+tracking:
+  enabled: true
 ```
+
 
 `mke-operator` will take a few moments to reconcile the change in the
 configuration, after which MKE will thereafter transmit key usage data to
