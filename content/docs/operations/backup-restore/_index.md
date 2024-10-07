@@ -25,9 +25,9 @@ provider, as shown in the `type.InCluster` field.
 In-cluster backups for MKE 4 are implemented using the
 [MinIO add-on](https://min.io/).
 
-The `enable_ui` setting indicates that the MinIO Console is
-exposed through the Ingress and can be accessed through the UI. Core
-backup functionality works, even if the UI is disabled.
+Set `enable_ui` to `true` to expose the MinIO Console through the Ingress and
+make it accessible through the UI. Core backup functionality works, even if
+the UI is disabled.  Core backup functionality works, even if the UI is disabled.
 
 The `distributed` setting configures MinIO storage to run in distributed mode.
 
