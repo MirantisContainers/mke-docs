@@ -20,10 +20,6 @@ credentials file.
 2. Edit the `storage_provider` section of the MKE configuration file to point
 to the IAM credentials file, including the profile name.
 
-3. Create an S3 bucket.
-
-4. Point the configuration to the S3 bucket and region.
-
     Example configuration:
     
     ```yaml
@@ -36,6 +32,10 @@ to the IAM credentials file, including the profile name.
           credentials_file_path: "/path/to/iamcredentials"
           credentials_file_profile: "386383511305_docker-testing"
     ```
+
+3. Create an S3 bucket.
+
+4. Point the configuration to the S3 bucket and region.
     
 5. Verify the existence of the `BackupStorageLocation` custom resource:
     
@@ -49,17 +49,16 @@ to the IAM credentials file, including the profile name.
     mkectl apply
    ```
 
-    Example output may require a few minutes to display:
+    Example output:
     
     ```shell
     NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
     default   Available   20s              32s   true
     ```
 
-## Create an external backup
+   The output may require a few minutes to display.
 
-With the configuration complete, you can now create backups and perform restores
-from those backups.
+## Create an external backup
 
 To create a backup, run:
 
