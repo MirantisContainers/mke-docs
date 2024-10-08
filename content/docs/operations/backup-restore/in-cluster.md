@@ -54,15 +54,11 @@ NAME   STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES  
 test   Completed   0        0          2024-05-07 17:29:18 -0400 EDT   29d       default            <none>
 ```
 
-To view detailed logs of a backup, run:
-
-```shell
-mkectl backup logs --name test
-```
+To view detailed logs of a backup, log in to the MinIO UI. 
 
 ## Restore from an in-cluster backup
 
-A restore operation returns the Kubernetes cluster to the state it was in at the time the backup you select was created.
+A restore operation returns the Kubernetes cluster to the state it was in at the time the backup you selected was created.
 
 To perform a restore using an in-cluster backup, run:
 
@@ -102,11 +98,7 @@ NAME                  BACKUP   STATUS      STARTED                         COMPL
 test-20240507173309   test     Completed   2024-05-07 17:33:09 -0400 EDT   2024-05-07 17:33:34 -0400 EDT   0        121        2024-05-07 17:33:09 -0400 EDT   <none>
 ```
 
-To view detailed logs, run:
-
-```shell
-mkectl restore logs --name test-20240507173309
-```
+To view detailed logs, log in to the MinIO UI.
 
 ## Accessing the MinIO Console
 
