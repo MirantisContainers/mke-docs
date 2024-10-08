@@ -26,25 +26,35 @@ SAML service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure your chosen SAML provider.
 
 {{< callout type="info" >}}
-For information on how to obtain the field values, refer to the [setting up Okta as a provider example](../../../tutorials/authentication-provider-setup/setting-up-okta-as-a-saml-provider).
+For information on how to obtain the field values, refer to [Setting up Okta as
+a SAML provider](../../../tutorials/authentication-provider-setup/saml-provider-setup).
 {{< /callout >}}
 
-| Field                             | Description                                                                                                                                                          |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled`                         | Enable authentication through dex.                                                                                                                                   |
-| `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.                                                       |
+| Field                             | Description                                                                                                                                                                         |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `enabled`                         | Enable authentication through dex.                                                                                                                                                  |
+| `ssoMetadataURL`                  | Metadata URL provided by some IdPs, with which MKE can retrieve information for all other SAML configurations.                                                                      |
 | `ca`                              | Certificate Authority (CA) alternative to `caData` to use when validating the signature of the SAML response. Must be manually mounted in a local accessible by dex. |
-| `caData`                          | CA alternative to `ca`, which you can use to place the certificate data directly into the config file.                                                               |
-| `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                           |
-| `redirectURI`                     | Callback URL for dex to which users are returned to following successful IdP authentication.                                                                         |
-| `insecureSkipSignatureValidation` | Optional. Use to skip the signature validation. For testing purposes only.                                                                                           |
-| `usernameAttr`                    | Username attribute in the returned assertions, to map to ID token claims.                                                                                            |
-| `emailAttr`                       | Email attribute in the returned assertions, to map to ID token claims.                                                                                               |
-| `groupsAttr`                      | Optional. Groups attribute in the returned assertions, to map to ID token claims.                                                                                    |
-| `entityIssuer`                    | Optional. Include as the Issuer value during authentication requests.                                                                                                |
-| `ssoIssuer`                       | Optional. Issuer value that is expected in the SAML response.                                                                                                        |
-| `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter splits the attribute value into multiple groups.                             |
-| `nameIDPolicyFormat`              | Requested name ID format.                                                                                                                                            |
+| `caData`                          | CA alternative to `ca`, which you can use to place the certificate data directly into the config file.                                                                |
+| `ssoURL`                          | URL to provide to users to sign into MKE 4 with SAML. Provided by the IdP.                                                                                                          |
+| `redirectURI`                     | Callback URL for dex to which users are returned to following successful IdP authentication.                                                                                        |
+| `insecureSkipSignatureValidation` | Optional. Use to skip the signature validation. For testing purposes only.                                                                                                          |
+| `usernameAttr`                    | Username attribute in the returned assertions, to map to ID token claims.                                                                                                           |
+| `emailAttr`                       | Email attribute in the returned assertions, to map to ID token claims.                                                                                                              |
+| `groupsAttr`                      | Optional. Groups attribute in the returned assertions, to map to ID token claims.                                                                                                   |
+| `entityIssuer`                    | Optional. Include as the Issuer value during authentication requests.                                                                                                               |
+| `ssoIssuer`                       | Optional. Issuer value that is expected in the SAML response.                                                                                                                       |
+| `groupsDelim`                     | Optional. If groups are assumed to be represented as a single attribute, this delimiter splits the attribute value into multiple groups.                                            |
+| `nameIDPolicyFormat`              | Requested name ID format.                                                                                                                                                           |
 
-For more information, refer to the official DEX documentation
-[SAML configuration](https://dexidp.io/docs/connectors/saml/#configuration).
+## Test authentication flow
+
+{{< callout type="info" >}}
+  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available.
+{{< /callout >}}
+
+1. Navigate to `http://{MKE hostname}:5555/login`.
+2. Click **Login** to display the login page.
+3. Select **Log in with SAML**.
+4. Enter your credentials and click **Sign In**. If authentication is successful,
+you will be redirected to the client applications home page.

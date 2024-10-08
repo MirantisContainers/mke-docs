@@ -26,7 +26,7 @@ OIDC service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure your chosen OIDC provider.
 
 {{< callout type="info" >}}
-For information on how to obtain the field values, refer to the [setting up Okta as an OIDC provider example](../../../tutorials/authentication-provider-setup/setting-up-okta-as-an-oidc-provider).
+For information on how to obtain the field values, refer to [Setting up Okta as an OIDC provider](../../../tutorials/authentication-provider-setup/setting-up-okta-as-an-oidc-provider).
 {{< /callout >}}
 
 | Field          | Description                                                          |
