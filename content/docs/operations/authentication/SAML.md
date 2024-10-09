@@ -25,9 +25,8 @@ In the MKE configuration file `authentication.saml` section, enable your
 SAML service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure your chosen SAML provider.
 
-{{< callout type="info" >}}
-For information on how to obtain the field values, refer to [Setting up Okta as
-a SAML provider](../../../tutorials/authentication-provider-setup/saml-provider-setup).
+{{< callout type="info" >}} For information on how to obtain the field values,
+refer to [Setting up Okta as a SAML provider](../../../tutorials/authentication-provider-setup/setting-up-okta-as-a-saml-provider).
 {{< /callout >}}
 
 | Field                             | Description                                                                                                                                                                         |
