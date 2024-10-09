@@ -14,12 +14,14 @@ services.
 
 1. Access the MKE configuration file.
 2. Set the `telemetry.enabled` field to `true`.
+
    ```yaml
    spec:
      tracking:
        enabled: true
    ```
-3. Run the  `mkectl apply` command to apply the new settings.
+
+4. Run the  `mkectl apply` command to apply the new settings.
 
 After a few moments, the change will reconcile in the configuration. From this point onward,
 MKE will transmit key usage data to Mirantis by way of a secure Segment endpoint.
