@@ -26,6 +26,7 @@ authentication:
       emailAttr: mail
       nameAttr: cn
 ```
+
 ## Configure LDAP service for MKE
 
 In the MKE configuration file `authentication.ldap` section, enable your
@@ -33,10 +34,12 @@ LDAP service by setting `enabled` to `true`. Use the remaining fields, which
 are defined in the following table, to configure
 the interactions with your LDAP server.
 
-The MKE configuration file `authentication.ldap` fields are detailed below:
+{{< callout type="info" >}}
+For information on how to obtain the field values, refer to the [setting up OpenLDAP as an ldap provider](../../../tutorials/authentication-provider-setup/setting-up-openldap-as-an-ldap-provider).
+{{< /callout >}}
 
 | Field                              | Description                                                           |
-|------------------------------------|-----------------------------------------------------------------------|
+| ---------------------------------- | --------------------------------------------------------------------- |
 | `host`                             | Host and optional port of the LDAP server, in the `host:port` format. |
 | `rootCA`                           | Path to a trusted root certificate file.                              |
 | `bindDN`                           | Distinguished Name (DN) for an application service account.           |
@@ -58,15 +61,3 @@ The MKE configuration file `authentication.ldap` fields are detailed below:
 
 For more information, refer to the official DEX documentation
 [LDAP configuration](https://dexidp.io/docs/connectors/ldap/#configuration).
-
-## Test authentication flow
-
-{{< callout type="info" >}}
-  To test authentication flow, ports `5556` (dex) and `5555` (example-app) must be externally available.
-{{< /callout >}}
-
-1. Navigate to `http://{MKE hostname}:5555/login`.
-2. Click **Login** to display the login page.
-3. Select **Log in with LDAP**.
-4. Enter the username and password for the LDAP server.
-5. Click **Login**. If authentication is successful, you will be redirected to the client applications home page.
