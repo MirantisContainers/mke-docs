@@ -55,13 +55,13 @@ as time series data, providing powerful query capabilities and a flexible alerti
 
 To access the Prometheus dashboard:
 
-1. Run the following command to `port-forward` Prometheus:
+1. Port forward Prometheus:
 
     ```bash
     kubectl --namespace mke port-forward svc/prometheus-operated 9090
     ```
 
-2. Go to `http://localhost:9090`.
+2. Navigate to `http://localhost:9090` to view the status page of Prometheus.
 
 ## Opscare (Under development)
 
