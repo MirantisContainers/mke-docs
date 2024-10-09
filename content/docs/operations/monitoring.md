@@ -30,14 +30,23 @@ monitoring:
 
 To access the Grafana dashboard:
 
-1. Run the following command to `port-forward` Grafana:
+1. Obtain the `admin` user password for the Grafana dashboard from the `monitoring-grafana` secret in the `mke` namespace.
+
+   ```bash
+   kubectl get secret monitoring-grafana -n mke -o jsonpath="{.data.admin-password}" | base64 --decode
+   
+2. Port forward Grafana:
 
     ```bash
     kubectl --namespace mke port-forward svc/monitoring-grafana 3000:80
     ```
 
-2. Go to `http://localhost:3000`.
+3. Navigate to `http://localhost:3000` to access the **Welcome to Grafana** login page.
 
+4. Enter the default username **admin** into the **Email or username** field and type the password you retrieved from the `monitoring-grafana` secret into the **Password** field.
+
+5. Click **Log In**.
+   
 ## Prometheus
 
 [Prometheus](https://prometheus.io/) is an open-source monitoring and alerting
@@ -46,13 +55,13 @@ as time series data, providing powerful query capabilities and a flexible alerti
 
 To access the Prometheus dashboard:
 
-1. Run the following command to `port-forward` Prometheus:
+1. Port forward Prometheus:
 
     ```bash
     kubectl --namespace mke port-forward svc/prometheus-operated 9090
     ```
 
-2. Go to `http://localhost:9090`.
+2. Navigate to `http://localhost:9090` to view the status page of Prometheus.
 
 ## Opscare (Under development)
 

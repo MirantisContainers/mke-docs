@@ -40,7 +40,7 @@ Once you have configured the AWS backup storage and the MKE configuration file
 has been applied, verify the existence of the `BackupStorageLocation` custom resource.
 
 ```shell
-kubectl get backupstoragelocation -n mke
+kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
 ```
 
 After you run `mkectl apply` the output may require a few minutes to display.
