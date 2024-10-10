@@ -1,63 +1,65 @@
 ---
-title: Use an external storage provider
+title: Back up using an external storage provider
 weight: 2
 ---
 
-You can configure MKE 4 to store backups and restores externally, for example
+You can configure MKE 4 to externally store backups and restores, for example,
 in object storage provided by a public cloud provider.
 
 {{< callout type="info" >}}
-  AWS S3 is currently the only supported external backup store
-  that MKE 4 supports.
+   AWS S3 is currently the only external backup storage supported by MKE 4.
 {{< /callout >}}
 
-## Configuration
+## Configure an external storage provider
 
 1. Copy the credentials information from the AWS console to create an IAM
 credentials file.
 
-   ![img.png](img.png)
+    ![AWS console](aws-console-credentials.png)
 
 2. Edit the `storage_provider` section of the MKE configuration file to point
-to the file, including the profile name.
+to the IAM credentials file, including the profile name.
 
-3. Create an S3 bucket and point the configuration to the bucket and region.
+    Example configuration:
+    
+    ```yaml
+      storage_provider:
+        type: External
+        external_options:
+          provider: aws
+          bucket: bucket_name
+          region: us-west-2
+          credentials_file_path: "/path/to/iamcredentials"
+          credentials_file_profile: "386383511305_docker-testing"
+    ```
 
-Example configuration:
+3. Create an S3 bucket.
 
-```yaml
-  storage_provider:
-    type: External
-    external_options:
-      provider: aws
-      bucket: bucket_name
-      region: us-west-2
-      credentials_file_path: "/path/to/iamcredentials"
-      credentials_file_profile: "386383511305_docker-testing"
-```
+4. Point the configuration to the S3 bucket and region.
 
-Once you have configured the AWS backup storage and the MKE configuration file
-has been applied, verify the existence of the `BackupStorageLocation` custom resource.
+5. Verify the existence of the `BackupStorageLocation` custom resource:
 
-```shell
-kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
-```
+    ```shell
+    kubectl --kubeconfig <path-to-kubeconfig> get backupstoragelocation -n mke
+    ```
+6. Apply the configuration:
 
-After you run `mkectl apply` the output may require a few minutes to display.
+   ```shell
+    mkectl apply
+   ```
+   
+    Example output:
 
-Example output:
+    ```shell
+    NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
+    default   Available   20s              32s   true
+    ```
+   
+   The output may require a few minutes to display.
 
-```shell
-NAME      PHASE       LAST VALIDATED   AGE   DEFAULT
-default   Available   20s              32s   true
-```
+## Create an external backup
 
-## Create backups and perform restores
-
-With configuration complete, you can now create backups and perform restores
-from those backups. After you have run a restore operation from a backup, the
-Kubernetes cluster state should resemble what it was at the time you created
-that backup.
+To create a backup, run:
 
 ```shell
 mkectl backup create --name aws-backup
@@ -78,7 +80,7 @@ INFO[0015] Waiting for backup to complete. Current phase: Completed
 INFO[0015] Backup aws-backup completed successfully
 ```
 
-To list the backups, run the `mkectl backup list` command:
+To list the backups, run:
 
 ```shell
 mkectl backup list
@@ -90,6 +92,10 @@ Example output:
 NAME         STATUS      ERRORS   WARNINGS   CREATED                         EXPIRES   STORAGE LOCATION   SELECTOR
 aws-backup   Completed   0        0          2024-05-08 16:17:18 -0400 EDT   29d       default            <none>
 ```
+
+##  Restore from an external backup
+
+A restore operation returns the Kubernetes cluster to the state it was in at the time the backup you select was created.
 
 To perform a restore using an external backup, run:
 
@@ -126,7 +132,8 @@ NAME                        BACKUP       STATUS      STARTED                    
 aws-backup-20240508161811   aws-backup   Completed   2024-05-08 16:18:11 -0400 EDT   2024-05-08 16:18:34 -0400 EDT   0        108        2024-05-08 16:18:11 -0400 EDT   <none>
 ```
 
-From your AWS console, you can see that both the backup and restore are created
-in the S3 bucket:
+## Verify backups and restores
 
-![img_1.png](img_1.png)
+Using your AWS console, you can verify the presence of your backups and restores in the S3 bucket.
+
+![aws-console-backups.png](aws-console-backups.png)
