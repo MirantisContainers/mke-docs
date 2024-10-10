@@ -79,7 +79,7 @@ To automatically install the necessary dependencies, you can use an
       ```shell
       Client Version: v1.30.0
       Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-      Server Version: v1.29.3+k0s
+      Server Version: v1.30.3+k0s
       ```
    {{< /tab >}}
 
@@ -120,6 +120,6 @@ following tools on your system:
 
 | Tool     | Version          | Download |
 |----------|------------------|----------|
-| kubectl  | 1.29.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
+| kubectl  | 1.30.0 or later  | [download](https://kubernetes.io/docs/tasks/tools/#kubectl) |
 | k0sctl   | 0.19.0 or later  | [download](https://github.com/k0sproject/k0sctl/releases) |
 
